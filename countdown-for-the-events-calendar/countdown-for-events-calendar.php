@@ -3,7 +3,7 @@
 Plugin Name:The Events Calendar Countdown Addon
 Plugin URI:https://eventscalendaraddons.com/
 Description:The Events Calendar CountDown Addon provides the ability to create Beautiful Countdown for <a href="http://wordpress.org/plugins/the-events-calendar/">The Events Calendar (by Modern Tribe)</a> events with just a few clicks.
-Version:1.4.8
+Version:1.4.9
 License:GPL2
 Author:Cool Plugins
 Author URI:https://coolplugins.net/
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit();
 }
 if ( ! defined( 'TECC_VERSION_CURRENT' ) ) {
-	define( 'TECC_VERSION_CURRENT', '1.4.8' );
+	define( 'TECC_VERSION_CURRENT', '1.4.9' );
 }
 
 define( 'TECC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -46,16 +46,23 @@ if ( ! class_exists( 'EventsCalendarCountdown' ) ) {
 		public function __construct() {
 			/*** Installation and uninstallation hooks */
 			register_activation_hook( __FILE__, array( $this, 'activate' ) );
+			add_action( 'init', array( $this, 'tecc_load_textdomain' ) );
 			add_action( 'plugins_loaded', array( $this, 'tecc_check_event_calender_installed' ) );
 			$this->tecc_require_files();
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'tecc_settings_page' ) );
+		}
+
+		/**
+		 * Load the plugin text domain for translation.
+		 */
+		public function tecc_load_textdomain() {
+			load_plugin_textdomain( 'tecc', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 		}
 
 		/*
 		Check The Event calender is installled or not. If user has not installed yet then show notice
 		*/
 		public function tecc_check_event_calender_installed() {
-			load_plugin_textdomain( 'tecc', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 			if ( ! class_exists( 'Tribe__Events__Main' ) || ! defined( 'Tribe__Events__Main::VERSION' ) ) {
 				add_action( 'admin_notices', array( $this, 'Install_TECC_Notice' ) );
 			}

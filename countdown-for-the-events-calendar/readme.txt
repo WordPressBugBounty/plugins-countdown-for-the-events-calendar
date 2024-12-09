@@ -3,9 +3,9 @@ Contributors: narinder-singh, satindersingh, coolplugins
 Donate link: https://paypal.me/CoolPlugins/50USD/
 Tags: countdown, the events calendar, events addons, events, the events calendar countdown,  event calendar, coolplugins
 Requires at least: 5.0
-Tested up to: 6.5
+Tested up to: 6.7.1
 Requires PHP: 5.6
-Stable tag: 1.4.8
+Stable tag: 1.4.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,10 +86,15 @@ If you want to customize the addon according to your own requirements, you can h
 
 == Changelog ==
 
-= Version 1.4.8 | February 28, 2024 =
+= Version 1.4.9 | Dec 09, 2024 =
+* Fixed: Load Text domain issue.
+* Fixed: Countdown not working in background.
+* Tested upto: WordPress version 6.7.1
+
+= Version 1.4.8 | Feb 28, 2024 =
 * Updated: Text domain for Find Out More String.
 
-= Version 1.4.7 | March 31, 2022 =
+= Version 1.4.7 | Mar 31, 2022 =
 * Improved: Minor textual changes.
 * Improved: Updated links.
 * Improved: Dashboard Code.
