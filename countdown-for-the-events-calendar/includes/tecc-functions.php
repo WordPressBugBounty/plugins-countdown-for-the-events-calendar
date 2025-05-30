@@ -23,7 +23,8 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 		  // Get the event start date and end date.
 		  $startdate           = tribe_get_start_date( $event, false, Tribe__Date_Utils::DBDATETIMEFORMAT );
 		  $enddate             = tribe_get_end_date( $event, false, Tribe__Date_Utils::DBDATETIMEFORMAT );
-		  $start_date_formated = tribe_get_start_date( $event_ID, false, 'd F Y' );
+		  $event_date_format   = tribe_get_option( 'dateWithYearFormat', 'd F Y' );
+		  $start_date_formated = tribe_get_start_date( $event_ID, false, $event_date_format );
 
 		  // Get the number of seconds remaining
 		  $seconds     = strtotime( $startdate ) - current_time( 'timestamp' );
@@ -35,7 +36,7 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 		<div class="tecc-wrapper" id="tecc-' . $event_ID . '">
 			<div class="tecc-event-info">';
 	if ( $seconds > 0 ) {
-		   $ret .= '<h2 class="tecc-up-event">' . $main_title . '</h2>';
+		   $ret .= '<h2 class="tecc-up-event">' . esc_html( $main_title ) . '</h2>';
 	}
 
 	if ( $image === 'yes' && tribe_event_featured_image($event_ID)) {
@@ -66,7 +67,7 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	} elseif ( $endseconds >= 0 ) {
 		$ret .= '<div class="eventend_msz">' . $eventend_msz . '</div>';
 	} elseif ( $seconds <= 0 ) {
-		$ret .= '<div class="eventstart_msz">' . $eventstart_msz . '</div>';
+		$ret .= '<div class="eventstart_msz">' . esc_html( $eventstart_msz ) . '</div>';
 	}
 			 $ret .= '
 				</div>
@@ -85,7 +86,7 @@ function tecc_generate_countdown_output( $seconds, $hourformat, $event, $eventst
 		$output .= '<div class="tec-countdown-timer-html">
 				<span class="tecc-seconds-section">' . $seconds . '</span>
 				<span class="tecc-countdown-format">' . $hourformat . '</span>
-				<span class="tecc-countdown-complete">' . $eventstart_msz . '</h3>
+				<span class="tecc-countdown-complete">' . esc_html( $eventstart_msz ) . '</h3>
 			</div>';
 
 	}

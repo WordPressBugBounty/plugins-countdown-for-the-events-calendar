@@ -3,9 +3,9 @@ Contributors: narinder-singh, satindersingh, coolplugins
 Donate link: https://paypal.me/CoolPlugins/50USD/
 Tags: countdown, the events calendar, events addons, events, the events calendar countdown,  event calendar, coolplugins
 Requires at least: 5.0
-Tested up to: 6.7.1
+Tested up to: 6.8.1
 Requires PHP: 5.6
-Stable tag: 1.4.9
+Stable tag: 1.4.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,6 +85,10 @@ If you want to customize the addon according to your own requirements, you can h
 3. Countdown for The Events Calendar generate shortcode.
 
 == Changelog ==
+
+= Version 1.4.10 | May 30, 2025 =
+* Fixed: Minor security fix.
+* Tested upto: WordPress version 6.8.1
 
 = Version 1.4.9 | Dec 09, 2024 =
 * Fixed: Load Text domain issue.
