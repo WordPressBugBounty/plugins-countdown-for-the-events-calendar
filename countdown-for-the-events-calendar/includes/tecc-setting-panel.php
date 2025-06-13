@@ -2,7 +2,9 @@
 
 add_action( 'admin_menu', 'tecc_add_admin_menu', 50 );
 add_action( 'admin_init', 'tecc_settings_init' );
+add_action( 'admin_init', 'tecc_checkbox_setting' );
 add_action( 'admin_head', 'tecc_enqueue_color_picker' );
+add_action('wp_ajax_cpfm_save_usage_data_sharing', 'cpfm_save_usage_data_sharing_callback');
 
 function tecc_enqueue_color_picker() {
 	$screen = get_current_screen();
@@ -372,6 +374,73 @@ function tecc_text_field_10_render() {
 	);
 }
 
+function tecc_checkbox_setting(){
+	register_setting('settingPage', 'tecc_settings');
+	add_settings_section(
+		'tecc_settingPage_section',
+		__( '', 'tecc' ),
+		'',
+		'settingPage'
+	);
+	$option = get_option( 'cpfm_opt_in_choice_cool_events' );
+	if( $option == 'yes' || $option == 'no' ) {
+		add_settings_field(
+			'tecc-cpfm-data-sharing',
+			__( 'Usage Data Sharing', 'tecc' ),
+			'tecc_select_field_13_render',
+			'settingPage',
+			'tecc_settingPage_section',
+			array( 'class' => 'tecc-data-sharing' )
+		);
+	}
+}
+function tecc_select_field_13_render() {
+
+	$option = get_option( 'cpfm_opt_in_choice_cool_events' );
+	add_option( 'tecc-cpfm-data-sharing', $option );
+	$options = get_option( 'tecc-cpfm-data-sharing' );
+	
+	// Sirf pehli baar 'cpfm_opt_in_choice_cool_events' ki value se set karo agar 'tecc-cpfm-data-sharing' set nahi hai
+	if ( $options === false && ( $option === 'yes' || $option === 'no' ) ) {
+		add_option( 'tecc-cpfm-data-sharing', $option );
+		$final_value = $option;
+	} else {
+		$final_value = $options;
+	}
+
+	// Checkbox check logic
+	$checked = $final_value === 'yes' ? 'checked' : '';
+	?>
+	<input type="checkbox" id="tecc-cpfm-data-sharing" <?php echo $checked; ?>>
+		Help us make this plugin more compatible with your site by sharing non-sensitive site data. <a href="#" class="cpfm-see-terms tecc-see-terms">[See terms]</a>
+		<div id="termsBox" class="tecc-terms-box" style="display: none; padding-left: 20px; margin-top: 10px; font-size: 12px; color: #999;">
+			<p><?php esc_html_e("Opt in to receive email updates about security improvements, new features, helpful tutorials, and occasional special offers. We'll collect:", 'tecc'); ?></p>
+			<ul style="list-style-type: auto; padding-left: 20px;">
+				<li><?php esc_html_e("Your website home URL and WordPress admin email.", 'tecc'); ?></li>
+				<li><?php esc_html_e("To check plugin compatibility, we will collect the following: list of active plugins and themes, server type, MySQL version, WordPress version, memory limit, site language and database prefix.", 'tecc'); ?></li>
+			</ul>
+		</div>
+	<?php
+}
+
+
+function cpfm_save_usage_data_sharing_callback() {
+	check_ajax_referer('cpfm_nonce_action', 'nonce');
+
+	$choice = isset($_POST['opt_in']) && $_POST['opt_in'] === 'yes' ? 'yes' : 'no';
+
+	update_option('tecc-cpfm-data-sharing', $choice);
+
+	if ($choice === 'yes') {
+		TECC_cronjob::tecc_send_data();
+	} else {
+		if (wp_next_scheduled('tecc_extra_data_update')) {
+			wp_clear_scheduled_hook('tecc_extra_data_update');
+		}
+	}
+
+	wp_send_json_success('Saved');
+}
 
 function tecc_settings_section_callback() {
 	echo '<h3>' . esc_html__( 'Countdown Settings', 'tecc1' ) . '</h3>';
@@ -402,6 +471,8 @@ function tecc_options_page() {
 			settings_fields( 'pluginPage' );
 			do_settings_sections( 'pluginPage' );
 			submit_button( 'Generate Shortcode' );
+			settings_fields( 'settingPage' );
+			do_settings_sections( 'settingPage' );
 			?>
 		</form>
 		<div class="tecc-shortcode-wrapper">
