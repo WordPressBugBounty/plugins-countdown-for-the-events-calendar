@@ -414,7 +414,7 @@ function tecc_select_field_13_render() {
 	<input type="checkbox" id="tecc-cpfm-data-sharing" <?php echo $checked; ?>>
 		Help us make this plugin more compatible with your site by sharing non-sensitive site data. <a href="#" class="cpfm-see-terms tecc-see-terms">[See terms]</a>
 		<div id="termsBox" class="tecc-terms-box" style="display: none; padding-left: 20px; margin-top: 10px; font-size: 12px; color: #999;">
-			<p><?php esc_html_e("Opt in to receive email updates about security improvements, new features, helpful tutorials, and occasional special offers. We'll collect:", 'tecc'); ?></p>
+			<p><?php esc_html_e("Opt in to receive email updates about security improvements, new features, helpful tutorials, and occasional special offers. We'll collect:", 'tecc'); ?><a href='https://my.coolplugins.net/terms/usage-tracking/' target='_blank'> Click Here</a></p>
 			<ul style="list-style-type: auto; padding-left: 20px;">
 				<li><?php esc_html_e("Your website home URL and WordPress admin email.", 'tecc'); ?></li>
 				<li><?php esc_html_e("To check plugin compatibility, we will collect the following: list of active plugins and themes, server type, MySQL version, WordPress version, memory limit, site language and database prefix.", 'tecc'); ?></li>
@@ -456,7 +456,7 @@ function tecc_options_page() {
 	// add error/update messages
 	// check if the user have submitted the settings
 	// WordPress will add the "settings-updated" $_GET parameter to the url
-	if ( isset( $_GET['settings-updated'] ) ) {
+	if ( isset( $_GET['settings-updated'] ) && sanitize_key( $_GET['settings-updated'] ) ) {
 		// add settings saved message with the class of "updated"
 		add_settings_error( 'wporg_messages', 'wporg_message', __( 'Shortcode generated', 'wporg' ), 'updated' );
 		// show error/update messages
@@ -477,7 +477,7 @@ function tecc_options_page() {
 		</form>
 		<div class="tecc-shortcode-wrapper">
 		<?php
-		if ( isset( $_GET['settings-updated'] ) ) {
+		if ( isset( $_GET['settings-updated'] ) && sanitize_key( $_GET['settings-updated'] ) ) {
 			$options = get_option( 'tecc_settings' );
 			$b       = 0;
 			$k       = isset( $options['future-events-list'] ) && ! empty( $options['future-events-list'] ) ? $options['future-events-list'] : '';

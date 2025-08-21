@@ -45,7 +45,7 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 		$ret .= $image;	
 		$ret .= '</div>';
 	}
-			 $ret .= '<a href="' . esc_url( $link ) . '"><h3 class="tecc-title">' . esc_attr( $event->post_title ) . '</h3></a>
+			 $ret .= '<a href="' . esc_url( $link ) . '"><h3 class="tecc-title">' . esc_html( $event->post_title ) . '</h3></a>
 				<div class="event-date-location">
 				<span class="tecc-date">' . $start_date_formated . '</span>';
 	if ( is_array( $event_venue ) ) {
@@ -53,7 +53,7 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 		$trim_addr  = trim( preg_replace( '/\s+/', '', $strip_addr ) );
 		$address    = strip_tags( $trim_addr );
 		if ( $address != '' ) {
-			$ret .= '<span class="tecc-location"> -</span>' . $event_venue['address'] . '';
+			$ret .= '<span class="tecc-location"> -</span>' . wp_strip_all_tags( $event_venue['address'] ) . '';
 		}
 	}
 
@@ -65,9 +65,9 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	if ( $seconds > 0 ) {
 		$ret .= tecc_generate_countdown_output( $seconds, $hourformat, $event, $eventstart_msz );
 	} elseif ( $endseconds >= 0 ) {
-		$ret .= '<div class="eventend_msz">' . $eventend_msz . '</div>';
+		$ret .= '<div class="eventend_msz">' . wp_strip_all_tags( $eventend_msz ) . '</div>';
 	} elseif ( $seconds <= 0 ) {
-		$ret .= '<div class="eventstart_msz">' . esc_html( $eventstart_msz ) . '</div>';
+		$ret .= '<div class="eventstart_msz">' . wp_strip_all_tags( $eventstart_msz ) . '</div>';
 	}
 			 $ret .= '
 				</div>
