@@ -5,50 +5,57 @@ Tags: countdown, the events calendar, events addons, events, the events calendar
 Requires at least: 5.0
 Tested up to: 6.8.2
 Requires PHP: 5.6
-Stable tag: 1.4.12
+Stable tag: 1.4.13
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 The Events Calendar Countdown Addon provides the ability to create a Beautiful Countdown for The Events Calendar(by Modern Tribe) events with just a few clicks.
 
 == Description ==
-Add **[The Events Calendar Countdown shortcode ⇗](https://eventscalendaraddons.com/demos/event-countdown/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=demo&utm_content=view_demo)** to create a Beautiful Countdown for events.
 
-### 🔥 The Events Calendar Countdown Plugin Demos
-[Events Countdown ⇗](https://eventscalendaraddons.com/demos/event-countdown/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=demo&utm_content=view_demo)
+**[The Events Calendar Countdown shortcode](https://coolplugins.net/product/event-countdown-addon-for-the-events-calendar/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=top_description)** extends the features of **The Events Calendar** plugin by adding a countdown timer. You can display a countdown for a specific event or let the addon automatically show the countdown for your next upcoming event.
 
-### ❴ ❵ Plugin Shortcode
+You can place the countdown anywhere on your website by using a simple **shortcode**. 
 
-`[events-calendar-countdown id="" backgroundcolor="#2a86f7" font-color="#ffffff" show-seconds="yes" show-image="no" size="medium" event-start="" event-end="" autostart-next-countdown="no" autostart-text="" autostart-future-countdown="no" future-events-list="" main-title=""]`
+**[View Demos](https://eventscalendaraddons.com/demos/event-countdown/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=demo&utm_content=view_demo)**
 
-### ⚡ Plugin Features
- * Autostart countdown of next upcoming event.
- * Custom colors options
- * Show / Hide image in countdown
- * Quick premium support.
+### Key Features
+* **Smart Shortcode:** Create a countdown timer with a powerful shortcode and add advanced options like colors, images, or autostart for future events.
+ * ❴ ❵ **Plugin Shortcode**: [events-calendar-countdown id="" backgroundcolor="#2a86f7" font-color="#ffffff" show-seconds="yes" show-image="no" size="medium" event-start="" event-end="" autostart-next-countdown="no" autostart-text="" autostart-future-countdown="no" future-events-list="" main-title=""]
+
+* **Autostart Countdown**: Automatically detects and starts the countdown for the next upcoming event without editing the shortcode.
+
+* **Custom Design Options**: Adjust background color, font color, and size to match your website design.
+
+* **Show or Hide Event Image**: Choose whether to display the featured image of the event inside the countdown box.
+
+* **Flexible Placement**: Works with Elementor and Gutenberg editors. You can add the shortcode in a block, widget, or page builder section.
+
+* **Event Messages**: Add a custom message when the event starts and after it ends to keep visitors informed.
+
+* **Future Events Support**: Display countdowns for multiple future events by specifying event IDs.
+
+* Quick premium support.
+* Fully Responsive.
 
 
-### 💪 More Add-ons For The Events Calendar
+### More Addons For The Events Calendar
 
-In addition to the **Events Countdown** plugin, there are more addons available to extend the features of The Events Calendar plugin:
-* [**The Events Calendar shortcode ⇗**](https://eventscalendaraddons.com/plugin/events-shortcodes-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=ect_plugin)** provided by this addon on any page or post to show your upcoming events list in a beautiful layout - [View Demos ⇗](https://eventscalendaraddons.com/demos/events-shortcodes-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=demo&utm_content=ect_plugin)
-* [**Events Single Page Builder Pro ⇗**](https://eventscalendaraddons.com/plugin/event-single-page-builder-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=espbp_plugin) - Design single event page templates easily in Elementor - [View Demos ⇗](https://eventscalendaraddons.com/demos/event-single-page-builder-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=demo&utm_content=espbp_plugin)
-* [**Events Widgets Pro ⇗**](https://eventscalendaraddons.com/plugin/events-widgets-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=ectbe_plugin) - Show events list, grid, carousel and more in Elementor pages easily using **The Events Calendar Elementor Widgets** - [View Demos ⇗](https://eventscalendaraddons.com/demos/events-widgets-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=demo&utm_content=ectbe_plugin)
+In addition to the **Events Countdown** plugin, there are more addons available to extend the functionality of The Events Calendar plugin:
 
-### 😎 The Events Calendar Addon by Cool Plugins
+* **[Events Single Page Builder Pro](https://eventscalendaraddons.com/plugin/event-single-page-builder-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=epta_more_addons)** - Design stunning single event pages with Elementor using pre-built templates and 20+ customizable widgets.
 
-**[Cool Plugins ⇗](https://coolplugins.net/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=coolplugins&utm_content=whos_behind)** is a team of experienced WordPress plugin developers who manage this addon/plugin. Here's some information about the company:
+* **[Events Shortcodes Pro](https://eventscalendaraddons.com/plugin/events-shortcodes-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=ect_more_addons)** - Events Shortcodes Pro For The Events Calendar adds the missing shortcode functionality to The Events Calendar plugin. With this plugin, you can easily display your events on any page or post in a list, grid, carousel, slider, masonry, accordion, or even a timeline format.
 
-* 7+ years of experience in WordPress plugin development.
-* Released 20+ free and premium WordPress plugins.
-* Over one million plugin downloads.
-* More than 200,000 active websites are utilizing our plugins.
+* **[Events Calendar Modules for Divi](https://wordpress.org/plugins/events-calendar-modules-for-divi/)** - Display The Events Calendar Events directly inside Divi with Customizable List or Grid Layouts.
+
+* **[Events Widgets Pro](https://eventscalendaraddons.com/plugin/events-widgets-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=ectbe_more_addons)** - Show events list, grid, carousel, and more in Elementor pages using The Events Calendar Elementor Widgets.
 
 > **DISCLAIMER:** The Events Calendar Countdown Addon plugin is developed by **Cool Plugins** team and is not affiliated with or developed by the official team of **The Events Calendar** plugin, which is a part of **StellarWP**, the software arm of **Liquid Web**. Some of the links in this content may be affiliate links, which means we may earn a commission at no extra cost to you if you make a purchase through these links.
 
-### ✍ Special Thanks!
+### Special Thanks!
 
-Special thanks to the famous **[The Events Calendar ⇗](https://theeventscalendar.pxf.io/plugin)** plugin authors for creating an awesome plugin for events management.
+Special thanks to the famous **[The Events Calendar](https://theeventscalendar.pxf.io/plugin)** plugin authors for creating an awesome plugin for events management.
 
 == Installation ==
 
@@ -62,12 +69,20 @@ Special thanks to the famous **[The Events Calendar ⇗](https://theeventscalend
 
 == Frequently Asked Questions ==
 
+= Do I need The Events Calendar plugin to use this addon? =
+Yes. This addon works only if you have installed the free The Events Calendar plugin by Modern Tribe/StellarWP.
+
 = What is plugin shortcode? =
 `[events-calendar-countdown id="" backgroundcolor="#2a86f7" font-color="#ffffff" show-seconds="yes" show-image="no" size="medium" event-start="" event-end="" autostart-next-countdown="no" autostart-text="" autostart-future-countdown="no" future-events-list="" main-title=""]`
 
 = Can I use this inside Elementor or Gutenberg editor? =
 Yes, this addon is compatible with the Elementor or Gutenberg editor. You can just paste shortcode in Gutenberg block and Elementor widgets.
 
+= Can I display multiple countdowns on the same page? =
+Yes, you can add multiple shortcodes on the same page, each with a different event ID.
+
+= Can I hide the countdown after the event ends? =
+Yes. You can use the event-end attribute to display a message or leave it empty if you prefer not to show anything after the event.
 
 = Will this plugin comply with GDPR? =
 Yes, our plugin is GDPR compliant. We do not save any data from your website visitors, and we never save any data from plugin users without their permission. We provide a feedback form on plugin deactivation request where users can share their feedback and email with us or skip this step altogether.
@@ -85,6 +100,10 @@ If you want to customize the addon according to your own requirements, you can h
 3. Countdown for The Events Calendar generate shortcode.
 
 == Changelog ==
+
+= Version 1.4.13 | September 02, 2025 =
+* Updated: Internal Links.
+* Updated: Readme.
 
 = Version 1.4.12 | August 21, 2025 =
 * Fixed: Addressed security vulnerabilities.
@@ -156,3 +175,14 @@ If you want to customize the addon according to your own requirements, you can h
 
 = Version 1.0 | Dec. 02, 2022 =
 * Initial release
+
+== Upgrade Notice ==
+= Version 1.2 | Dec. 02, 2022 =
+* Added: Autostart next upcoming event's countdown
+* Added: Shortcode Preview
+* Added: Autostart countdown feature for recurring events
+* Added: Plugin .pot file
+* Added: Translation(German,French,Spanish,Czech,Russian,Turkish)
+* Added: Dynamic option for the main title
+* Improved: Overall Code
+* Improved: Display Message when the event starts
