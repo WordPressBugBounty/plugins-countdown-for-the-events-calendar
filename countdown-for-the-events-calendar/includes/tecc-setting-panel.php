@@ -503,9 +503,7 @@ function tecc_options_page() {
 				echo '<h2>' . esc_html__( 'Countdown for the events calendar Shortcode :', 'tecc1' ) . '</h2>';
 				echo ' <p style="font-size:18px">Paste this shortcode anywhere in page where you want to display Event Countdown
 	            </p>';
-				echo '<code>';
-				  echo wp_kses_post( htmlentities( $dynamic_attr ) );
-				echo '</code>';
+				echo '<code>' . esc_html( $dynamic_attr ) . '</code>';
 
 			} else {
 				echo '<h3 style="color:red">' . esc_html__( 'There is no upcoming event. Please add atleast one upcoming event to generate countdown.', 'tecc1' ) . '</h3>';

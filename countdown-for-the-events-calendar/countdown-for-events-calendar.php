@@ -3,7 +3,7 @@
 Plugin Name:The Events Calendar Countdown Addon
 Plugin URI:https://eventscalendaraddons.com/
 Description:The Events Calendar CountDown Addon provides the ability to create Beautiful Countdown for <a href="http://wordpress.org/plugins/the-events-calendar/">The Events Calendar (by Modern Tribe)</a> events with just a few clicks.
-Version:1.4.13
+Version:1.4.14
 License:GPL2
 Author:Cool Plugins
 Author URI:https://coolplugins.net/?utm_source=tecc_plugin&utm_medium=inside&utm_campaign=author_page&utm_content=plugins_list
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit();
 }
 if ( ! defined( 'TECC_VERSION_CURRENT' ) ) {
-	define( 'TECC_VERSION_CURRENT', '1.4.13' );
+	define( 'TECC_VERSION_CURRENT', '1.4.14' );
 }
 
 define( 'TECC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -89,9 +89,6 @@ if ( ! class_exists( 'EventsCalendarCountdown' ) ) {
 		Check The Event calender is installled or not. If user has not installed yet then show notice
 		*/
 		public function tecc_check_event_calender_installed() {
-			if ( ! class_exists( 'Tribe__Events__Main' ) || ! defined( 'Tribe__Events__Main::VERSION' ) ) {
-				add_action( 'admin_notices', array( $this, 'Install_TECC_Notice' ) );
-			}
 			if (is_admin()) {
 				require_once TECC_PLUGIN_DIR . '/admin/feedback/admin-feedback-form.php';
 			}
@@ -129,26 +126,6 @@ if ( ! class_exists( 'EventsCalendarCountdown' ) ) {
 					TECC_cronjob::tecc_send_data();
 				}
 			});
-		}
-
-		public function Install_TECC_Notice() {
-			if ( current_user_can( 'activate_plugins' ) ) {
-				$url   = 'plugin-install.php?tab=plugin-information&plugin=the-events-calendar&TB_iframe=true';
-				$title = __( 'The Events Calendar', 'tribe-events-ical-importer' );
-
-				printf(
-					'<div class="error CTEC_Msz"><p>' .
-					esc_html( __( '%1$s %2$s', 'tecc1' ) ),
-					esc_html( __( 'In order to use our plugin, Please first install the latest version of', 'tecc1' ) ),
-					sprintf(
-						'<a href="%s" class="thickbox" title="%s">%s</a>',
-						esc_url( $url ),
-						esc_html( $title ),
-						esc_html( $title )
-					) . '</p></div>'
-				);
-
-			}
 		}
 
 		public function tecc_require_files() {

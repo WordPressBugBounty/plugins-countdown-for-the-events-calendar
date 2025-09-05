@@ -231,9 +231,9 @@ class tecc_feedback {
 						'plugin_version' => sanitize_text_field($this->plugin_version),
 						'plugin_name'    => sanitize_text_field($this->plugin_name),
 						'reason'         => sanitize_text_field($deativation_reason),
-						'review'         => $sanitized_message,
-						'email'          => $admin_email,
-						'domain'         => $site_url,
+						'review'         => sanitize_text_field($sanitized_message),
+						'email'          => sanitize_email($admin_email),
+						'domain'         => esc_url($site_url),
 						'site_id'    	 => md5($site_id),
 					),
 				)

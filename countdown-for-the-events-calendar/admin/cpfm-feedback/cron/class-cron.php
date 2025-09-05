@@ -65,8 +65,6 @@ if (!class_exists('TECC_cronjob')) {
             ));
             
             if (is_wp_error($response)) {
-
-                error_log('TECC Feedback Send Failed: ' . $response->get_error_message());
                 return;
             }
             

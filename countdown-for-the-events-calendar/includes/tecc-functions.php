@@ -42,7 +42,7 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	if ( $image === 'yes' && tribe_event_featured_image($event_ID)) {
 		$image = tribe_event_featured_image( $event_ID, 'full', false );
 		$ret .= '<div class="tecc-image-wrapper">';
-		$ret .= $image;	
+		$ret .= wp_kses_post($image);	
 		$ret .= '</div>';
 	}
 			 $ret .= '<a href="' . esc_url( $link ) . '"><h3 class="tecc-title">' . esc_html( $event->post_title ) . '</h3></a>
@@ -84,8 +84,8 @@ function tecc_generate_countdown_output( $seconds, $hourformat, $event, $eventst
 
 	if ( $event ) {
 		$output .= '<div class="tec-countdown-timer-html">
-				<span class="tecc-seconds-section">' . $seconds . '</span>
-				<span class="tecc-countdown-format">' . $hourformat . '</span>
+				<span class="tecc-seconds-section">' . wp_kses_post($seconds) . '</span>
+				<span class="tecc-countdown-format">' . wp_kses_post($hourformat) . '</span>
 				<span class="tecc-countdown-complete">' . esc_html( $eventstart_msz ) . '</h3>
 			</div>';
 
@@ -110,31 +110,36 @@ function tecc_generate_countdown_html( $event, $settings, $event_ID ) {
 		'all'
 	);
 
+	$event_ID   = absint( $event_ID );
+	$font_color = sanitize_hex_color( $font_color ); 
+	$bg_color   = sanitize_hex_color( $bg_color );  
+
 		$custom_css = "
-				.tecc-wrapper#tecc-$event_ID .tec-countdown-timer .tecc-section{
+				.tecc-wrapper#tecc-{$event_ID} .tec-countdown-timer .tecc-section{
 					color: {$font_color};
 					background: {$bg_color};
 				}
-				.tecc-wrapper#tecc-$event_ID .tecc-event-detail a.tecc-event-button{
+				.tecc-wrapper#tecc-{$event_ID} .tecc-event-detail a.tecc-event-button{
 					color: {$font_color};
 					background: {$bg_color};
 				}
-				.tecc-wrapper#tecc-$event_ID .tecc-event-info h3.tecc-title{
-					color:{$bg_color};
+				.tecc-wrapper#tecc-{$event_ID} .tecc-event-info h3.tecc-title{
+					color: {$bg_color};
 				}
-				.tecc-wrapper#tecc-$event_ID .tecc-event-info h2.tecc-up-event{
-					color:{$bg_color};
+				.tecc-wrapper#tecc-{$event_ID} .tecc-event-info h2.tecc-up-event{
+					color: {$bg_color};
 				}
-				.tecc-wrapper#tecc-$event_ID .event-date-location {
-					color:{$bg_color};
+				.tecc-wrapper#tecc-{$event_ID} .event-date-location {
+					color: {$bg_color};
 				}
-				.tecc-wrapper#tecc-$event_ID .eventstart_msz,.tecc-wrapper#tecc-$event_ID .eventend_msz{
-					color:{$bg_color};
+				.tecc-wrapper#tecc-{$event_ID} .eventstart_msz,
+				.tecc-wrapper#tecc-{$event_ID} .eventend_msz{
+					color: {$bg_color};
 				}
-				.tecc-wrapper#tecc-$event_ID .tecc-countdown-complete{
-					color:{$bg_color};
-				}	
-				";
+				.tecc-wrapper#tecc-{$event_ID} .tecc-countdown-complete{
+					color: {$bg_color};
+				}
+			";
 
 				wp_add_inline_style( 'custom-style', $custom_css );
 	$tec_html .= '				
