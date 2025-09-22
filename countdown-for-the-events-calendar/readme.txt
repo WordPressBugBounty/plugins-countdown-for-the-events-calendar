@@ -5,7 +5,7 @@ Tags: countdown, the events calendar, events addons, events, the events calendar
 Requires at least: 5.0
 Tested up to: 6.8.2
 Requires PHP: 5.6
-Stable tag: 1.4.14
+Stable tag: 1.4.15
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,10 @@ If you want to customize the addon according to your own requirements, you can h
 3. Countdown for The Events Calendar generate shortcode.
 
 == Changelog ==
+
+= Version 1.4.15 | September 22, 2025 =
+* Improved: Rating div styling.
+* Tested upto: The Events Calendar version v6.15.4
 
 = Version 1.4.14 | September 05, 2025 =
 * Fixed: Review notice.

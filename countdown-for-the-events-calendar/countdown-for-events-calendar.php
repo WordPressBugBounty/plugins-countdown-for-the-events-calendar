@@ -3,7 +3,7 @@
 Plugin Name:The Events Calendar Countdown Addon
 Plugin URI:https://eventscalendaraddons.com/
 Description:The Events Calendar CountDown Addon provides the ability to create Beautiful Countdown for <a href="http://wordpress.org/plugins/the-events-calendar/">The Events Calendar (by Modern Tribe)</a> events with just a few clicks.
-Version:1.4.14
+Version:1.4.15
 License:GPL2
 Author:Cool Plugins
 Author URI:https://coolplugins.net/?utm_source=tecc_plugin&utm_medium=inside&utm_campaign=author_page&utm_content=plugins_list
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit();
 }
 if ( ! defined( 'TECC_VERSION_CURRENT' ) ) {
-	define( 'TECC_VERSION_CURRENT', '1.4.14' );
+	define( 'TECC_VERSION_CURRENT', '1.4.15' );
 }
 
 define( 'TECC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -135,7 +135,7 @@ if ( ! class_exists( 'EventsCalendarCountdown' ) ) {
 				cool_plugins_events_addon_settings_page( 'the-events-calendar', 'cool-plugins-events-addon', '📅 Events Addons For The Events Calendar' );
 
 				require_once TECC_PLUGIN_DIR . 'includes/tecc-setting-panel.php';
-				require_once TECC_PLUGIN_DIR . 'includes/tecc-feedback-notice.php';
+				require_once TECC_PLUGIN_DIR . 'admin/feedback-notice/tecc-feedback-notice.php';
 				new teccFeedbackNotice();
 			}
 			require_once TECC_PLUGIN_DIR . 'includes/tecc-shortcode.php';
