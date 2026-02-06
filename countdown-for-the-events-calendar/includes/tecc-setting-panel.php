@@ -425,6 +425,9 @@ function tecc_select_field_13_render() {
 
 
 function cpfm_save_usage_data_sharing_callback() {
+	if ( ! current_user_can( 'manage_options' ) ) { 
+		wp_send_json_error( __( 'You do not have sufficient permissions to access this page.' ) ); 
+	}
 	check_ajax_referer('cpfm_nonce_action', 'nonce');
 
 	$choice = isset($_POST['opt_in']) && $_POST['opt_in'] === 'yes' ? 'yes' : 'no';
