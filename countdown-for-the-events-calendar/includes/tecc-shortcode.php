@@ -1,4 +1,6 @@
 <?php
+//phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+if ( ! defined( 'ABSPATH' ) ) exit;
 class CountdownShortcode {
 
 	public function __construct() {
@@ -8,7 +10,7 @@ class CountdownShortcode {
 	}
 
 	function tecc_register_frontend_assets() {
-		wp_register_script( 'countdown-js', TECC_JS_DIR . '/countdown.js', array( 'jquery' ), TECC_VERSION_CURRENT );
+		wp_register_script( 'countdown-js', TECC_JS_DIR . '/countdown.js', array( 'jquery' ), TECC_VERSION_CURRENT, true);
 		wp_register_style( 'countdown-css', TECC_CSS_URL . '/countdown.css', array(), TECC_VERSION_CURRENT );
 		global $post;
 		if ( isset( $post->post_content ) && has_shortcode( $post->post_content, 'events-calendar-countdown' ) ) {
@@ -56,7 +58,7 @@ class CountdownShortcode {
 				'posts_per_page' => -1,
 				'post_type'      => 'tribe_events',
 				'post_status'    => 'publish',
-				'meta_query'     => array(
+				'meta_query'     => array(//phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 					array(
 						'key'     => '_EventStartDate',
 						'value'   => current_time( 'Y-m-d H:i:s' ),
@@ -122,7 +124,7 @@ class CountdownShortcode {
 			$c_output = tecc_get_output( $event, $atts, $event_ID, $autostart );
 		} else {
 
-			$c_output .= '<div class="tecc-no-event-msz">' . __( 'There is no upcoming event', 'tecc' ) . '</div>';
+			$c_output .= '<div class="tecc-no-event-msz">' . __( 'There is no upcoming event', 'countdown-for-the-events-calendar' ) . '</div>';
 		}
 		return $c_output;
 	}

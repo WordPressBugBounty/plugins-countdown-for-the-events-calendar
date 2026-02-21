@@ -1,0 +1,466 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Event Countdown for The Events Calendar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-21 04:56+0000\n"
+"PO-Revision-Date: 2026-02-21 05:02+0000\n"
+"Last-Translator: \n"
+"Language-Team: French (France)\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.1; wp-6.9.1; php-8.1.29\n"
+"X-Domain: countdown-for-the-events-calendar"
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:202
+msgid " More info"
+msgstr ""
+
+#. %d: number of active addons
+#: admin/events-addon-page/includes/dashboard-page.php:45
+msgid "%d Active Addon"
+msgid_plural "%d Active Addons"
+msgstr[0] "%d Actifs Addon"
+msgstr[1] "%d Actifs Addons"
+
+#: admin/events-addon-page/events-addon-page.php:696
+msgid "Activate Now"
+msgstr "Activer Maintenant"
+
+#: admin/events-addon-page/events-addon-page.php:730
+msgid "Activated"
+msgstr "Activé"
+
+#: admin/events-addon-page/events-addon-page.php:673
+msgid "Active"
+msgstr "Active"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:38
+msgid "Aim to resolve issues in 24 hrs."
+msgstr "Le but est de résoudre les questions dans les 24 heures."
+
+#: admin/feedback-notice/tecc-feedback-notice.php:61
+msgid "Already Reviewed"
+msgstr "Déjà Examiné"
+
+#: includes/tecc-setting-panel.php:88
+msgid "Autostart countdown of next future event"
+msgstr ""
+"Démarrage automatique du compte à rebours de la prochaine événement futur"
+
+#: includes/tecc-setting-panel.php:79
+msgid "Autostart countdown of next upcoming event"
+msgstr "Démarrage automatique du compte à rebours du prochain événement"
+
+#: admin/events-addon-page/includes/dashboard-page.php:77
+msgid "Available Addons"
+msgstr "Disponible Addons"
+
+#: admin/events-addon-page/events-addon-page.php:707
+msgid "Buy Pro"
+msgstr "Acheter Pro"
+
+#: admin/events-addon-page/includes/dashboard-header.php:55
+msgid "Check Docs"
+msgstr "Vérifiez Les Docs"
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:210
+msgid "Click here"
+msgstr "Cliquez ici"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:41
+msgid "Contact Support"
+msgstr "Contacter Le Support"
+
+#. Author of the plugin
+msgid "Cool Plugins"
+msgstr "Cool Plugins"
+
+#: includes/tecc-setting-panel.php:115
+msgid "Countdown Background Color"
+msgstr "Le Compte À Rebours Couleur D'Arrière-Plan"
+
+#: includes/tecc-setting-panel.php:123
+msgid "Countdown Font Color"
+msgstr "Compte À Rebours De La Couleur De La Police"
+
+#: includes/tecc-setting-panel.php:548
+msgid "Countdown for the events calendar Shortcode :"
+msgstr "Compte à rebours pour le calendrier des événements Shortcode :"
+
+#: includes/tecc-setting-panel.php:491
+msgid "Countdown Settings"
+msgstr "Les Paramètres De Compte À Rebours"
+
+#: includes/tecc-setting-panel.php:73
+msgid "Create Shortcode for the Event countdown using below mentioned settings"
+msgstr ""
+"Créer Shortcode pour le compte à rebours Évènement à l'aide de paramètres "
+"mentionnés ci-dessous"
+
+#: admin/events-addon-page/includes/dashboard-page.php:43
+msgid "Currently Activated Addons"
+msgstr "Actuellement Activé Addons"
+
+#: admin/events-addon-page/events-addon-page.php:261
+#: admin/events-addon-page/events-addon-page.php:262
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: admin/events-addon-page/events-addon-page.php:578
+msgid "Demo"
+msgstr "Démo"
+
+#: includes/tecc-setting-panel.php:163
+msgid "Display Text When Event Ends"
+msgstr "Le Texte De L'Affichage Lors De La Fin De L'Événement"
+
+#: includes/tecc-setting-panel.php:154
+msgid "Display Text When Event Starts"
+msgstr "Le Texte De L'Affichage Lors De L'Événement Commence"
+
+#: includes/tecc-setting-panel.php:172
+msgid ""
+"Display Text When Event Starts (Default is \"Event Starts refresh page to "
+"see next upcoming event\") "
+msgstr ""
+
+#: admin/events-addon-page/events-addon-page.php:582
+msgid "Docs"
+msgstr "Docs"
+
+#: admin/events-addon-page/events-addon-page.php:580
+msgid "Documentation"
+msgstr "La Documentation"
+
+#. Name of the plugin
+msgid "Event Countdown for The Events Calendar"
+msgstr "L'événement compte à Rebours pour Le Calendrier des Événements"
+
+#. Description of the plugin
+msgid ""
+"Event Countdown for The Events Calendar provides the ability to create "
+"Beautiful Countdown for <a href=\"http://wordpress.org/plugins/the-events-"
+"calendar/\">The Events Calendar (by Modern Tribe)</a> events with just a few "
+"clicks."
+msgstr ""
+
+#: admin/events-addon-page/events-addon-page.php:251
+#: admin/events-addon-page/events-addon-page.php:252
+msgid "Events Addons"
+msgstr "Les Événements Addons"
+
+#: countdown-for-events-calendar.php:225
+msgid "Events Addons By Cool Plugins"
+msgstr "Les Événements Addons Par Le Froid, Les Plugins"
+
+#: admin/events-addon-page/includes/dashboard-header.php:48
+msgid "Events Calendar Addons"
+msgstr "Calendrier Des Événements Addons"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:66
+msgid "EVENTS CALENDAR PRO"
+msgstr "CALENDRIER DES ÉVÉNEMENTS PRO"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:70
+msgid "Get Events Calendar Pro"
+msgstr "Obtenez Un Calendrier Des Événements Pro"
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:176
+msgid "Help Improve Plugins"
+msgstr "Aider À Améliorer Les Plugins"
+
+#: countdown-for-events-calendar.php:226
+msgid ""
+"Help us make this plugin more compatible with your site by sharing non-"
+"sensitive site data."
+msgstr ""
+"Nous aider à rendre ce plugin plus compatible avec votre site par le partage "
+"non-sensibles les données du site."
+
+#. Author URI of the plugin
+msgid ""
+"https://coolplugins.net/?"
+"utm_source=tecc_plugin&utm_medium=inside&utm_campaign=author_page&utm_content=plugins_list"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://eventscalendaraddons.com/"
+msgstr ""
+
+#: admin/feedback/admin-feedback-form.php:108
+msgid ""
+"I agree to share anonymous usage data and basic site details (such as server,"
+" PHP, and WordPress versions) to support The Events Calendar Countdown Addon "
+"improvement efforts. Additionally, I allow Cool Plugins to store all "
+"information provided through this form and to respond to my inquiry."
+msgstr ""
+"Je suis d'accord pour partager les données d'utilisation anonymes de base et "
+"détails du site (comme le serveur, PHP et WordPress versions) pour soutenir "
+"Le Calendrier d'Événements de compte à Rebours Addon efforts d'amélioration. "
+"En outre, je laisse Refroidir les Plugins de stocker toutes les informations "
+"fournies par le biais de ce formulaire et de répondre à mon enquête."
+
+#: admin/feedback/admin-feedback-form.php:197
+msgid "I found a better plugin"
+msgstr "J'ai trouvé un meilleur plugin"
+
+#: admin/feedback/admin-feedback-form.php:55
+msgid "I found a better plugin."
+msgstr "J'ai trouvé un meilleur plugin."
+
+#: admin/feedback/admin-feedback-form.php:87
+msgid ""
+"If you have a moment, please share the reason for deactivating this plugin."
+msgstr ""
+"Si vous avez un moment, s'il vous plaît partager la raison de la "
+"désactivation de ce plugin."
+
+#: admin/events-addon-page/events-addon-page.php:696
+msgid "Install Now"
+msgstr "Installer Maintenant"
+
+#: admin/feedback/admin-feedback-form.php:63
+#: admin/feedback/admin-feedback-form.php:205
+msgid "It's a temporary deactivation."
+msgstr "C'est une désactivation temporaire."
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:49
+msgid "LOVING OUR PLUGINS?"
+msgstr "AIMER NOS PLUGINS?"
+
+#: includes/tecc-setting-panel.php:181 includes/tecc-setting-panel.php:188
+msgid "Main Title (Default is \"Next Upcoming Event\")"
+msgstr "Titre principal (la valeur par Défaut est \"Prochains évènements\")"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:37
+msgid "Mon–Fri, 9:30 AM–6:30 PM IST."
+msgstr "Lun–Ven, 9:30 AM–6:30 PM IST."
+
+#: includes/tecc-setting-panel.php:227 includes/tecc-setting-panel.php:395
+msgid "No Future Event found."
+msgstr "Aucun Événement n'est trouvé."
+
+#: admin/events-addon-page/events-addon-page.php:73
+msgid "No plugin specified."
+msgstr "Aucun plugin n'est spécifiée."
+
+#: admin/events-addon-page/events-addon-page.php:476
+msgid "No plugins data available at the moment."
+msgstr "Pas de plugins de données disponibles à l'heure actuelle."
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:217
+msgid "No, Thanks"
+msgstr "Non, Merci"
+
+#: admin/feedback-notice/tecc-feedback-notice.php:62
+msgid "Not Interested"
+msgstr "Pas Intéressé"
+
+#: admin/cpfm-feedback/cron/class-cron.php:90
+msgid "Once every 30 days"
+msgstr "Une fois tous les 30 jours"
+
+#: includes/tecc-setting-panel.php:459
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:206
+msgid ""
+"Opt in to receive email updates about security improvements, new features, "
+"helpful tutorials, and occasional special offers. We'll collect:"
+msgstr ""
+"Opt-in pour recevoir par courriel des mises à jour sur les améliorations en "
+"matière de sécurité, de nouvelles fonctionnalités, des didacticiels utiles, "
+"et parfois des offres spéciales. Nous collectons:"
+
+#: admin/feedback/admin-feedback-form.php:209
+msgid "Other"
+msgstr "D'autres"
+
+#: admin/feedback/admin-feedback-form.php:67
+msgid "Other reason."
+msgstr "Autre raison."
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:68
+msgid ""
+"Our addons works perfectly with both The Events Calendar free and official "
+"pro version."
+msgstr ""
+"Nos addons fonctionne parfaitement avec à la fois Le Calendrier des "
+"Manifestations gratuites et officielles de la version pro."
+
+#: admin/events-addon-page/events-addon-page.php:124
+msgid "Permission denied"
+msgstr "Autorisation refusée"
+
+#: admin/feedback/admin-feedback-form.php:68
+#: admin/feedback/admin-feedback-form.php:210
+msgid "Please share the reason."
+msgstr "Veuillez nous faire part de la raison."
+
+#: admin/feedback/admin-feedback-form.php:56
+#: admin/feedback/admin-feedback-form.php:198
+msgid "Please share which plugin."
+msgstr "Veuillez nous faire part de qui plugin."
+
+#: admin/events-addon-page/events-addon-page.php:138
+msgid "Plugin activated successfully"
+msgstr "Plugin activé avec succès"
+
+#: admin/events-addon-page/includes/dashboard-page.php:61
+msgid "Premium Addons"
+msgstr "Premium Addons"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:33
+msgid "PREMIUM SUPPORT"
+msgstr "SOUTIEN À LA PRIME DE"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:36
+msgid "Priority fast support."
+msgstr "Priorité un support rapide."
+
+#: admin/events-addon-page/events-addon-page.php:657
+msgid "Pro"
+msgstr "Pro"
+
+#: admin/feedback/admin-feedback-form.php:78
+msgid "Quick Feedback"
+msgstr "Feedback Rapide"
+
+#: admin/feedback-notice/tecc-feedback-notice.php:60
+msgid "Rate Now! ★★★★★"
+msgstr ""
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:57
+msgid "Rate us on WP.org"
+msgstr "Taux-nous sur WP.org"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:55
+msgid "Review us on WP.org and share your feedback with the community."
+msgstr "Revue-nous sur WP.org et partagez vos réactions avec la communauté."
+
+#: includes/tecc-setting-panel.php:106
+msgid "Select an Event"
+msgstr "Sélectionnez un Événement"
+
+#: includes/tecc-setting-panel.php:146
+msgid "Select Countdown Size"
+msgstr "Sélectionnez Le Compte À Rebours De La Taille"
+
+#: includes/tecc-setting-panel.php:97
+msgid "Select Events for autostart Countdown"
+msgstr "Sélectionnez les Événements pour l'autostart, le compte à Rebours"
+
+#: countdown-for-events-calendar.php:268
+msgid "Settings"
+msgstr "Paramètres"
+
+#: includes/tecc-setting-panel.php:506
+msgid "Shortcode generated"
+msgstr "Shortcode généré"
+
+#: includes/tecc-setting-panel.php:545
+msgid "Shortcode Preview"
+msgstr "Shortcode Aperçu"
+
+#: includes/tecc-setting-panel.php:138
+msgid "Show Image in Countdown"
+msgstr "Afficher l'Image dans le compte à Rebours"
+
+#: includes/tecc-setting-panel.php:131
+msgid "Show Seconds in Countdown"
+msgstr "Afficher les Secondes du compte à Rebours"
+
+#: admin/events-addon-page/events-addon-page.php:65
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr "Désolé, vous n'êtes pas autorisé à installer des plugins sur ce site."
+
+#: admin/feedback/admin-feedback-form.php:193
+msgid "The plugin didn't work as expected"
+msgstr "Le plugin ne fonctionne pas comme prévu"
+
+#: admin/feedback/admin-feedback-form.php:51
+msgid "The plugin didn't work as expected."
+msgstr "Le plugin ne fonctionne pas comme prévu."
+
+#: admin/feedback/admin-feedback-form.php:201
+msgid "The plugin is not working"
+msgstr "Le plugin n'est pas"
+
+#: admin/feedback/admin-feedback-form.php:59
+msgid "The plugin is not working."
+msgstr "Le plugin ne fonctionne pas."
+
+#: includes/tecc-shortcode.php:127
+msgid "There is no upcoming event"
+msgstr "Il n'y a aucun événement à venir"
+
+#: includes/tecc-setting-panel.php:554
+msgid ""
+"There is no upcoming event. Please add atleast one upcoming event to "
+"generate countdown."
+msgstr ""
+"Il n'y a aucun événement à venir. Merci d'ajouter au moins un événement à "
+"venir, afin de générer de compte à rebours."
+
+#: admin/events-addon-page/events-addon-page.php:99
+msgid "This plugin cannot be installed from here."
+msgstr "Ce plugin ne peut pas être installé à partir d'ici."
+
+#: includes/tecc-setting-panel.php:462
+msgid ""
+"To check plugin compatibility, we will collect the following: list of active "
+"plugins and themes, server type, MySQL version, WordPress version, memory "
+"limit, site language and database prefix."
+msgstr ""
+"De vérifier la compatibilité plug-in, nous allons recueillir les éléments "
+"suivants: liste des plugins et des thèmes, type de serveur, version de MySQL,"
+" WordPress, la version, la limite de mémoire, de la langue du site et le "
+"préfixe de base de données."
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:209
+msgid ""
+"To check plugin compatibility, we will collect the following: list of active "
+"plugins and themes, server type, MySQL version, WordPress version, memory "
+"limit, site language and database prefix. "
+msgstr ""
+
+#: admin/events-addon-page/events-addon-page.php:212
+msgid "Unable to connect to the filesystem. Please confirm your credentials."
+msgstr ""
+"Impossible de se connecter au système de fichiers. Merci de confirmer vos "
+"informations d'identification."
+
+#: admin/events-addon-page/events-addon-page.php:652
+#: admin/events-addon-page/events-addon-page.php:653
+msgid "Update available"
+msgstr "Mise à jour disponible"
+
+#: includes/tecc-setting-panel.php:431
+msgid "Usage Data Sharing"
+msgstr "L'Utilisation De Partage De Données"
+
+#: admin/events-addon-page/events-addon-page.php:576
+msgid "View Demo"
+msgstr "Voir La Démo"
+
+#: admin/events-addon-page/includes/dashboard-header.php:52
+msgid "View Demos"
+msgstr "Voir Les Démos"
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:216
+msgid "Yes, I Agree"
+msgstr "Oui, Je Suis D'Accord"
+
+#: includes/tecc-setting-panel.php:471
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+"Vous n'avez pas les autorisations suffisantes pour accéder à cette page."
+
+#: includes/tecc-setting-panel.php:461
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:208
+msgid "Your website home URL and WordPress admin email."
+msgstr ""
+"Votre accueil du site web de l'URL et de l'administration de WordPress e-"
+"mail."

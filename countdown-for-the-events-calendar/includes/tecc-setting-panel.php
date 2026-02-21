@@ -1,10 +1,13 @@
 <?php
-
+//phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound, WordPress.Security.NonceVerification.Recommended, WordPress.Security.EscapeOutput.OutputNotEscaped
+//phpcs:disable PluginCheck.CodeAnalysis.SettingSanitization.register_settingMissing
+if ( ! defined( 'ABSPATH' ) ) exit;
 add_action( 'admin_menu', 'tecc_add_admin_menu', 50 );
 add_action( 'admin_init', 'tecc_settings_init' );
 add_action( 'admin_init', 'tecc_checkbox_setting' );
 add_action( 'admin_head', 'tecc_enqueue_color_picker' );
 add_action('wp_ajax_cpfm_save_usage_data_sharing', 'cpfm_save_usage_data_sharing_callback');
+add_action( 'all_admin_notices', 'tecc_display_header', 1 );
 
 function tecc_enqueue_color_picker() {
 	$screen = get_current_screen();
@@ -12,8 +15,8 @@ function tecc_enqueue_color_picker() {
 		return;
 	}
 	wp_enqueue_style( 'wp-color-picker' );
-	wp_enqueue_script( 'tecc-b-color-picker-script', TECC_JS_DIR . '/jquery-custom.js', array( 'wp-color-picker' ), false, true );
-	wp_enqueue_script( 'setting-panel-js', TECC_JS_DIR . '/settings-panel.js', array( 'jquery' ), false, true );
+	wp_enqueue_script( 'tecc-b-color-picker-script', TECC_JS_DIR . '/jquery-custom.js', array( 'wp-color-picker' ), TECC_VERSION_CURRENT, true );
+	wp_enqueue_script( 'setting-panel-js', TECC_JS_DIR . '/settings-panel.js', array( 'jquery' ), TECC_VERSION_CURRENT, true );
 
 }
 
@@ -22,19 +25,58 @@ function tecc_add_admin_menu() {
 	add_submenu_page( 'cool-plugins-events-addon', 'Countdown for the events calendar', 'Event Countdown', 'manage_options', 'countdown_for_the_events_calendar', 'tecc_options_page', 50 );
 }
 
+ /**
+* Display header on countdown for the events calendar admin pages
+*/
+function tecc_display_header() {
+	global $post, $typenow, $current_screen;
+	
+	// Check if we're on Event Countdown submenu/settings page or post type pages
+	$is_tecc_page = false;
+	
+	// Event Countdown submenu (Events Addons > Event Countdown)
+	if ( $current_screen && isset( $current_screen->id ) && $current_screen->id === 'events-addons_page_countdown_for_the_events_calendar' ) {
+		$is_tecc_page = true;
+	} elseif ( $current_screen && isset( $current_screen->post_type ) && $current_screen->post_type === 'countdown_for_the_events_calendar' ) {
+		$is_tecc_page = true;
+	} elseif ( $typenow && $typenow === 'countdown_for_the_events_calendar' ) {
+		$is_tecc_page = true;
+	} elseif ( isset( $_REQUEST['post_type'] ) && sanitize_key( $_REQUEST['post_type'] ) === 'countdown_for_the_events_calendar' ) {
+		$is_tecc_page = true;
+	} elseif ( $post && get_post_type( $post ) === 'countdown_for_the_events_calendar' ) {
+		$is_tecc_page = true;
+	}
+	$show_header = EventsCalendarCountdown::tecc_display_header();
+	if ( $is_tecc_page && $show_header ) {
+		// Add CSS to position header at top
+		?>
+		<div class="ect-dashboard-wrapper">
+		<?php
+		// Include the header
+		$header_file = TECC_PLUGIN_DIR . 'admin/events-addon-page/includes/dashboard-header.php';
+		if ( file_exists( $header_file ) ) {
+			$prefix = 'ect';
+			$show_wrapper = false;
+			include $header_file;
+		}
+		?>
+		</div>
+		<?php
+	}
+}
 
 function tecc_settings_init() {
 
 	register_setting( 'pluginPage', 'tecc_settings' );
 	add_settings_section(
 		'tecc_pluginPage_section',
-		__( 'Create Shortcode for the Event countdown using below mentioned settings', 'tecc1' ),
+		__( 'Create Shortcode for the Event countdown using below mentioned settings', 'countdown-for-the-events-calendar' ),
 		'tecc_settings_section_callback',
 		'pluginPage'
 	);
 	add_settings_field(
 		'autostart-next-countdown',
-		__( 'Autostart countdown of next upcoming event', 'tecc1' ),
+		__( 'Autostart countdown of next upcoming event', 'countdown-for-the-events-calendar' ),
 		'tecc_select_field_8_render',
 		'pluginPage',
 		'tecc_pluginPage_section',
@@ -43,7 +85,7 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'autostart-future-countdown',
-		__( 'Autostart countdown of next future event', 'tecc1' ),
+		__( 'Autostart countdown of next future event', 'countdown-for-the-events-calendar' ),
 		'tecc_select_field_11_render',
 		'pluginPage',
 		'tecc_pluginPage_section',
@@ -52,7 +94,7 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'future-events-list',
-		__( 'Select Events for autostart Countdown', 'tecc1' ),
+		__( 'Select Events for autostart Countdown', 'countdown-for-the-events-calendar' ),
 		'tecc_select_field_7_render',
 		'pluginPage',
 		'tecc_pluginPage_section',
@@ -61,7 +103,7 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'event_id',
-		__( 'Select an Event', 'tecc1' ),
+		__( 'Select an Event', 'countdown-for-the-events-calendar' ),
 		'tecc_select_field_0_render',
 		'pluginPage',
 		'tecc_pluginPage_section',
@@ -70,7 +112,7 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'backgroundcolor',
-		__( 'Countdown Background Color', 'tecc1' ),
+		__( 'Countdown Background Color', 'countdown-for-the-events-calendar' ),
 		'tecc_text_field_1_render',
 		'pluginPage',
 		'tecc_pluginPage_section'
@@ -78,7 +120,7 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'font-color',
-		__( 'Countdown Font Color', 'tecc1' ),
+		__( 'Countdown Font Color', 'countdown-for-the-events-calendar' ),
 		'tecc_text_field_2_render',
 		'pluginPage',
 		'tecc_pluginPage_section'
@@ -86,14 +128,14 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'show-seconds',
-		__( 'Show Seconds in Countdown', 'tecc1' ),
+		__( 'Show Seconds in Countdown', 'countdown-for-the-events-calendar' ),
 		'tecc_select_field_3_render',
 		'pluginPage',
 		'tecc_pluginPage_section'
 	);
 	add_settings_field(
 		'show-image',
-		__( 'Show Image in Countdown', 'tecc1' ),
+		__( 'Show Image in Countdown', 'countdown-for-the-events-calendar' ),
 		'tecc_select_field_12_render',
 		'pluginPage',
 		'tecc_pluginPage_section'
@@ -101,7 +143,7 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'size',
-		__( 'Select Countdown Size', 'tecc1' ),
+		__( 'Select Countdown Size', 'countdown-for-the-events-calendar' ),
 		'tecc_select_field_4_render',
 		'pluginPage',
 		'tecc_pluginPage_section'
@@ -109,7 +151,7 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'event-start',
-		__( 'Display Text When Event Starts', 'tecc1' ),
+		__( 'Display Text When Event Starts', 'countdown-for-the-events-calendar' ),
 		'tecc_text_field_5_render',
 		'pluginPage',
 		'tecc_pluginPage_section',
@@ -118,7 +160,7 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'event-end',
-		__( 'Display Text When Event Ends', 'tecc1' ),
+		__( 'Display Text When Event Ends', 'countdown-for-the-events-calendar' ),
 		'tecc_text_field_6_render',
 		'pluginPage',
 		'tecc_pluginPage_section',
@@ -127,7 +169,7 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'autostart-text',
-		__( 'Display Text When Event Starts (Default is "Event Starts refresh page to see next upcoming event") ', 'tecc1' ),
+		__( 'Display Text When Event Starts (Default is "Event Starts refresh page to see next upcoming event") ', 'countdown-for-the-events-calendar' ),
 		'tecc_text_field_10_render',
 		'pluginPage',
 		'tecc_pluginPage_section',
@@ -136,14 +178,14 @@ function tecc_settings_init() {
 
 	add_settings_field(
 		'main-title',
-		__( 'Main Title (Default is "Next Upcoming Event")', 'tecc1' ),
+		__( 'Main Title (Default is "Next Upcoming Event")', 'countdown-for-the-events-calendar' ),
 		'tecc_text_field_9_render',
 		'pluginPage',
 		'tecc_pluginPage_section'
 	);
 	add_settings_field(
 		'main-title',
-		__( 'Main Title (Default is "Next Upcoming Event")', 'tecc' ),
+		__( 'Main Title (Default is "Next Upcoming Event")', 'countdown-for-the-events-calendar' ),
 		'tecc_text_field_9_render',
 		'pluginPage',
 		'tecc_pluginPage_section'
@@ -151,7 +193,7 @@ function tecc_settings_init() {
 
 }
 
-
+//phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_query, WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 function tecc_select_field_0_render() {
 
 	$options = get_option( 'tecc_settings' );
@@ -182,7 +224,7 @@ function tecc_select_field_0_render() {
 			}
 		} else {
 			?>
-			<option value="0"><?php esc_html_e( 'No Future Event found.', 'tecc1' ); ?></option>
+			<option value="0"><?php esc_html_e( 'No Future Event found.', 'countdown-for-the-events-calendar' ); ?></option>
 			<?php
 		}
 		?>
@@ -350,7 +392,7 @@ function tecc_select_field_7_render() {
 		<?php
 	} else {
 		?>
-		<option value="0"><?php esc_html_e( 'No Future Event found.', 'tecc1' ); ?></option>
+		<option value="0"><?php esc_html_e( 'No Future Event found.', 'countdown-for-the-events-calendar' ); ?></option>
 		<?php
 	}
 	?>
@@ -378,7 +420,7 @@ function tecc_checkbox_setting(){
 	register_setting('settingPage', 'tecc_settings');
 	add_settings_section(
 		'tecc_settingPage_section',
-		__( '', 'tecc' ),
+		__( '', 'countdown-for-the-events-calendar' ),//phpcs:ignore WordPress.WP.I18n.NoEmptyStrings
 		'',
 		'settingPage'
 	);
@@ -386,7 +428,7 @@ function tecc_checkbox_setting(){
 	if( $option == 'yes' || $option == 'no' ) {
 		add_settings_field(
 			'tecc-cpfm-data-sharing',
-			__( 'Usage Data Sharing', 'tecc' ),
+			__( 'Usage Data Sharing', 'countdown-for-the-events-calendar' ),
 			'tecc_select_field_13_render',
 			'settingPage',
 			'tecc_settingPage_section',
@@ -414,10 +456,10 @@ function tecc_select_field_13_render() {
 	<input type="checkbox" id="tecc-cpfm-data-sharing" <?php echo $checked; ?>>
 		Help us make this plugin more compatible with your site by sharing non-sensitive site data. <a href="#" class="cpfm-see-terms tecc-see-terms">[See terms]</a>
 		<div id="termsBox" class="tecc-terms-box" style="display: none; padding-left: 20px; margin-top: 10px; font-size: 12px; color: #999;">
-			<p><?php esc_html_e("Opt in to receive email updates about security improvements, new features, helpful tutorials, and occasional special offers. We'll collect:", 'tecc'); ?><a href='https://my.coolplugins.net/terms/usage-tracking/' target='_blank'> Click Here</a></p>
+			<p><?php esc_html_e("Opt in to receive email updates about security improvements, new features, helpful tutorials, and occasional special offers. We'll collect:", 'countdown-for-the-events-calendar'); ?><a href='https://my.coolplugins.net/terms/usage-tracking/' target='_blank'> Click Here</a></p>
 			<ul style="list-style-type: auto; padding-left: 20px;">
-				<li><?php esc_html_e("Your website home URL and WordPress admin email.", 'tecc'); ?></li>
-				<li><?php esc_html_e("To check plugin compatibility, we will collect the following: list of active plugins and themes, server type, MySQL version, WordPress version, memory limit, site language and database prefix.", 'tecc'); ?></li>
+				<li><?php esc_html_e("Your website home URL and WordPress admin email.", 'countdown-for-the-events-calendar'); ?></li>
+				<li><?php esc_html_e("To check plugin compatibility, we will collect the following: list of active plugins and themes, server type, MySQL version, WordPress version, memory limit, site language and database prefix.", 'countdown-for-the-events-calendar'); ?></li>
 			</ul>
 		</div>
 	<?php
@@ -426,7 +468,7 @@ function tecc_select_field_13_render() {
 
 function cpfm_save_usage_data_sharing_callback() {
 	if ( ! current_user_can( 'manage_options' ) ) { 
-		wp_send_json_error( __( 'You do not have sufficient permissions to access this page.' ) ); 
+		wp_send_json_error( __( 'You do not have sufficient permissions to access this page.', 'countdown-for-the-events-calendar' ) ); 
 	}
 	check_ajax_referer('cpfm_nonce_action', 'nonce');
 
@@ -446,7 +488,7 @@ function cpfm_save_usage_data_sharing_callback() {
 }
 
 function tecc_settings_section_callback() {
-	echo '<h3>' . esc_html__( 'Countdown Settings', 'tecc1' ) . '</h3>';
+	echo '<h3>' . esc_html__( 'Countdown Settings', 'countdown-for-the-events-calendar' ) . '</h3>';
 }
 
 
@@ -461,7 +503,7 @@ function tecc_options_page() {
 	// WordPress will add the "settings-updated" $_GET parameter to the url
 	if ( isset( $_GET['settings-updated'] ) && sanitize_key( $_GET['settings-updated'] ) ) {
 		// add settings saved message with the class of "updated"
-		add_settings_error( 'wporg_messages', 'wporg_message', __( 'Shortcode generated', 'wporg' ), 'updated' );
+		add_settings_error( 'wporg_messages', 'wporg_message', __( 'Shortcode generated', 'countdown-for-the-events-calendar' ), 'updated' );
 		// show error/update messages
 		settings_errors( 'wporg_messages' );
 	}
@@ -500,16 +542,16 @@ function tecc_options_page() {
 				$dynamic_attr .= "[events-calendar-countdown id=\"{$options['event_id']}\" backgroundcolor=\"{$options['backgroundcolor']}\" font-color=\"{$options['font-color']}\" show-seconds=\"{$options['show-seconds']}\" show-image=\"{$options['show-image']}\" size=\"{$options['size']}\" event-start=\"{$options['event-start']}\" event-end=\"{$options['event-end']}\" autostart-next-countdown=\"{$options['autostart-next-countdown']}\" autostart-text=\"{$options['autostart-text']}\" autostart-future-countdown=\"{$options['autostart-future-countdown']}\" future-events-list=\"{$k}\" main-title=\"{$options['main-title']}\"";
 				$dynamic_attr .= ']';
 
-				echo '<h3>' . esc_html__( 'Shortcode Preview', 'tecc1' ) . '</h3>';
+				echo '<h3>' . esc_html__( 'Shortcode Preview', 'countdown-for-the-events-calendar' ) . '</h3>';
 				echo do_shortcode( $dynamic_attr );
 				$prefix = '_tec_';
-				echo '<h2>' . esc_html__( 'Countdown for the events calendar Shortcode :', 'tecc1' ) . '</h2>';
+				echo '<h2>' . esc_html__( 'Countdown for the events calendar Shortcode :', 'countdown-for-the-events-calendar' ) . '</h2>';
 				echo ' <p style="font-size:18px">Paste this shortcode anywhere in page where you want to display Event Countdown
 	            </p>';
 				echo '<code>' . esc_html( $dynamic_attr ) . '</code>';
 
 			} else {
-				echo '<h3 style="color:red">' . esc_html__( 'There is no upcoming event. Please add atleast one upcoming event to generate countdown.', 'tecc1' ) . '</h3>';
+				echo '<h3 style="color:red">' . esc_html__( 'There is no upcoming event. Please add atleast one upcoming event to generate countdown.', 'countdown-for-the-events-calendar' ) . '</h3>';
 			}
 		}
 		?>

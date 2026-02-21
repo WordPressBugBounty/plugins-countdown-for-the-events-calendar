@@ -1,4 +1,6 @@
 <?php
+//phpcs:disable WordPress.WP.I18n.TextDomainMismatch
+if ( ! defined( 'ABSPATH' ) ) exit;
 function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	 $ret           = '';
 	 $hourformat    = tecc_generate_countdown_html( $event, $settings, $event_ID );
@@ -51,7 +53,7 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	if ( is_array( $event_venue ) ) {
 		$strip_addr = preg_replace( '/\s+/', '', $event_venue['address'] );
 		$trim_addr  = trim( preg_replace( '/\s+/', '', $strip_addr ) );
-		$address    = strip_tags( $trim_addr );
+		$address    = wp_strip_all_tags( $trim_addr );
 		if ( $address != '' ) {
 			$ret .= '<span class="tecc-location"> -</span>' . wp_strip_all_tags( $event_venue['address'] ) . '';
 		}

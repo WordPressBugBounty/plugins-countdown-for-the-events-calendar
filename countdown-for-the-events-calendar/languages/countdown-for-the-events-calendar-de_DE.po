@@ -1,0 +1,464 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Event Countdown for The Events Calendar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-21 04:56+0000\n"
+"PO-Revision-Date: 2026-02-21 05:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.1; wp-6.9.1; php-8.1.29\n"
+"X-Domain: countdown-for-the-events-calendar"
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:202
+msgid " More info"
+msgstr ""
+
+#. %d: number of active addons
+#: admin/events-addon-page/includes/dashboard-page.php:45
+msgid "%d Active Addon"
+msgid_plural "%d Active Addons"
+msgstr[0] "%d Active Addon"
+msgstr[1] "%d Addons Aktiv"
+
+#: admin/events-addon-page/events-addon-page.php:696
+msgid "Activate Now"
+msgstr "Jetzt Aktivieren"
+
+#: admin/events-addon-page/events-addon-page.php:730
+msgid "Activated"
+msgstr "Aktiviert"
+
+#: admin/events-addon-page/events-addon-page.php:673
+msgid "Active"
+msgstr "Active"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:38
+msgid "Aim to resolve issues in 24 hrs."
+msgstr "Ziel zu lösen Fragen innerhalb von 24 Stunden."
+
+#: admin/feedback-notice/tecc-feedback-notice.php:61
+msgid "Already Reviewed"
+msgstr "Bereits Bewertet"
+
+#: includes/tecc-setting-panel.php:88
+msgid "Autostart countdown of next future event"
+msgstr "Autostart-countdown der nächsten Zukunft Ereignis"
+
+#: includes/tecc-setting-panel.php:79
+msgid "Autostart countdown of next upcoming event"
+msgstr "Autostart-countdown der nächsten Veranstaltung"
+
+#: admin/events-addon-page/includes/dashboard-page.php:77
+msgid "Available Addons"
+msgstr "Verfügbare Addons"
+
+#: admin/events-addon-page/events-addon-page.php:707
+msgid "Buy Pro"
+msgstr "Kaufen Pro -"
+
+#: admin/events-addon-page/includes/dashboard-header.php:55
+msgid "Check Docs"
+msgstr "Überprüfen Docs"
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:210
+msgid "Click here"
+msgstr "Klicken Sie hier"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:41
+msgid "Contact Support"
+msgstr "Support Kontaktieren"
+
+#. Author of the plugin
+msgid "Cool Plugins"
+msgstr "Coole Plugins"
+
+#: includes/tecc-setting-panel.php:115
+msgid "Countdown Background Color"
+msgstr "Countdown-Hintergrund Farbe"
+
+#: includes/tecc-setting-panel.php:123
+msgid "Countdown Font Color"
+msgstr "Countdown-Schriftart, Farbe"
+
+#: includes/tecc-setting-panel.php:548
+msgid "Countdown for the events calendar Shortcode :"
+msgstr "Countdown für die events calendar Shortcode :"
+
+#: includes/tecc-setting-panel.php:491
+msgid "Countdown Settings"
+msgstr "Countdown-Einstellungen"
+
+#: includes/tecc-setting-panel.php:73
+msgid "Create Shortcode for the Event countdown using below mentioned settings"
+msgstr ""
+"Erstellen Shortcode für den Ereignis-countdown mit den unten genannten "
+"Einstellungen"
+
+#: admin/events-addon-page/includes/dashboard-page.php:43
+msgid "Currently Activated Addons"
+msgstr "Momentan Aktivierten Addons"
+
+#: admin/events-addon-page/events-addon-page.php:261
+#: admin/events-addon-page/events-addon-page.php:262
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: admin/events-addon-page/events-addon-page.php:578
+msgid "Demo"
+msgstr "Demo"
+
+#: includes/tecc-setting-panel.php:163
+msgid "Display Text When Event Ends"
+msgstr "Anzeigen Von Text Bei Der Veranstaltung Endet"
+
+#: includes/tecc-setting-panel.php:154
+msgid "Display Text When Event Starts"
+msgstr "Anzeigen Von Text Bei Der Veranstaltung Beginnt"
+
+#: includes/tecc-setting-panel.php:172
+msgid ""
+"Display Text When Event Starts (Default is \"Event Starts refresh page to "
+"see next upcoming event\") "
+msgstr ""
+
+#: admin/events-addon-page/events-addon-page.php:582
+msgid "Docs"
+msgstr "Docs"
+
+#: admin/events-addon-page/events-addon-page.php:580
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#. Name of the plugin
+msgid "Event Countdown for The Events Calendar"
+msgstr "Ereignis-Countdown für Die Veranstaltungen Kalender"
+
+#. Description of the plugin
+msgid ""
+"Event Countdown for The Events Calendar provides the ability to create "
+"Beautiful Countdown for <a href=\"http://wordpress.org/plugins/the-events-"
+"calendar/\">The Events Calendar (by Modern Tribe)</a> events with just a few "
+"clicks."
+msgstr ""
+
+#: admin/events-addon-page/events-addon-page.php:251
+#: admin/events-addon-page/events-addon-page.php:252
+msgid "Events Addons"
+msgstr "Veranstaltungen Addons"
+
+#: countdown-for-events-calendar.php:225
+msgid "Events Addons By Cool Plugins"
+msgstr "Veranstaltungen Addons Von Cool Plugins"
+
+#: admin/events-addon-page/includes/dashboard-header.php:48
+msgid "Events Calendar Addons"
+msgstr "Veranstaltungskalender Addons"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:66
+msgid "EVENTS CALENDAR PRO"
+msgstr "EVENTS CALENDAR PRO"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:70
+msgid "Get Events Calendar Pro"
+msgstr "Get Events Calendar Pro"
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:176
+msgid "Help Improve Plugins"
+msgstr "Verbessern Plugins"
+
+#: countdown-for-events-calendar.php:226
+msgid ""
+"Help us make this plugin more compatible with your site by sharing non-"
+"sensitive site data."
+msgstr ""
+"Helfen Sie uns, dieses plugin machen mehr kompatibel mit Ihrer Website durch "
+"den Austausch nicht sensibler Daten."
+
+#. Author URI of the plugin
+msgid ""
+"https://coolplugins.net/?"
+"utm_source=tecc_plugin&utm_medium=inside&utm_campaign=author_page&utm_content=plugins_list"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://eventscalendaraddons.com/"
+msgstr ""
+
+#: admin/feedback/admin-feedback-form.php:108
+msgid ""
+"I agree to share anonymous usage data and basic site details (such as server,"
+" PHP, and WordPress versions) to support The Events Calendar Countdown Addon "
+"improvement efforts. Additionally, I allow Cool Plugins to store all "
+"information provided through this form and to respond to my inquiry."
+msgstr ""
+"Ich Stimme zu, um anonyme Nutzungsdaten und grundlegende Website-Daten (wie "
+"server, PHP und WordPress Versionen) für Die Unterstützung der Events "
+"Calendar Countdown Addon Anstrengungen zur Verbesserung. Darüber hinaus "
+"Erlaube ich Coole Plugins zum speichern alle Informationen, die Sie in "
+"diesem Formular und der Reaktion auf meine Anfrage."
+
+#: admin/feedback/admin-feedback-form.php:197
+msgid "I found a better plugin"
+msgstr "Ich fand eine bessere plugin"
+
+#: admin/feedback/admin-feedback-form.php:55
+msgid "I found a better plugin."
+msgstr "Ich fand eine bessere plugin."
+
+#: admin/feedback/admin-feedback-form.php:87
+msgid ""
+"If you have a moment, please share the reason for deactivating this plugin."
+msgstr ""
+"Wenn Sie haben eine moment bitte teilen Sie der Grund für die Deaktivierung "
+"dieses plugin."
+
+#: admin/events-addon-page/events-addon-page.php:696
+msgid "Install Now"
+msgstr "Jetzt Installieren"
+
+#: admin/feedback/admin-feedback-form.php:63
+#: admin/feedback/admin-feedback-form.php:205
+msgid "It's a temporary deactivation."
+msgstr "Es ist eine temporäre Deaktivierung."
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:49
+msgid "LOVING OUR PLUGINS?"
+msgstr "LIEBEVOLLE UNSERER PLUGINS?"
+
+#: includes/tecc-setting-panel.php:181 includes/tecc-setting-panel.php:188
+msgid "Main Title (Default is \"Next Upcoming Event\")"
+msgstr "Main Title (Default ist \"Nächster Event\")"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:37
+msgid "Mon–Fri, 9:30 AM–6:30 PM IST."
+msgstr "Mo–FR, 9:30 BIN–6:30 PM IST."
+
+#: includes/tecc-setting-panel.php:227 includes/tecc-setting-panel.php:395
+msgid "No Future Event found."
+msgstr "Zukunft keine Veranstaltung gefunden."
+
+#: admin/events-addon-page/events-addon-page.php:73
+msgid "No plugin specified."
+msgstr "Kein plugin angegeben."
+
+#: admin/events-addon-page/events-addon-page.php:476
+msgid "No plugins data available at the moment."
+msgstr "Keine plugins Daten verfügbar im moment."
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:217
+msgid "No, Thanks"
+msgstr "Nein, Danke"
+
+#: admin/feedback-notice/tecc-feedback-notice.php:62
+msgid "Not Interested"
+msgstr "Nicht Interessiert"
+
+#: admin/cpfm-feedback/cron/class-cron.php:90
+msgid "Once every 30 days"
+msgstr "Einmal alle 30 Tage"
+
+#: includes/tecc-setting-panel.php:459
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:206
+msgid ""
+"Opt in to receive email updates about security improvements, new features, "
+"helpful tutorials, and occasional special offers. We'll collect:"
+msgstr ""
+"Opt-in to receive E-Mail updates über Sicherheits-Verbesserungen, neue "
+"features, nützliche Anleitungen und gelegentliche Sonderangebote. Wir "
+"sammeln:"
+
+#: admin/feedback/admin-feedback-form.php:209
+msgid "Other"
+msgstr "Andere"
+
+#: admin/feedback/admin-feedback-form.php:67
+msgid "Other reason."
+msgstr "Andere Grund."
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:68
+msgid ""
+"Our addons works perfectly with both The Events Calendar free and official "
+"pro version."
+msgstr ""
+"Unsere addons funktioniert perfekt mit sowohl Die Ereignisse Kalender frei "
+"und offiziellen pro-version."
+
+#: admin/events-addon-page/events-addon-page.php:124
+msgid "Permission denied"
+msgstr "Permission denied"
+
+#: admin/feedback/admin-feedback-form.php:68
+#: admin/feedback/admin-feedback-form.php:210
+msgid "Please share the reason."
+msgstr "Bitte teilen Sie der Grund."
+
+#: admin/feedback/admin-feedback-form.php:56
+#: admin/feedback/admin-feedback-form.php:198
+msgid "Please share which plugin."
+msgstr "Teilen Sie bitte die plugin."
+
+#: admin/events-addon-page/events-addon-page.php:138
+msgid "Plugin activated successfully"
+msgstr "Plugin erfolgreich aktiviert"
+
+#: admin/events-addon-page/includes/dashboard-page.php:61
+msgid "Premium Addons"
+msgstr "Premium-Addons"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:33
+msgid "PREMIUM SUPPORT"
+msgstr "PREMIUM SUPPORT"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:36
+msgid "Priority fast support."
+msgstr "Priorität schnellen support."
+
+#: admin/events-addon-page/events-addon-page.php:657
+msgid "Pro"
+msgstr "Pro"
+
+#: admin/feedback/admin-feedback-form.php:78
+msgid "Quick Feedback"
+msgstr "Schnelle Rückmeldung"
+
+#: admin/feedback-notice/tecc-feedback-notice.php:60
+msgid "Rate Now! ★★★★★"
+msgstr ""
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:57
+msgid "Rate us on WP.org"
+msgstr "Bewerten Sie uns auf WP.org"
+
+#: admin/events-addon-page/includes/dashboard-sidebar.php:55
+msgid "Review us on WP.org and share your feedback with the community."
+msgstr ""
+"Überprüfen Sie uns auf WP.org und teilen Sie Ihr feedback mit der community."
+
+#: includes/tecc-setting-panel.php:106
+msgid "Select an Event"
+msgstr "Wählen Sie ein Ereignis aus"
+
+#: includes/tecc-setting-panel.php:146
+msgid "Select Countdown Size"
+msgstr "Wählen Sie Countdown Größe"
+
+#: includes/tecc-setting-panel.php:97
+msgid "Select Events for autostart Countdown"
+msgstr "Wählen Sie Ereignisse nach autostart-Countdown"
+
+#: countdown-for-events-calendar.php:268
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: includes/tecc-setting-panel.php:506
+msgid "Shortcode generated"
+msgstr "Shortcode generiert"
+
+#: includes/tecc-setting-panel.php:545
+msgid "Shortcode Preview"
+msgstr "Shortcode Vorschau"
+
+#: includes/tecc-setting-panel.php:138
+msgid "Show Image in Countdown"
+msgstr "Zeige das Bild in Countdown"
+
+#: includes/tecc-setting-panel.php:131
+msgid "Show Seconds in Countdown"
+msgstr "Sekunden anzeigen in Countdown"
+
+#: admin/events-addon-page/events-addon-page.php:65
+msgid "Sorry, you are not allowed to install plugins on this site."
+msgstr ""
+"Sorry, Sie sind nicht erlaubt zu installieren Plug-ins auf dieser Website."
+
+#: admin/feedback/admin-feedback-form.php:193
+msgid "The plugin didn't work as expected"
+msgstr "Das plugin hat nicht funktioniert wie erwartet"
+
+#: admin/feedback/admin-feedback-form.php:51
+msgid "The plugin didn't work as expected."
+msgstr "Das plugin hat nicht funktioniert, wie erwartet."
+
+#: admin/feedback/admin-feedback-form.php:201
+msgid "The plugin is not working"
+msgstr "Das plugin funktioniert nicht"
+
+#: admin/feedback/admin-feedback-form.php:59
+msgid "The plugin is not working."
+msgstr "Das plugin funktioniert nicht."
+
+#: includes/tecc-shortcode.php:127
+msgid "There is no upcoming event"
+msgstr "Es gibt keine bevorstehende Veranstaltung"
+
+#: includes/tecc-setting-panel.php:554
+msgid ""
+"There is no upcoming event. Please add atleast one upcoming event to "
+"generate countdown."
+msgstr ""
+"Es gibt keine bevorstehende Veranstaltung. Bitte fügen Sie mindestens eine "
+"bevorstehende Veranstaltung zu erzeugen countdown."
+
+#: admin/events-addon-page/events-addon-page.php:99
+msgid "This plugin cannot be installed from here."
+msgstr "Dieses plugin kann nicht installiert werden, von hier aus."
+
+#: includes/tecc-setting-panel.php:462
+msgid ""
+"To check plugin compatibility, we will collect the following: list of active "
+"plugins and themes, server type, MySQL version, WordPress version, memory "
+"limit, site language and database prefix."
+msgstr ""
+"Um zu überprüfen, plugin-Kompatibilität, erheben wir die folgenden: Liste "
+"der aktiven plugins und themes, den server-Typ, MySQL-version, WordPress, "
+"version, Speichergröße, Sprache der site und Datenbank-Präfix."
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:209
+msgid ""
+"To check plugin compatibility, we will collect the following: list of active "
+"plugins and themes, server type, MySQL version, WordPress version, memory "
+"limit, site language and database prefix. "
+msgstr ""
+
+#: admin/events-addon-page/events-addon-page.php:212
+msgid "Unable to connect to the filesystem. Please confirm your credentials."
+msgstr ""
+"Keine Verbindung zum Dateisystem. Bestätigen Sie bitte Ihre Anmeldedaten ein."
+
+#: admin/events-addon-page/events-addon-page.php:652
+#: admin/events-addon-page/events-addon-page.php:653
+msgid "Update available"
+msgstr "Update verfügbar"
+
+#: includes/tecc-setting-panel.php:431
+msgid "Usage Data Sharing"
+msgstr "Nutzungsdaten Teilen"
+
+#: admin/events-addon-page/events-addon-page.php:576
+msgid "View Demo"
+msgstr "View Demo"
+
+#: admin/events-addon-page/includes/dashboard-header.php:52
+msgid "View Demos"
+msgstr "Demos Anzeigen"
+
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:216
+msgid "Yes, I Agree"
+msgstr "Ja, Ich Bin Einverstanden"
+
+#: includes/tecc-setting-panel.php:471
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+"Sie verfügen nicht über ausreichende Berechtigungen, um auf diese Seite "
+"zuzugreifen."
+
+#: includes/tecc-setting-panel.php:461
+#: admin/cpfm-feedback/cpfm-feedback-notice.php:208
+msgid "Your website home URL and WordPress admin email."
+msgstr "Deine Homepage-URL und WordPress admin E-Mail."

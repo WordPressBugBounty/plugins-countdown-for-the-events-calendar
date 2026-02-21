@@ -87,7 +87,7 @@ if (!class_exists('TECC_cronjob')) {
 
                 $schedules['every_30_days'] = array(
                     'interval' => 30 * 24 * 60 * 60, // 2,592,000 seconds
-                    'display'  => __('Once every 30 days'),
+                    'display'  => __('Once every 30 days', 'countdown-for-the-events-calendar'),
                 );
             }
 
@@ -96,5 +96,5 @@ if (!class_exists('TECC_cronjob')) {
 
     }
 
-    $cron_init = new TECC_cronjob();
+    $cron_init = new TECC_cronjob();//phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 }
