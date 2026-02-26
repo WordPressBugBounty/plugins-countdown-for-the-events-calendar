@@ -5,7 +5,7 @@ Tags: the events calendar, events, event calendar, countdown timer, countdown
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.2
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -135,11 +135,15 @@ Please report security bugs found in the source code of the undefined plugin thr
 
 == Changelog ==
 
+= 1.5.1 | FEB 26, 2026 =
+* Fixed: Minor styling issues for better UI consistency.
+* Improved: Code structure and performance optimization.
+
 = 1.5.0 | FEB 21, 2026 =
 * Improvements: Improved dashboard design and usability.
 * Improvements: Code optimizations and refinements.
 * Fixed: Issues reported by “Plugin Check” plugin.
-* Updated: readme file.
+* Updated: Readme file.
 * Tested: With The Events Calendar v6.15.16.
 
 = 1.4.16 | DEC 19, 2025 =

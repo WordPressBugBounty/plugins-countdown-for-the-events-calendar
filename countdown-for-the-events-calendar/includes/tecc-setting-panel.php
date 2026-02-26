@@ -7,7 +7,7 @@ add_action( 'admin_init', 'tecc_settings_init' );
 add_action( 'admin_init', 'tecc_checkbox_setting' );
 add_action( 'admin_head', 'tecc_enqueue_color_picker' );
 add_action('wp_ajax_cpfm_save_usage_data_sharing', 'cpfm_save_usage_data_sharing_callback');
-add_action( 'all_admin_notices', 'tecc_display_header', 1 );
+// add_action( 'all_admin_notices', 'tecc_display_header', 1 );
 
 function tecc_enqueue_color_picker() {
 	$screen = get_current_screen();
@@ -29,7 +29,7 @@ function tecc_add_admin_menu() {
 * Display header on countdown for the events calendar admin pages
 */
 function tecc_display_header() {
-	global $post, $typenow, $current_screen;
+	global $current_screen;
 	
 	// Check if we're on Event Countdown submenu/settings page or post type pages
 	$is_tecc_page = false;
@@ -37,17 +37,9 @@ function tecc_display_header() {
 	// Event Countdown submenu (Events Addons > Event Countdown)
 	if ( $current_screen && isset( $current_screen->id ) && $current_screen->id === 'events-addons_page_countdown_for_the_events_calendar' ) {
 		$is_tecc_page = true;
-	} elseif ( $current_screen && isset( $current_screen->post_type ) && $current_screen->post_type === 'countdown_for_the_events_calendar' ) {
-		$is_tecc_page = true;
-	} elseif ( $typenow && $typenow === 'countdown_for_the_events_calendar' ) {
-		$is_tecc_page = true;
-	} elseif ( isset( $_REQUEST['post_type'] ) && sanitize_key( $_REQUEST['post_type'] ) === 'countdown_for_the_events_calendar' ) {
-		$is_tecc_page = true;
-	} elseif ( $post && get_post_type( $post ) === 'countdown_for_the_events_calendar' ) {
-		$is_tecc_page = true;
 	}
-	$show_header = EventsCalendarCountdown::tecc_display_header();
-	if ( $is_tecc_page && $show_header ) {
+
+	if ( $is_tecc_page) {
 		// Add CSS to position header at top
 		?>
 		<div class="ect-dashboard-wrapper">
@@ -496,6 +488,10 @@ function tecc_options_page() {
 	// check user capabilities
 	if ( ! current_user_can( 'manage_options' ) ) {
 		return;
+	}
+
+	if ( function_exists( 'tecc_display_header' ) ) {
+		tecc_display_header();
 	}
 
 	// add error/update messages

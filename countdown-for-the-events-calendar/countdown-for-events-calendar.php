@@ -3,7 +3,7 @@
 Plugin Name:Event Countdown for The Events Calendar
 Plugin URI:https://eventscalendaraddons.com/
 Description:Event Countdown for The Events Calendar provides the ability to create Beautiful Countdown for <a href="http://wordpress.org/plugins/the-events-calendar/">The Events Calendar (by Modern Tribe)</a> events with just a few clicks.
-Version:1.5.0
+Version:1.5.1
 License:GPL2
 Author:Cool Plugins
 Author URI:https://coolplugins.net/?utm_source=tecc_plugin&utm_medium=inside&utm_campaign=author_page&utm_content=plugins_list
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit();
 }
 if ( ! defined( 'TECC_VERSION_CURRENT' ) ) {
-	define( 'TECC_VERSION_CURRENT', '1.5.0' );
+	define( 'TECC_VERSION_CURRENT', '1.5.1' );
 }
 
 define( 'TECC_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -56,6 +56,124 @@ if ( ! class_exists( 'EventsCalendarCountdown' ) ) {
 			$this->tecc_require_files();
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'tecc_settings_page' ) );
 			add_action('admin_enqueue_scripts', array($this, 'tecc_css'));
+			add_action('admin_print_scripts', [$this, 'ect_hide_unrelated_notices']);
+		}
+
+		public function ect_hide_unrelated_notices(){ 
+			
+			// phpcs:ignore Generic.Metrics.CyclomaticComplexity.MaxExceeded, Generic.Metrics.NestingLevel.MaxExceeded
+            $events_pages = false;
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Checking page parameter to conditionally hide notices, no data processing
+            if (isset($_GET['page'])) {
+				
+                // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Checking page parameter to conditionally hide notices, no data processing
+				$page_param = isset($_GET['page']) ? sanitize_key(wp_unslash($_GET['page'])) : '';
+
+				$allowed_pages = array(
+					'cool-plugins-events-addon',
+					'cool-events-registration',
+					'tribe-events-shortcode-template-settings',
+					'tribe_events-events-template-settings',
+					'countdown_for_the_events_calendar',
+					'esas-speaker-sponsor-settings',
+					'esas_speaker',
+					'esas_sponsor',
+					'ewpe',
+					'epta'
+				);
+
+				if (in_array($page_param, $allowed_pages, true)) {
+					$events_pages = true;
+				}
+            }
+			$is_post_type_page = false;
+
+			$current_screen = get_current_screen();
+			
+			if ( $current_screen && ! empty( $current_screen->post_type ) ) {
+			
+				$allowed_post_types = array(
+					'esas_speaker',
+					'esas_sponsor',
+					'epta',
+					'ewpe'
+				);
+			
+				if ( in_array( $current_screen->post_type, $allowed_post_types, true ) ) {
+					$is_post_type_page = true;
+				}
+			}
+            if ($events_pages) {
+                global $wp_filter;
+                // Define rules to remove callbacks.
+                $rules = [
+                    'user_admin_notices' => [], // remove all callbacks.
+                    'admin_notices'      => [],
+                    'all_admin_notices'  => [],
+                    'admin_footer'       => [
+                        'render_delayed_admin_notices', // remove this particular callback.
+                    ],
+                ];
+                $notice_types = array_keys($rules);
+                foreach ($notice_types as $notice_type) {
+                    if (empty($wp_filter[$notice_type]) || empty($wp_filter[$notice_type]->callbacks) || ! is_array($wp_filter[$notice_type]->callbacks)) {
+                        continue;
+                    }
+                    $remove_all_filters = empty($rules[$notice_type]);
+                    foreach ($wp_filter[$notice_type]->callbacks as $priority => $hooks) {
+                        foreach ($hooks as $name => $arr) {
+                            if (is_object($arr['function']) && is_callable($arr['function'])) {
+                                if ($remove_all_filters) {
+                                    unset($wp_filter[$notice_type]->callbacks[$priority][$name]);
+                                }
+                                continue;
+                            }
+                            $class = ! empty($arr['function'][0]) && is_object($arr['function'][0]) ? strtolower(get_class($arr['function'][0])) : '';
+                            // Remove all callbacks except WPForms notices.
+                            if ($remove_all_filters && strpos($class, 'wpforms') === false) {
+                                unset($wp_filter[$notice_type]->callbacks[$priority][$name]);
+                                continue;
+                            }
+                            $cb = is_array($arr['function']) ? $arr['function'][1] : $arr['function'];
+                            // Remove a specific callback.
+                            if (! $remove_all_filters) {
+                                if (in_array($cb, $rules[$notice_type], true)) {
+                                    unset($wp_filter[$notice_type]->callbacks[$priority][$name]);
+                                }
+                                continue;
+                            }
+                        }
+                    }
+                }
+            }
+
+			// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+			if (!$events_pages && !$is_post_type_page) {
+
+				// ✅ GLOBAL LOCK SYSTEM
+				if (!defined('ECT_ADMIN_NOTICE_HOOKED')) {
+
+					define('ECT_ADMIN_NOTICE_HOOKED', true);
+
+					add_action(
+						'admin_notices',
+						array($this, 'ect_dash_admin_notices'),
+						PHP_INT_MAX
+					);
+				}
+			}
+        }
+
+		public function ect_dash_admin_notices() {
+
+			// ✅ Double render protection
+			if (defined('ECT_ADMIN_NOTICE_RENDERED')) {
+				return;
+			}
+
+			define('ECT_ADMIN_NOTICE_RENDERED', true);
+
+			do_action('ect_display_admin_notices');
 		}
 
 		/**
@@ -77,43 +195,6 @@ if ( ! class_exists( 'EventsCalendarCountdown' ) ) {
 			require_once TECC_PLUGIN_DIR . 'admin/cpfm-feedback/cron/class-cron.php';
 		}
 
-		public static function tecc_display_header() {
-			// Required plugins list (path + minimum version)
-			$required_plugins = [
-				'countdown-for-the-events-calendar/countdown-for-events-calendar.php' => '1.4.16',
-				'cp-events-calendar-modules-for-divi-pro/cp-events-calendar-modules-for-divi-pro.php' => '2.0.2',
-				'event-page-templates-addon-for-the-events-calendar/the-events-calendar-event-details-page-templates.php' => '1.7.15',
-				'events-block-for-the-events-calendar/events-block-for-the-event-calender.php' => '1.3.12',
-				'event-single-page-builder-pro/event-single-page-builder-pro.php' => '2.0.1',
-				'events-search-addon-for-the-events-calendar/events-calendar-search-addon.php' => '1.2.18',
-				'events-speakers-and-sponsors/events-speakers-and-sponsors.php' => '1.1.1',
-				'events-widgets-for-elementor-and-the-events-calendar/events-widgets-for-elementor-and-the-events-calendar.php' => '1.6.28',
-				'events-widgets-pro/events-widgets-pro.php' => '3.0.1',
-				'template-events-calendar/events-calendar-templates.php' => '2.5.4',
-				'the-events-calendar-templates-and-shortcode/the-events-calendar-templates-and-shortcode.php' => '4.0.1',
-			];
-
-			$show_header = true;
-
-			// Loop through all plugins
-			foreach ($required_plugins as $plugin_path => $min_version) {
-
-				// Plugin active hai?
-				if (is_plugin_active($plugin_path)) {
-
-					// Plugin data get karo
-					$plugin_data = get_plugin_data(WP_PLUGIN_DIR . '/' . $plugin_path);
-					$current_version = $plugin_data['Version'];
-
-					// Version check
-					if (version_compare($current_version, $min_version, '<=')) {
-						$show_header = false;
-						break;
-					}
-				}
-			}
-			return $show_header;
-		}
 		static public function get_admin_parent_slug_universal() {
                 global $submenu, $plugin_page, $typenow;
 
@@ -158,51 +239,6 @@ if ( ! class_exists( 'EventsCalendarCountdown' ) ) {
 				'ajax_url' => admin_url('admin-ajax.php'),
 				'nonce'    => wp_create_nonce('cpfm_nonce_action')
 			));
-			$screen = get_current_screen();
-            $screen_id = $screen ? $screen->id : '';
-            $parent_file = ['events-addons_page_tribe-events-shortcode-template-settings',
-                            'events-addons_page_tribe_events-events-template-settings',
-                            'toplevel_page_cool-plugins-events-addon',
-                            'events-addons_page_cool-events-registration',
-                            'events-addons_page_countdown_for_the_events_calendar',
-                            'edit-epta',
-                            'edit-esas_speaker',
-                            'edit-esas_sponsor',
-                            'events-addons_page_esas-speaker-sponsor-settings',
-                            'edit-ewpe'];
-                if (in_array($screen_id, $parent_file)){
-					wp_enqueue_style( 'cool-plugins-events-addon', TECC_PLUGIN_URL . 'admin/events-addon-page/assets/css/styles.min.css', array(), TECC_VERSION_CURRENT, 'all' );
-				}
-			if (self::tecc_display_header() && in_array($screen_id, $parent_file) ) {
-				// Common admin notice filter script (runs only on our target pages)
-				wp_enqueue_script(
-					'tecc-admin-notice-filter',
-					TECC_PLUGIN_URL . 'assets/js/tecc-admin-notice-filter.js',
-					array( 'jquery' ),
-					TECC_VERSION_CURRENT,
-					true
-				);
-
-				wp_localize_script(
-					'tecc-admin-notice-filter',
-					'tecc_notice_filter',
-					array(
-						'nonce'             => wp_create_nonce( 'tecc_notice_filter' ),
-						'allowedBodyClasses' => array(
-							'events-addons_page_tribe-events-shortcode-template-settings',
-							'events-addons_page_tribe_events-events-template-settings',
-							'toplevel_page_cool-plugins-events-addon',
-							'events-addons_page_cool-events-registration',
-							'events-addons_page_countdown_for_the_events_calendar',
-							'post-type-epta',
-							'post-type-esas_speaker',
-							'post-type-esas_sponsor',
-							'events-addons_page_esas-speaker-sponsor-settings',
-							'post-type-ewpe',
-						),
-					)
-				);
-			}
 		}
 		/*
 		Check The Event calender is installled or not. If user has not installed yet then show notice
