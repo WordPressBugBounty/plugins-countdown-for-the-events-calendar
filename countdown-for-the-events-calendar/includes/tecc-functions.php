@@ -8,8 +8,8 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	 $eventstart_msz = '';
 	 $autostart_msz = '';
 	 $image = array_key_exists('show-image', $settings) ? $settings['show-image'] : "no";
-	 $main_title    = isset( $settings['main-title'] ) && ! empty( $settings['main-title'] ) ? $settings['main-title'] : __( 'Next Upcoming Event', 'tecc' );
-	 $autostart_msz = isset( $settings['autostart-text'] ) && ! empty( $settings['autostart-text'] ) ? $settings['autostart-text'] : __( 'Event Starts refresh page to see next upcoming event', 'tecc' );
+	 $main_title    = isset( $settings['main-title'] ) && ! empty( $settings['main-title'] ) ? $settings['main-title'] : esc_html__( 'Next Upcoming Event', 'countdown-for-the-events-calendar' );
+	 $autostart_msz = isset( $settings['autostart-text'] ) && ! empty( $settings['autostart-text'] ) ? $settings['autostart-text'] : esc_html__( 'Event Starts refresh page to see next upcoming event', 'countdown-for-the-events-calendar' );
 
 	if ( isset( $settings['event-end'] ) ) {
 		$eventend_msz = $settings['event-end'];
@@ -35,7 +35,7 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 		  $event_venue = tribe_get_venue_details( $event_ID );
 
 		  $ret .= '
-		<div class="tecc-wrapper" id="tecc-' . $event_ID . '">
+		<div class="tecc-wrapper" id="tecc-' . esc_attr( $event_ID ) . '">
 			<div class="tecc-event-info">';
 	if ( $seconds > 0 ) {
 		   $ret .= '<h2 class="tecc-up-event">' . esc_html( $main_title ) . '</h2>';
@@ -49,13 +49,13 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	}
 			 $ret .= '<a href="' . esc_url( $link ) . '"><h3 class="tecc-title">' . esc_html( $event->post_title ) . '</h3></a>
 				<div class="event-date-location">
-				<span class="tecc-date">' . $start_date_formated . '</span>';
+				<span class="tecc-date">' . esc_html( $start_date_formated ) . '</span>';
 	if ( is_array( $event_venue ) ) {
 		$strip_addr = preg_replace( '/\s+/', '', $event_venue['address'] );
 		$trim_addr  = trim( preg_replace( '/\s+/', '', $strip_addr ) );
 		$address    = wp_strip_all_tags( $trim_addr );
 		if ( $address != '' ) {
-			$ret .= '<span class="tecc-location"> -</span>' . wp_strip_all_tags( $event_venue['address'] ) . '';
+			$ret .= '<span class="tecc-location"> -</span>' . esc_html( wp_strip_all_tags( $event_venue['address'] ) ) . '';
 		}
 	}
 
@@ -67,15 +67,15 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	if ( $seconds > 0 ) {
 		$ret .= tecc_generate_countdown_output( $seconds, $hourformat, $event, $eventstart_msz );
 	} elseif ( $endseconds >= 0 ) {
-		$ret .= '<div class="eventend_msz">' . wp_strip_all_tags( $eventend_msz ) . '</div>';
+		$ret .= '<div class="eventend_msz">' . esc_html( wp_strip_all_tags( $eventend_msz ) ) . '</div>';
 	} elseif ( $seconds <= 0 ) {
-		$ret .= '<div class="eventstart_msz">' . wp_strip_all_tags( $eventstart_msz ) . '</div>';
+		$ret .= '<div class="eventstart_msz">' . esc_html( wp_strip_all_tags( $eventstart_msz ) ) . '</div>';
 	}
 			 $ret .= '
 				</div>
 			</div>
 			<div class="tecc-event-detail">
-				<a class="tecc-event-button" href="' . esc_url( $link ) . '">' . __( 'Find out more', 'tecc' ) . '</a>
+				<a class="tecc-event-button" href="' . esc_url( $link ) . '">' . esc_html__( 'Find out more', 'countdown-for-the-events-calendar' ) . '</a>
 			</div>
 		</div>';
 			 return $ret;
@@ -86,9 +86,9 @@ function tecc_generate_countdown_output( $seconds, $hourformat, $event, $eventst
 
 	if ( $event ) {
 		$output .= '<div class="tec-countdown-timer-html">
-				<span class="tecc-seconds-section">' . wp_kses_post($seconds) . '</span>
+				<span class="tecc-seconds-section">' . absint($seconds) . '</span>
 				<span class="tecc-countdown-format">' . wp_kses_post($hourformat) . '</span>
-				<span class="tecc-countdown-complete">' . esc_html( $eventstart_msz ) . '</h3>
+				<span class="tecc-countdown-complete">' . esc_html( $eventstart_msz ) . '</span>
 			</div>';
 
 	}
@@ -117,47 +117,47 @@ function tecc_generate_countdown_html( $event, $settings, $event_ID ) {
 	$bg_color   = sanitize_hex_color( $bg_color );  
 
 		$custom_css = "
-				.tecc-wrapper#tecc-{$event_ID} .tec-countdown-timer .tecc-section{
-					color: {$font_color};
-					background: {$bg_color};
+				.tecc-wrapper#tecc-" . esc_attr( $event_ID ) . " .tec-countdown-timer .tecc-section{
+					color: " . esc_attr( $font_color ) . ";
+					background: " . esc_attr( $bg_color ) . ";
 				}
-				.tecc-wrapper#tecc-{$event_ID} .tecc-event-detail a.tecc-event-button{
-					color: {$font_color};
-					background: {$bg_color};
+				.tecc-wrapper#tecc-" . esc_attr( $event_ID ) . " .tecc-event-detail a.tecc-event-button{
+					color: " . esc_attr( $font_color ) . ";
+					background: " . esc_attr( $bg_color ) . ";
 				}
-				.tecc-wrapper#tecc-{$event_ID} .tecc-event-info h3.tecc-title{
-					color: {$bg_color};
+				.tecc-wrapper#tecc-" . esc_attr( $event_ID ) . " .tecc-event-info h3.tecc-title{
+					color: " . esc_attr( $bg_color ) . ";
 				}
-				.tecc-wrapper#tecc-{$event_ID} .tecc-event-info h2.tecc-up-event{
-					color: {$bg_color};
+				.tecc-wrapper#tecc-" . esc_attr( $event_ID ) . " .tecc-event-info h2.tecc-up-event{
+					color: " . esc_attr( $bg_color ) . ";
 				}
-				.tecc-wrapper#tecc-{$event_ID} .event-date-location {
-					color: {$bg_color};
+				.tecc-wrapper#tecc-" . esc_attr( $event_ID ) . " .event-date-location {
+					color: " . esc_attr( $bg_color ) . ";
 				}
-				.tecc-wrapper#tecc-{$event_ID} .eventstart_msz,
-				.tecc-wrapper#tecc-{$event_ID} .eventend_msz{
-					color: {$bg_color};
+				.tecc-wrapper#tecc-" . esc_attr( $event_ID ) . " .eventstart_msz,
+				.tecc-wrapper#tecc-" . esc_attr( $event_ID ) . " .eventend_msz{
+					color: " . esc_attr( $bg_color ) . ";
 				}
-				.tecc-wrapper#tecc-{$event_ID} .tecc-countdown-complete{
-					color: {$bg_color};
+				.tecc-wrapper#tecc-" . esc_attr( $event_ID ) . " .tecc-countdown-complete{
+					color: " . esc_attr( $bg_color ) . ";
 				}
 			";
 
 				wp_add_inline_style( 'custom-style', $custom_css );
 	$tec_html .= '				
-			<div class="tec-countdown-timer tec-' . $box_size . '-box">
+			<div class="tec-countdown-timer tec-' . esc_attr( $box_size ) . '-box">
 			
 				<div class="tecc-section tecc-days-section">
 					<span class="tecc-amount">DD</span>
-					<span class="tecc-word">' . __( 'days', 'tecc' ) . '</span>
+					<span class="tecc-word">' . esc_html__( 'days', 'countdown-for-the-events-calendar' ) . '</span>
 				</div>
 				<div class="tecc-section tecc-hours-section">
 					<span class="tecc-amount">HH</span>
-					<span class="tecc-word">' . __( 'hours', 'tecc' ) . '</span>
+					<span class="tecc-word">' . esc_html__( 'hours', 'countdown-for-the-events-calendar' ) . '</span>
 				</div>
 				<div class="tecc-section tecc-minutes-section">
 					<span class="tecc-amount">MM</span>
-					<span class="tecc-word">' . __( 'min', 'tecc' ) . '</span>
+					<span class="tecc-word">' . esc_html__( 'min', 'countdown-for-the-events-calendar' ) . '</span>
 				</div>';
 
 	if ( $show_seconds == 'yes' ) {
@@ -165,7 +165,7 @@ function tecc_generate_countdown_html( $event, $settings, $event_ID ) {
 		$tec_html .= '
 				<div class="tecc-section tecc-seconds-section">
 					<span class="tecc-amount">SS</span>
-					<span class="tecc-word">' . __( 'sec', 'tecc' ) . '</span>
+					<span class="tecc-word">' . esc_html__( 'sec', 'countdown-for-the-events-calendar' ) . '</span>
 				</div>';
 
 	}

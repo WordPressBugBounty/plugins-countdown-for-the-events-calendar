@@ -56,10 +56,37 @@ function tecc_display_header() {
 		<?php
 	}
 }
+function tecc_sanitize_settings( $input ) {
+
+	if ( ! is_array( $input ) ) {
+		return array();
+	}
+
+	$sanitized = array();
+
+	foreach ( $input as $key => $value ) {
+
+		$key = sanitize_key( $key );
+
+		if ( is_array( $value ) ) {
+			$sanitized[ $key ] = array_map( 'sanitize_text_field', $value );
+		} else {
+			$sanitized[ $key ] = sanitize_text_field( $value );
+		}
+	}
+
+	return $sanitized;
+}
 
 function tecc_settings_init() {
 
-	register_setting( 'pluginPage', 'tecc_settings' );
+	register_setting(
+		'pluginPage',
+		'tecc_settings',
+		array(
+			'sanitize_callback' => 'tecc_sanitize_settings',
+		)
+	);
 	add_settings_section(
 		'tecc_pluginPage_section',
 		__( 'Create Shortcode for the Event countdown using below mentioned settings', 'countdown-for-the-events-calendar' ),
@@ -230,7 +257,7 @@ function tecc_text_field_1_render() {
 
 	$options = get_option( 'tecc_settings' );
 	?>
-	<input type='text' name='tecc_settings[backgroundcolor]' value="<?php echo isset( $options['backgroundcolor'] ) ? esc_html( $options['backgroundcolor'] ) : '#2a86f7'; ?>" class="wp-color-picker-field" data-default-color ="#4395cb">
+	<input type='text' name='tecc_settings[backgroundcolor]' value="<?php echo isset( $options['backgroundcolor'] ) ? esc_attr( $options['backgroundcolor'] ) : '#2a86f7'; ?>" class="wp-color-picker-field" data-default-color ="#4395cb">
 	<?php
 }
 
@@ -239,7 +266,7 @@ function tecc_text_field_2_render() {
 
 	$options = get_option( 'tecc_settings' );
 	?>
-	<input type='text' name='tecc_settings[font-color]' value="<?php echo isset( $options['font-color'] ) ? esc_html( $options['font-color'] ) : '#ffffff'; ?>" class="wp-color-picker-field" data-default-color ="#ffffff">
+	<input type='text' name='tecc_settings[font-color]' value="<?php echo isset( $options['font-color'] ) ? esc_attr( $options['font-color'] ) : '#ffffff'; ?>" class="wp-color-picker-field" data-default-color ="#ffffff">
 	<?php
 
 }
@@ -248,7 +275,7 @@ function tecc_text_field_2_render() {
 function tecc_select_field_3_render() {
 
 	$options       = get_option( 'tecc_settings' );
-	 $show_seconds = isset( $options['show-seconds'] ) ? $options['show-seconds'] : 'yes';
+	 $show_seconds = isset( $options['show-seconds'] ) ? sanitize_key( wp_unslash( $options['show-seconds'] ) ) : 'yes';
 	?>
 	<select name='tecc_settings[show-seconds]'>
 	
@@ -262,7 +289,7 @@ function tecc_select_field_3_render() {
 function tecc_select_field_12_render() {
 
 	$options       = get_option( 'tecc_settings' );
-	 $show_image = isset( $options['show-image'] ) ? $options['show-image'] : 'no';
+	 $show_image = isset( $options['show-image'] ) ? sanitize_key( wp_unslash( $options['show-image'] ) ) : 'no';
 	?>
 	<select name='tecc_settings[show-image]'>
 	
@@ -277,7 +304,7 @@ function tecc_select_field_12_render() {
 function tecc_select_field_4_render() {
 
 	$options = get_option( 'tecc_settings' );
-	$size    = isset( $options['size'] ) ? $options['size'] : 'medium';
+	$size    = isset( $options['size'] ) ? sanitize_key( wp_unslash( $options['size'] ) ) : 'medium';
 	?>
 	<select name='tecc_settings[size]'>
 		<option value="large" <?php selected( $size, 'large' ); ?>>Large</option>
@@ -309,7 +336,7 @@ function tecc_text_field_6_render() {
 function tecc_select_field_8_render() {
 
 	$options   = get_option( 'tecc_settings' );
-	$autostart = isset( $options['autostart-next-countdown'] ) ? $options['autostart-next-countdown'] : 'no';
+	$autostart = isset( $options['autostart-next-countdown'] ) ? sanitize_key( wp_unslash( $options['autostart-next-countdown'] ) ) : 'no';
 	?>
 	<select name='tecc_settings[autostart-next-countdown]'>
 		<option value="no" <?php selected( $autostart, 'no' ); ?>>No</option>
@@ -322,7 +349,7 @@ function tecc_select_field_8_render() {
 function tecc_select_field_11_render() {
 
 	$options   = get_option( 'tecc_settings' );
-	$autostart = isset( $options['autostart-future-countdown'] ) ? $options['autostart-future-countdown'] : 'no';
+	$autostart = isset( $options['autostart-future-countdown'] ) ? sanitize_key( wp_unslash( $options['autostart-future-countdown'] ) ) : 'no';
 	?>
 	<select name='tecc_settings[autostart-future-countdown]'>
 		<option value="no" <?php selected( $autostart, 'no' ); ?>>No</option>
@@ -334,7 +361,7 @@ function tecc_select_field_11_render() {
 
 function autostart() {
 	$options   = get_option( 'tecc_settings' );
-	$autostart = isset( $options['autostart-next-countdown'] ) ? $options['autostart-next-countdown'] : 'no';
+	$autostart = isset( $options['autostart-next-countdown'] ) ? sanitize_key( wp_unslash( $options['autostart-next-countdown'] ) ) : 'no';
 	return $autostart;
 }
 
@@ -366,7 +393,7 @@ function tecc_select_field_7_render() {
 				<?php
 				foreach ( $events as $event ) {
 					$checked         = '';
-					$selected_events = isset( $options['future-events-list'] ) && ! empty( $options['future-events-list'] ) ? $options['future-events-list'] : '';
+					$selected_events = isset( $options['future-events-list'] ) ? array_map( 'absint', (array) $options['future-events-list'] ) : array();
 					if ( is_array( $selected_events ) ) {
 						if ( in_array( $event->ID, $selected_events ) ) {
 							$checked = 'checked';
@@ -374,7 +401,7 @@ function tecc_select_field_7_render() {
 					}
 					?>
 					<li>
-						<input class="tecc-checkbox" type='checkbox' name='tecc_settings[future-events-list][]' value="<?php echo esc_attr( $event->ID ); ?>" <?php echo esc_html( $checked ); ?> ><label><?php echo esc_html( $event->post_title ); ?></label>
+						<input class="tecc-checkbox" type='checkbox' name='tecc_settings[future-events-list][]' value="<?php echo esc_attr( $event->ID ); ?>" <?php echo esc_attr( $checked ); ?> ><label><?php echo esc_html( $event->post_title ); ?></label>
 					</li>
 					<?php
 				}
@@ -409,10 +436,10 @@ function tecc_text_field_10_render() {
 }
 
 function tecc_checkbox_setting(){
-	register_setting('settingPage', 'tecc_settings');
+	register_setting( 'settingPage', 'tecc_settings', array( 'sanitize_callback' => 'tecc_sanitize_settings' ) );
 	add_settings_section(
 		'tecc_settingPage_section',
-		__( '', 'countdown-for-the-events-calendar' ),//phpcs:ignore WordPress.WP.I18n.NoEmptyStrings
+		'',
 		'',
 		'settingPage'
 	);
@@ -445,7 +472,7 @@ function tecc_select_field_13_render() {
 	// Checkbox check logic
 	$checked = $final_value === 'yes' ? 'checked' : '';
 	?>
-	<input type="checkbox" id="tecc-cpfm-data-sharing" <?php echo $checked; ?>>
+	<input type="checkbox" id="tecc-cpfm-data-sharing" <?php echo esc_attr( $checked); ?>>
 		Help us make this plugin more compatible with your site by sharing non-sensitive site data. <a href="#" class="cpfm-see-terms tecc-see-terms">[See terms]</a>
 		<div id="termsBox" class="tecc-terms-box" style="display: none; padding-left: 20px; margin-top: 10px; font-size: 12px; color: #999;">
 			<p><?php esc_html_e("Opt in to receive email updates about security improvements, new features, helpful tutorials, and occasional special offers. We'll collect:", 'countdown-for-the-events-calendar'); ?><a href='https://my.coolplugins.net/terms/usage-tracking/' target='_blank'> Click Here</a></p>
@@ -464,8 +491,8 @@ function cpfm_save_usage_data_sharing_callback() {
 	}
 	check_ajax_referer('cpfm_nonce_action', 'nonce');
 
-	$choice = isset($_POST['opt_in']) && $_POST['opt_in'] === 'yes' ? 'yes' : 'no';
-
+	$choice = isset($_POST['opt_in']) && sanitize_key(wp_unslash($_POST['opt_in'])) === 'yes' ? 'yes' : 'no';
+	
 	update_option('tecc-cpfm-data-sharing', $choice);
 
 	if ($choice === 'yes') {
@@ -534,9 +561,37 @@ function tecc_options_page() {
 				}
 			}
 			if ( isset( $options['event_id'] ) && ! empty( $options['event_id'] ) && $options['event_id'] != 0 ) {
-				$dynamic_attr  = '';
-				$dynamic_attr .= "[events-calendar-countdown id=\"{$options['event_id']}\" backgroundcolor=\"{$options['backgroundcolor']}\" font-color=\"{$options['font-color']}\" show-seconds=\"{$options['show-seconds']}\" show-image=\"{$options['show-image']}\" size=\"{$options['size']}\" event-start=\"{$options['event-start']}\" event-end=\"{$options['event-end']}\" autostart-next-countdown=\"{$options['autostart-next-countdown']}\" autostart-text=\"{$options['autostart-text']}\" autostart-future-countdown=\"{$options['autostart-future-countdown']}\" future-events-list=\"{$k}\" main-title=\"{$options['main-title']}\"";
-				$dynamic_attr .= ']';
+				$dynamic_attr    = '';
+				$event_id        = isset( $options['event_id'] ) ? absint( wp_unslash( $options['event_id'] ) ) : 0;
+				$backgroundcolor = isset( $options['backgroundcolor'] ) ? sanitize_hex_color( wp_unslash( $options['backgroundcolor'] ) ) : '';
+				$font_color      = isset( $options['font-color'] ) ? sanitize_hex_color( wp_unslash( $options['font-color'] ) ) : '';
+                $show_seconds    = isset( $options['show-seconds'] ) ? sanitize_key( wp_unslash( $options['show-seconds'] ) ) : '';
+                $show_image      = isset( $options['show-image'] ) ? sanitize_key( wp_unslash( $options['show-image'] ) ) : '';
+                $size            = isset( $options['size'] ) ? sanitize_key( wp_unslash( $options['size'] ) ) : '';
+                $event_start     = isset( $options['event-start'] ) ? sanitize_text_field( wp_unslash( $options['event-start'] ) ) : '';
+                $event_end       = isset( $options['event-end'] ) ? sanitize_text_field( wp_unslash( $options['event-end'] ) ) : '';
+                $autostart_next_countdown = isset( $options['autostart-next-countdown'] ) ? sanitize_key( wp_unslash( $options['autostart-next-countdown'] ) ) : '';
+                $autostart_text = isset( $options['autostart-text'] ) ? sanitize_text_field( wp_unslash( $options['autostart-text'] ) ) : '';
+                $autostart_future_countdown = isset( $options['autostart-future-countdown'] ) ? sanitize_key( wp_unslash( $options['autostart-future-countdown'] ) ) : '';
+                $future_events_list = isset( $k ) ? absint( $k ) : 0;
+                $main_title      = isset( $options['main-title'] ) ? sanitize_text_field( wp_unslash( $options['main-title'] ) ) : '';
+
+				$dynamic_attr = sprintf(
+					'[events-calendar-countdown id="%s" backgroundcolor="%s" font-color="%s" show-seconds="%s" show-image="%s" size="%s" event-start="%s" event-end="%s" autostart-next-countdown="%s" autostart-text="%s" autostart-future-countdown="%s" future-events-list="%s" main-title="%s"]',
+					esc_attr( $event_id ),
+					esc_attr( $backgroundcolor ),
+					esc_attr( $font_color ),
+					esc_attr( $show_seconds ),
+					esc_attr( $show_image ),
+					esc_attr( $size ),
+					esc_attr( $event_start ),
+					esc_attr( $event_end ),
+					esc_attr( $autostart_next_countdown ),
+					esc_attr( $autostart_text ),
+					esc_attr( $autostart_future_countdown ),
+					esc_attr( $future_events_list ),
+					esc_attr( $main_title )
+				);
 
 				echo '<h3>' . esc_html__( 'Shortcode Preview', 'countdown-for-the-events-calendar' ) . '</h3>';
 				echo do_shortcode( $dynamic_attr );

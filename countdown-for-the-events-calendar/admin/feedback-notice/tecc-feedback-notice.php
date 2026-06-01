@@ -16,6 +16,11 @@ if ( ! class_exists( 'teccFeedbackNotice' ) ) {
 		// ajax callback for review notice
 		public function tecc_dismiss_review_notice() {
 			check_ajax_referer( 'tecc_dismiss_notice_nonce', 'security' );
+
+			if ( ! current_user_can( 'update_plugins' ) ) {
+				wp_send_json_error( 'Unauthorized' );
+			}
+			
 			update_option( 'tecc-ratingDiv', 'yes' );
 			wp_send_json_success();
 		}

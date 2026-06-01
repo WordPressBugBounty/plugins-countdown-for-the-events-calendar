@@ -184,9 +184,19 @@ class tecc_feedback {
 
 
 	function submit_deactivation_response() {
-		if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field(wp_unslash( $_POST['_wpnonce'] )), '_cool-plugins_deactivate_feedback_nonce' ) ) {
+	
+		if(!current_user_can('manage_options')){
+			
+			  wp_send_json_error( __( 'Unauthorized', 'countdown-for-the-events-calendar' ), 403 );
+		      wp_die( '0', 403 );
+		}
+				
+		if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ), '_cool-plugins_deactivate_feedback_nonce' ) ) {
+				
 			wp_send_json_error();
+		   
 		} else {
+
 			$reason             = isset( $_POST['reason'] ) ? sanitize_text_field(wp_unslash( $_POST['reason'] )) : '';
 			$deactivate_reasons = array(
 				'didnt_work_as_expected'         => array(
@@ -225,8 +235,8 @@ class tecc_feedback {
 				array(
 					'timeout' => 30,
 					'body'    => array(
-						'server_info'    => serialize($this->cpfm_get_user_info()['server_info']), 
-						'extra_details'  => serialize($this->cpfm_get_user_info()['extra_details']),
+						'server_info'    => wp_json_encode( $this->cpfm_get_user_info()['server_info']), 
+						'extra_details'  => wp_json_encode( $this->cpfm_get_user_info()['extra_details']),
 						'plugin_initial' => isset($plugin_initial) ? sanitize_text_field($plugin_initial) : 'N/A',
 						'plugin_version' => sanitize_text_field($this->plugin_version),
 						'plugin_name'    => sanitize_text_field($this->plugin_name),
@@ -239,7 +249,11 @@ class tecc_feedback {
 				)
 			);
 
-			die( json_encode( array( 'response' => $response ) ) );
+			if ( is_wp_error( $response ) ) {
+				wp_send_json_error( 'Feedback submission failed' );
+			}
+			
+			wp_send_json_success( 'Feedback submitted successfully' );
 		}
 
 	}

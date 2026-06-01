@@ -37,6 +37,7 @@ class CountdownShortcode {
 				'event-end'                => '',
 				'event-start'              => '',
 				'autostart-next-countdown' => '',
+				'autostart-future-countdown' => '',
 				'future-events-list'       => '',
 				'autostart-text'           => '',
 
@@ -76,7 +77,7 @@ class CountdownShortcode {
 			}
 		}
 		$event_list = '';
-		if ( $autostart == 'yes' ) {
+		if ( 'yes' === $autostart ) {
 
 			if ( $autostart_future == 'yes' ) {
 				$event_list = $evIDarry;
@@ -124,7 +125,7 @@ class CountdownShortcode {
 			$c_output = tecc_get_output( $event, $atts, $event_ID, $autostart );
 		} else {
 
-			$c_output .= '<div class="tecc-no-event-msz">' . __( 'There is no upcoming event', 'countdown-for-the-events-calendar' ) . '</div>';
+			$c_output .= '<div class="tecc-no-event-msz">' . esc_html__( 'There is no upcoming event', 'countdown-for-the-events-calendar' ) . '</div>';
 		}
 		return $c_output;
 	}

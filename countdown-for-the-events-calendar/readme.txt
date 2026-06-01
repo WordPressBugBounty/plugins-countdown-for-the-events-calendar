@@ -3,9 +3,9 @@ Contributors: narinder-singh, satindersingh, coolplugins, eventscalendaraddons
 Donate link: https://donate.stripe.com/5kQdR92iBevO75WbPm6c00i
 Tags: the events calendar, events, event calendar, countdown timer, countdown
 Requires at least: 5.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.2
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,6 +134,10 @@ Please report security bugs found in the source code of the undefined plugin thr
 3. Event Countdown Shortcode & Preview
 
 == Changelog ==
+
+= 1.5.3 | JUN 1, 2026 =
+* Improved: Code improvements and optimization.
+* Tested: With The Events Calendar v6.16.3.
 
 = 1.5.2 | MAR 10, 2026 =
 * Improved: Dashboard header usability.
