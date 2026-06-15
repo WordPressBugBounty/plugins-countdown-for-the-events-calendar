@@ -5,7 +5,7 @@ Tags: the events calendar, events, event calendar, countdown timer, countdown
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.2
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,6 +134,9 @@ Please report security bugs found in the source code of the undefined plugin thr
 3. Event Countdown Shortcode & Preview
 
 == Changelog ==
+
+= 1.5.4 | JUN 15, 2026 =
+* Improved: Cleaned up the notice registration logic for better readability.
 
 = 1.5.3 | JUN 1, 2026 =
 * Improved: Code improvements and optimization.
