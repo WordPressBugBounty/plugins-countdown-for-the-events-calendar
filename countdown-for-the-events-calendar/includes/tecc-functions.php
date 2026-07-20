@@ -8,11 +8,19 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	 $eventstart_msz = '';
 	 $autostart_msz = '';
 	 $image = array_key_exists('show-image', $settings) ? $settings['show-image'] : "no";
+	 $saved_settings = get_option( 'tecc_settings', array() );
 	 $main_title    = isset( $settings['main-title'] ) && ! empty( $settings['main-title'] ) ? $settings['main-title'] : esc_html__( 'Next Upcoming Event', 'countdown-for-the-events-calendar' );
 	 $autostart_msz = isset( $settings['autostart-text'] ) && ! empty( $settings['autostart-text'] ) ? $settings['autostart-text'] : esc_html__( 'Event Starts refresh page to see next upcoming event', 'countdown-for-the-events-calendar' );
 
+	if ( ! empty( $saved_settings['autostart-text'] ) ) {
+		$autostart_msz = $saved_settings['autostart-text'];
+	}
+
 	if ( isset( $settings['event-end'] ) ) {
 		$eventend_msz = $settings['event-end'];
+	}
+	if ( ! empty( $saved_settings['event-end'] ) ) {
+		$eventend_msz = $saved_settings['event-end'];
 	}
 
 	if ( $autostart == 'yes' ) {
@@ -20,6 +28,9 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	} else {
 		if ( isset( $settings['event-start'] ) ) {
 			$eventstart_msz = $settings['event-start'];
+		}
+		if ( ! empty( $saved_settings['event-start'] ) ) {
+			$eventstart_msz = $saved_settings['event-start'];
 		}
 	}
 		  // Get the event start date and end date.
@@ -67,9 +78,9 @@ function tecc_get_output( $event, $settings, $event_ID, $autostart ) {
 	if ( $seconds > 0 ) {
 		$ret .= tecc_generate_countdown_output( $seconds, $hourformat, $event, $eventstart_msz );
 	} elseif ( $endseconds >= 0 ) {
-		$ret .= '<div class="eventend_msz">' . esc_html( wp_strip_all_tags( $eventend_msz ) ) . '</div>';
+		$ret .= '<div class="eventend_msz">' . wp_kses_post( $eventend_msz ) . '</div>';
 	} elseif ( $seconds <= 0 ) {
-		$ret .= '<div class="eventstart_msz">' . esc_html( wp_strip_all_tags( $eventstart_msz ) ) . '</div>';
+		$ret .= '<div class="eventstart_msz">' . wp_kses_post( $eventstart_msz ) . '</div>';
 	}
 			 $ret .= '
 				</div>
@@ -88,7 +99,7 @@ function tecc_generate_countdown_output( $seconds, $hourformat, $event, $eventst
 		$output .= '<div class="tec-countdown-timer-html">
 				<span class="tecc-seconds-section">' . absint($seconds) . '</span>
 				<span class="tecc-countdown-format">' . wp_kses_post($hourformat) . '</span>
-				<span class="tecc-countdown-complete">' . esc_html( $eventstart_msz ) . '</span>
+				<span class="tecc-countdown-complete">' . wp_kses_post( $eventstart_msz ) . '</span>
 			</div>';
 
 	}

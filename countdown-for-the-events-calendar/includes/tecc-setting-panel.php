@@ -62,7 +62,8 @@ function tecc_sanitize_settings( $input ) {
 		return array();
 	}
 
-	$sanitized = array();
+	$sanitized   = array();
+	$html_fields = array( 'event-start', 'event-end', 'autostart-text' );
 
 	foreach ( $input as $key => $value ) {
 
@@ -70,6 +71,8 @@ function tecc_sanitize_settings( $input ) {
 
 		if ( is_array( $value ) ) {
 			$sanitized[ $key ] = array_map( 'sanitize_text_field', $value );
+		} elseif ( in_array( $key, $html_fields, true ) ) {
+			$sanitized[ $key ] = wp_kses_post( $value );
 		} else {
 			$sanitized[ $key ] = sanitize_text_field( $value );
 		}
@@ -316,21 +319,23 @@ function tecc_select_field_4_render() {
 }
 
 
-function tecc_text_field_5_render() {
-
+function tecc_render_message_field( $field, $example ) {
 	$options = get_option( 'tecc_settings' );
 	printf(
-		'<input type="text" name="tecc_settings[event-start]" value="%s" />',
-		isset( $options['event-start'] ) ? esc_attr( $options['event-start'] ) : ''
+		'<textarea name="tecc_settings[%1$s]" rows="3" class="large-text">%2$s</textarea><p class="description">%3$s<br><code>%4$s</code></p>',
+		esc_attr( $field ),
+		isset( $options[ $field ] ) ? esc_textarea( $options[ $field ] ) : '',
+		esc_html__( 'You can now add a link. Use this format:', 'countdown-for-the-events-calendar' ),
+		esc_html( $example )
 	);
 }
 
+function tecc_text_field_5_render() {
+	tecc_render_message_field( 'event-start', 'Event started! <a href="https://example.com">View details</a>' );
+}
+
 function tecc_text_field_6_render() {
-	$options = get_option( 'tecc_settings' );
-	printf(
-		'<input type="text" name="tecc_settings[event-end]" value="%s" />',
-		isset( $options['event-end'] ) ? esc_attr( $options['event-end'] ) : ''
-	);
+	tecc_render_message_field( 'event-end', 'Event ended! <a href="https://example.com">View details</a>' );
 }
 
 function tecc_select_field_8_render() {
@@ -428,11 +433,7 @@ function tecc_text_field_9_render() {
 }
 
 function tecc_text_field_10_render() {
-	$options = get_option( 'tecc_settings' );
-	printf(
-		'<input type="text" name="tecc_settings[autostart-text]" value="%s" />',
-		isset( $options['autostart-text'] ) ? esc_attr( $options['autostart-text'] ) : ''
-	);
+	tecc_render_message_field( 'autostart-text', 'Next event starting! <a href="https://example.com">View details</a>' );
 }
 
 function tecc_checkbox_setting(){
@@ -568,10 +569,10 @@ function tecc_options_page() {
                 $show_seconds    = isset( $options['show-seconds'] ) ? sanitize_key( wp_unslash( $options['show-seconds'] ) ) : '';
                 $show_image      = isset( $options['show-image'] ) ? sanitize_key( wp_unslash( $options['show-image'] ) ) : '';
                 $size            = isset( $options['size'] ) ? sanitize_key( wp_unslash( $options['size'] ) ) : '';
-                $event_start     = isset( $options['event-start'] ) ? sanitize_text_field( wp_unslash( $options['event-start'] ) ) : '';
-                $event_end       = isset( $options['event-end'] ) ? sanitize_text_field( wp_unslash( $options['event-end'] ) ) : '';
+                $event_start     = isset( $options['event-start'] ) ? wp_strip_all_tags( $options['event-start'] ) : '';
+                $event_end       = isset( $options['event-end'] ) ? wp_strip_all_tags( $options['event-end'] ) : '';
                 $autostart_next_countdown = isset( $options['autostart-next-countdown'] ) ? sanitize_key( wp_unslash( $options['autostart-next-countdown'] ) ) : '';
-                $autostart_text = isset( $options['autostart-text'] ) ? sanitize_text_field( wp_unslash( $options['autostart-text'] ) ) : '';
+                $autostart_text  = isset( $options['autostart-text'] ) ? wp_strip_all_tags( $options['autostart-text'] ) : '';
                 $autostart_future_countdown = isset( $options['autostart-future-countdown'] ) ? sanitize_key( wp_unslash( $options['autostart-future-countdown'] ) ) : '';
                 $future_events_list = isset( $k ) ? absint( $k ) : 0;
                 $main_title      = isset( $options['main-title'] ) ? sanitize_text_field( wp_unslash( $options['main-title'] ) ) : '';
