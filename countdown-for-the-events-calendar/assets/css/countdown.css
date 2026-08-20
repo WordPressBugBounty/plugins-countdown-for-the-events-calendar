@@ -9,11 +9,6 @@
   text-transform: uppercase;
 }
 
-.tecc-wrapper .event-name a, .tecc-wrapper .event-name h3{
-  text-decoration:none;
-  color:white;
-  margin-bottom: 20px;
-}
 .tecc-no-event-msz {
   color: black;
 }
@@ -50,7 +45,7 @@
 margin-right: 3px;
 }
 
-.eventstart_msz,.eventend_msz,.tecc-no-event-msz,.tecc-countdown-complete {
+.eventstart_msz,.eventend_msz,.tecc-no-event-msz {
   font-size: 17px;
   padding: 20px;
   text-align: center;
@@ -176,15 +171,18 @@ text-decoration: none;
 	.tec-large-box > .tecc-section > span.tecc-word{font-size:25px; padding:13px;}
 }
 
-/*
-Admin styles
-*/
 
-.tecc-shortcode-wrapper{
-   width:48%;
-   float:left;
-}
-.tecc-from-wrapper form.tecc-form{
-  width:48%;
-  float:left;
+/**
+ * Block editor (inspector) helpers for tecc/countdown.
+ *
+ * WP RangeControl's drag handle uses @use-gesture, which warns in development
+ * when the target's touch-action is `auto`. Pin it to `none` so drag works on
+ * touch devices and the console stays quiet. Scoped to range-control wrappers
+ * only — does not change front-end countdown CSS.
+ *
+ * @since 2.0.0
+ */
+
+ .components-range-control__wrapper {
+	touch-action: none;
 }

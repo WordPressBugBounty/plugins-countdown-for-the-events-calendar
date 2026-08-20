@@ -1,0 +1,1006 @@
+/**
+ * Event Countdown for The Events Calendar - template layouts.
+ *
+ * Flexible design engine: two layouts (card, banner) x three countdown skins
+ * (box, ring, inline), every color / size / radius driven by the design CSS
+ * custom properties set inline per instance (see tokens.css + Args::
+ * design_style_attr). Nothing here is hardcoded except transparent-fallback
+ * literals for browsers without color-mix(). Mobile-first, logical properties
+ * throughout for RTL, tabular numerals + reserved digit width for zero layout
+ * shift while ticking.
+ *
+ * The legacy `minimal` layout is preserved lower down. This file MUST NOT
+ * style .tecc-section, .tecc-amount, .tec-countdown-timer or any other classic
+ * class - the classic look is owned by the untouched legacy countdown.css.
+ *
+ * @since 2.0.0
+ */
+
+/* ------------------------------------------------------------------
+ * 1. Shared base (all new templates).
+ * ------------------------------------------------------------------ */
+.tecc-cd {
+	box-sizing: border-box;
+	font-size: var(--tecc-size);
+	line-height: 1.45;
+}
+
+.tecc-cd *,
+.tecc-cd *::before,
+.tecc-cd *::after {
+	box-sizing: border-box;
+}
+
+.tecc-cd [hidden] {
+	display: none !important;
+}
+
+.tecc-cd img {
+	max-inline-size: 100%;
+}
+
+/* Size modifiers (legacy minimal + back-compat). */
+.tecc-cd--small {
+	font-size: calc(var(--tecc-size) * 0.875);
+}
+
+.tecc-cd--large {
+	font-size: calc(var(--tecc-size) * 1.25);
+}
+
+/* ------------------------------------------------------------------
+ * 2. Shared content primitives (card + banner).
+ * ------------------------------------------------------------------ */
+
+/* Kicker pill: state label ("Next Event" / "Event in Progress" / ...). */
+.tecc-cd__kicker {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0;
+	padding: 3px 12px;
+	border: 1px solid var(--tecc-main);
+	border-color: color-mix(in srgb, var(--tecc-main) 40%, transparent);
+	border-radius: 999px;
+	color: var(--tecc-main);
+	/* Derived from the body size so it scales with the rest of the text instead
+	   of sitting at a fixed px. It's an UPPERCASE, letter-spaced pill, so it
+	   reads correctly a little below body size; the floor keeps it legible when
+	   body size is very small. */
+	font-size: max(9px, calc(var(--tecc-body-size) * 0.82));
+	font-weight: 700;
+	line-height: 1.4;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.tecc-cd__kicker::before {
+	content: "";
+	flex: 0 0 auto;
+	inline-size: 6px;
+	block-size: 6px;
+	border-radius: 50%;
+	background: var(--tecc-main);
+}
+
+/* Title (the linked event name). */
+.tecc-cd__title {
+	margin: 0;
+	line-height: 1.3;
+	font-weight: 700;
+	color: inherit;
+}
+
+/* Title link: theme-proof. Extra ancestor specificity + explicit resets beat
+   theme/Elementor `.entry-content a` rules so the title keeps the design colour,
+   never a themed link colour or underline; hover shifts to the accent. */
+.tecc-cd a.tecc-cd__title-link {
+	color: var(--tecc-title-color);
+	text-decoration: none;
+	box-shadow: none;
+	background: none;
+	border: 0;
+	transition: color 0.15s ease;
+}
+
+.tecc-cd a.tecc-cd__title-link:hover,
+.tecc-cd a.tecc-cd__title-link:focus {
+	color: var(--tecc-main);
+	text-decoration: none;
+	box-shadow: none;
+}
+
+.tecc-cd--card .tecc-cd__title,
+.tecc-cd--banner .tecc-cd__title {
+	color: var(--tecc-title-color);
+	font-size: var(--tecc-title-size);
+	font-weight: 800;
+	line-height: 1.15;
+}
+
+/* Meta rows (date / venue / cost with inline icons). */
+.tecc-cd__meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px 16px;
+	color: var(--tecc-text-color);
+	font-size: var(--tecc-body-size);
+}
+
+.tecc-cd__meta:empty {
+	display: none;
+}
+
+/* Centre-aligned content centres the meta row too (it's a flex row, so text-align
+   alone won't do it). Right-align mirrors. */
+.tecc-cd--align-c .tecc-cd__meta {
+	justify-content: center;
+}
+.tecc-cd--align-r .tecc-cd__meta {
+	justify-content: flex-end;
+}
+
+.tecc-cd__meta-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	min-inline-size: 0;
+}
+
+.tecc-cd__icon {
+	flex: 0 0 auto;
+	inline-size: 16px;
+	block-size: 16px;
+	opacity: 0.85;
+}
+
+/* Divider hairline. */
+/* The body is a flex column with align-items:flex-start|center|end, so a plain
+   block child collapses to zero width — the divider needs an explicit stretch
+   or it renders invisible (1px tall x 0 wide). */
+.tecc-cd__divider {
+	inline-size: 100%;
+	align-self: stretch;
+	block-size: 1px;
+	border: 0;
+	margin-block: 2px;
+	background: #e0e0e0;
+	background: color-mix(in srgb, var(--tecc-text-color) 25%, transparent);
+}
+
+/* "BEGINS IN" / "ENDS IN" label above the timer. Also derived from the body
+   size — a touch smaller than the kicker since it sits directly above the big
+   digits and should stay subordinate to them. */
+.tecc-cd__endsin {
+	margin: 0;
+	color: var(--tecc-main);
+	font-size: max(9px, calc(var(--tecc-body-size) * 0.76));
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+/* Short accent bar (banner signature). */
+.tecc-cd__accent {
+	display: block;
+	inline-size: 40px;
+	block-size: 3px;
+	border-radius: 999px;
+	background: var(--tecc-main);
+}
+
+/* Call-to-action button (filled pill; banner overrides to outline). The
+   `.tecc-cd a.tecc-cd__button` selector + explicit resets beat theme/Elementor
+   `.entry-content a` link styling so the CTA keeps the design colours. */
+.tecc-cd a.tecc-cd__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 22px;
+	border: 2px solid transparent;
+	border-radius: max(0px, calc(var(--tecc-radius) * 0.7));
+	background: var(--tecc-main);
+	color: var(--tecc-alt);
+	font-size: var(--tecc-body-size);
+	font-weight: 700;
+	line-height: 1.2;
+	text-decoration: none;
+	box-shadow: none;
+	transition: filter 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.tecc-cd a.tecc-cd__button:hover,
+.tecc-cd a.tecc-cd__button:focus {
+	color: var(--tecc-alt);
+	text-decoration: none;
+	box-shadow: none;
+	filter: brightness(1.08);
+}
+
+.tecc-cd a.tecc-cd__button:focus-visible {
+	outline: 2px solid var(--tecc-main);
+	outline-offset: 2px;
+}
+
+/* State messages (replace the box during/after when not ongoing). */
+.tecc-cd__msg {
+	margin: 0;
+	padding-block: 4px;
+	font-size: 1.05em;
+	font-weight: 700;
+}
+
+.tecc-cd__msg--now {
+	color: var(--tecc-main);
+}
+
+.tecc-cd__msg--ended {
+	color: var(--tecc-text-color);
+	opacity: 0.8;
+}
+
+.tecc-cd__region {
+	display: block;
+}
+
+/* ------------------------------------------------------------------
+ * 3. Countdown skins (box / ring / inline).
+ * Shared unit primitives (tabular numerals + reserved width) live here;
+ * each skin overrides only its own appearance.
+ * ------------------------------------------------------------------ */
+.tecc-cd--card .tecc-cd__timer,
+.tecc-cd--banner .tecc-cd__timer {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin: 0;
+}
+
+.tecc-cd--card .tecc-cd__unit,
+.tecc-cd--banner .tecc-cd__unit {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.tecc-cd--card .tecc-cd__num,
+.tecc-cd--banner .tecc-cd__num {
+	display: inline-block;
+	min-inline-size: 2ch;
+	line-height: 1.05;
+	text-align: center;
+	color: var(--tecc-title-color);
+	font-variant-numeric: tabular-nums;
+	font-feature-settings: "tnum" 1;
+}
+
+.tecc-cd--card .tecc-cd__label,
+.tecc-cd--banner .tecc-cd__label {
+	line-height: 1;
+	color: var(--tecc-text-color);
+}
+
+/* Box skin: rounded tinted tiles. */
+.tecc-cd--cd-box .tecc-cd__unit {
+	gap: 6px;
+	min-inline-size: calc(var(--tecc-cd-size) * 2.2);
+	padding: 10px 8px;
+	border-radius: max(0px, calc(var(--tecc-radius) * 0.6));
+	background: rgba(67, 149, 203, 0.12);
+	background: color-mix(in srgb, var(--tecc-main) 12%, transparent);
+}
+
+.tecc-cd--cd-box .tecc-cd__num {
+	font-size: var(--tecc-cd-size);
+	font-weight: 800;
+}
+
+.tecc-cd--cd-box .tecc-cd__label {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+/* Inline skin: tight row, tiny unit labels, accented final unit. */
+.tecc-cd--cd-inline .tecc-cd__timer {
+	align-items: baseline;
+	gap: 12px;
+}
+
+.tecc-cd--cd-inline .tecc-cd__unit {
+	flex-direction: row;
+	align-items: baseline;
+	gap: 1px;
+}
+
+.tecc-cd--cd-inline .tecc-cd__num {
+	font-size: var(--tecc-cd-size);
+	font-weight: 800;
+	text-align: end;
+}
+
+.tecc-cd--cd-inline .tecc-cd__label {
+	font-size: calc(var(--tecc-cd-size) * 0.45);
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	margin-inline: 1px 4px;
+}
+
+.tecc-cd--cd-inline .tecc-cd__unit:last-child .tecc-cd__num {
+	color: var(--tecc-main);
+}
+
+/* Ring skin: conic-gradient ring with a punched-out center. */
+.tecc-cd--cd-ring .tecc-cd__unit {
+	gap: 6px;
+}
+
+.tecc-cd--cd-ring .tecc-cd__ring {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: calc(var(--tecc-cd-size) * 2.6);
+	block-size: calc(var(--tecc-cd-size) * 2.6);
+	border-radius: 50%;
+	background: conic-gradient(var(--tecc-main) calc(var(--tecc-ring, 0) * 360deg), rgba(67, 149, 203, 0.15) 0);
+	background: conic-gradient(var(--tecc-main) calc(var(--tecc-ring, 0) * 360deg), color-mix(in srgb, var(--tecc-main) 15%, transparent) 0);
+}
+
+.tecc-cd--cd-ring .tecc-cd__ring::before {
+	content: "";
+	position: absolute;
+	inset: calc(var(--tecc-cd-size) * 0.28);
+	border-radius: 50%;
+	background: var(--tecc-card-bg);
+}
+
+.tecc-cd--cd-ring .tecc-cd__num {
+	position: relative;
+	z-index: 1;
+	font-size: calc(var(--tecc-cd-size) * 0.8);
+	font-weight: 800;
+}
+
+.tecc-cd--cd-ring .tecc-cd__label {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------
+ * 4. Content alignment (card + banner share .tecc-cd__body).
+ * ------------------------------------------------------------------ */
+.tecc-cd--align-l .tecc-cd__body {
+	align-items: flex-start;
+	text-align: start;
+}
+
+.tecc-cd--align-c .tecc-cd__body {
+	align-items: center;
+	text-align: center;
+}
+
+.tecc-cd--align-r .tecc-cd__body {
+	align-items: flex-end;
+	text-align: end;
+}
+
+/* ------------------------------------------------------------------
+ * 5. Card layout (rounded container, optional image top/left/right).
+ * These selectors match both the single-event root and each carousel
+ * slide's inner card (both are .tecc-cd--card with the modifier classes).
+ * ------------------------------------------------------------------ */
+.tecc-cd--card {
+	/* Effective padding: a solid card gets a spacing FLOOR so content never
+	   touches the edges at padding 0; a transparent card stays flush. The
+	   image<->content gap TRACKS the padding (half of it) with a minimum so the
+	   image is never flush against the content — even at padding 0 — and the
+	   admin preview matches the front end (which was previously masked by the
+	   theme's ambient spacing). */
+	--tecc-pad-eff: var(--tecc-pad);
+	--tecc-img-space: max(calc(var(--tecc-pad-eff) / 2), 12px);
+	--tecc-hairline: color-mix(in srgb, var(--tecc-title-color) 20%, transparent);
+	display: flex;
+	flex-direction: column;
+	inline-size: 100%;
+	background: var(--tecc-card-bg);
+	color: var(--tecc-text-color);
+	border-radius: var(--tecc-radius);
+	overflow: hidden;
+}
+
+.tecc-cd--card.tecc-cd--has-bg {
+	--tecc-pad-eff: max(var(--tecc-pad), 14px);
+}
+
+/* Default width = "auto" = adapt to the container it's placed in (block column,
+   Elementor widget, content area), like every other block/widget. Set an
+   explicit Width to cap it narrower; a preset width applies as a max below. */
+.tecc-cd--card.tecc-cd--w-auto {
+	max-inline-size: 100%;
+}
+
+.tecc-cd--card.tecc-cd--w-fixed {
+	max-inline-size: var(--tecc-width);
+}
+
+/* Border colour derives from the title colour, so it's visible on a light OR a
+   dark card (a fixed black rgba disappears on dark). */
+.tecc-cd--card.tecc-cd--bordered {
+	border: var(--tecc-border) solid var(--tecc-hairline);
+}
+
+.tecc-cd--card.tecc-cd--shadow {
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.tecc-cd--card .tecc-cd__body {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	flex: 1 1 auto;
+	min-inline-size: 0;
+	padding: var(--tecc-pad-eff);
+}
+
+.tecc-cd--card .tecc-cd__media {
+	display: block;
+	inline-size: 100%;
+}
+
+.tecc-cd--card .tecc-cd__media img {
+	display: block;
+	inline-size: 100%;
+	block-size: auto;
+	object-fit: cover;
+}
+
+/* ---- Image top, inset (image-gap): inset by the effective padding on top +
+   sides; inline-size AUTO so the side margins shrink it instead of overflowing;
+   the body's (capped) top padding is the image<->content gap. ---- */
+.tecc-cd--img-gap.tecc-cd--img-top.tecc-cd--card .tecc-cd__media {
+	inline-size: auto;
+	margin: var(--tecc-pad-eff) var(--tecc-pad-eff) 0;
+}
+.tecc-cd--img-gap.tecc-cd--img-top.tecc-cd--card .tecc-cd__body {
+	padding-block-start: var(--tecc-img-space);
+}
+
+/* ---- Side-image layouts (left / right). ---- */
+.tecc-cd--img-left.tecc-cd--card,
+.tecc-cd--img-right.tecc-cd--card {
+	flex-direction: row;
+	align-items: stretch;
+	column-gap: 0;
+}
+
+.tecc-cd--img-right.tecc-cd--card .tecc-cd__media {
+	order: 2;
+}
+
+.tecc-cd--img-left.tecc-cd--card .tecc-cd__media,
+.tecc-cd--img-right.tecc-cd--card .tecc-cd__media {
+	flex: 0 0 44%;
+	align-self: stretch;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Absolute fill: a percentage img height does NOT resolve against a
+   flex-stretched parent, so a side image collapses to its intrinsic height.
+   Pinning it to the (relatively-positioned) media makes it full-height. */
+.tecc-cd--img-left.tecc-cd--card .tecc-cd__media img,
+.tecc-cd--img-right.tecc-cd--card .tecc-cd__media img {
+	position: absolute;
+	inset: 0;
+	inline-size: 100%;
+	block-size: 100%;
+}
+
+.tecc-cd--img-gap.tecc-cd--card .tecc-cd__media img {
+	border-radius: max(0px, calc(var(--tecc-radius) - 4px));
+}
+
+/* Side image WITH gap: inset the media, and guarantee a gap between image and
+   content via column-gap (works even on a transparent card at padding 0). The
+   body drops its padding on the image side so the gap isn't doubled. */
+.tecc-cd--img-gap.tecc-cd--img-left.tecc-cd--card,
+.tecc-cd--img-gap.tecc-cd--img-right.tecc-cd--card {
+	column-gap: max(var(--tecc-pad-eff), 14px);
+}
+.tecc-cd--img-gap.tecc-cd--img-left.tecc-cd--card .tecc-cd__media {
+	margin-block: var(--tecc-pad-eff);
+	margin-inline-start: var(--tecc-pad-eff);
+}
+.tecc-cd--img-gap.tecc-cd--img-right.tecc-cd--card .tecc-cd__media {
+	margin-block: var(--tecc-pad-eff);
+	margin-inline-end: var(--tecc-pad-eff);
+}
+.tecc-cd--img-gap.tecc-cd--img-left.tecc-cd--card .tecc-cd__body {
+	padding-inline-start: 0;
+}
+.tecc-cd--img-gap.tecc-cd--img-right.tecc-cd--card .tecc-cd__body {
+	padding-inline-end: 0;
+}
+
+/* ------------------------------------------------------------------
+ * 6. Banner layout (full-width promo strip: details on the start side,
+ *    countdown + button on the end side; optional leading image).
+ * ------------------------------------------------------------------ */
+/* The banner adapts to its OWN width (container query), so it lays out the same
+   whether it's full-width page content or a narrow footer widget:
+     narrow  -> stacked (image on top, then details, then countdown)
+     medium  -> image | details | countdown columns
+     wide    -> countdown + button share ONE row (details' meta also one row) */
+.tecc-cd--banner {
+	container-type: inline-size;
+	display: block;
+	inline-size: 100%;
+	background: var(--tecc-card-bg);
+	color: var(--tecc-text-color);
+	border-radius: var(--tecc-radius);
+	overflow: hidden;
+	--tecc-hairline: color-mix(in srgb, var(--tecc-title-color) 20%, transparent);
+}
+
+/* The container query lives on the banner, so the flex layout that responds to
+   it must sit on a descendant (a container can't restyle itself). This inner
+   wrapper is that descendant: column when narrow, row when the banner is wide. */
+.tecc-cd--banner .tecc-cd__banner-inner {
+	display: flex;
+	flex-direction: column;
+	inline-size: 100%;
+}
+
+.tecc-cd--banner.tecc-cd--w-fixed {
+	max-inline-size: var(--tecc-width);
+	margin-inline: auto;
+}
+
+.tecc-cd--banner.tecc-cd--bordered {
+	border: var(--tecc-border) solid var(--tecc-hairline);
+}
+
+.tecc-cd--banner.tecc-cd--shadow {
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Leading image, two modes:
+   - side column  (image-position left/right): a real image column beside body.
+   - glass hero   (image-position top): the image fills the whole banner as a
+     soft background and a themed scrim keeps the preset's text readable. */
+.tecc-cd--banner .tecc-cd__media {
+	position: relative;
+	overflow: hidden;
+	inline-size: 100%;
+	align-self: stretch;
+	background: var(--tecc-card-bg);
+}
+
+.tecc-cd--banner .tecc-cd__media img {
+	position: absolute;
+	inset: 0;
+	inline-size: 100%;
+	block-size: 100%;
+	object-fit: cover;
+}
+
+/* Side-column image: the <img> is absolutely filled, so give the media a real
+   height when stacked or the column collapses to a sliver (0-height flex item). */
+.tecc-cd--banner.tecc-cd--img-left .tecc-cd__media,
+.tecc-cd--banner.tecc-cd--img-right .tecc-cd__media {
+	aspect-ratio: 16 / 7;
+	max-block-size: 240px;
+}
+
+.tecc-cd--banner.tecc-cd--img-right .tecc-cd__media {
+	order: 2;
+}
+
+.tecc-cd--banner.tecc-cd--img-gap .tecc-cd__media {
+	margin: var(--tecc-pad) var(--tecc-pad) 0;
+}
+
+.tecc-cd--banner.tecc-cd--img-gap .tecc-cd__media img {
+	border-radius: max(0px, calc(var(--tecc-radius) - 4px));
+}
+
+/* Glass hero: full-bleed background image + a scrim tinted with the card bg so
+   the preset's own title/text colours (tuned for that bg) stay legible on both
+   light and dark. Fallback = opaque card bg where color-mix is unsupported. */
+.tecc-cd--banner.tecc-cd--img-top {
+	position: relative;
+	isolation: isolate;
+}
+
+.tecc-cd--banner.tecc-cd--img-top .tecc-cd__media {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	aspect-ratio: auto;
+	max-block-size: none;
+	margin: 0;
+	border-radius: 0;
+}
+
+.tecc-cd--banner.tecc-cd--img-top .tecc-cd__media img {
+	border-radius: 0;
+}
+
+.tecc-cd--banner.tecc-cd--img-top .tecc-cd__media::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: var(--tecc-card-bg);
+	background: color-mix(in srgb, var(--tecc-card-bg) 82%, transparent);
+	-webkit-backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px);
+}
+
+.tecc-cd--banner.tecc-cd--img-top .tecc-cd__body {
+	position: relative;
+	z-index: 1;
+}
+
+.tecc-cd--banner .tecc-cd__body {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	flex: 1 1 auto;
+	min-inline-size: 0;
+	padding: calc(var(--tecc-pad) * 1.2) calc(var(--tecc-pad) * 1.4);
+	text-align: start;
+}
+
+.tecc-cd--banner .tecc-cd__banner-main {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	flex: 1 1 auto;
+	min-inline-size: 0;
+}
+
+.tecc-cd--banner .tecc-cd__banner-aside {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+	flex: 0 0 auto;
+	align-self: stretch;
+}
+
+/* Eyebrow ("Begins in / Ends in") sits directly ABOVE the timer only — never
+   spanning across to the button — by grouping it with the countdown region. */
+.tecc-cd--banner .tecc-cd__banner-timer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 6px;
+}
+
+.tecc-cd--banner .tecc-cd__kicker {
+	padding: 0;
+	border: 0;
+	background: none;
+	letter-spacing: 0.12em;
+}
+
+.tecc-cd--banner a.tecc-cd__button {
+	background: transparent;
+	border-color: var(--tecc-main);
+	color: var(--tecc-main);
+	margin: 0;
+}
+
+.tecc-cd--banner a.tecc-cd__button:hover,
+.tecc-cd--banner a.tecc-cd__button:focus {
+	background: var(--tecc-main);
+	color: var(--tecc-alt);
+	filter: none;
+}
+
+/* MEDIUM: image | details | countdown side by side. The side-column image drops
+   its stacked aspect-ratio and stretches to the row height instead. */
+@container (min-width: 560px) {
+	.tecc-cd--banner .tecc-cd__banner-inner {
+		flex-direction: row;
+		align-items: stretch;
+	}
+	.tecc-cd--banner.tecc-cd--img-left .tecc-cd__media,
+	.tecc-cd--banner.tecc-cd--img-right .tecc-cd__media {
+		/* A compact side strip: ~140px (never more than ~30% of the banner) so
+		   the banner stays a slim promo bar, not an image-dominated block. */
+		flex: 0 0 auto;
+		inline-size: min(140px, 30%);
+		aspect-ratio: auto;
+		max-block-size: none;
+	}
+	.tecc-cd--banner.tecc-cd--img-gap.tecc-cd--img-left .tecc-cd__media {
+		margin: var(--tecc-pad) 0 var(--tecc-pad) var(--tecc-pad);
+	}
+	.tecc-cd--banner.tecc-cd--img-gap.tecc-cd--img-right .tecc-cd__media {
+		margin: var(--tecc-pad) var(--tecc-pad) var(--tecc-pad) 0;
+	}
+	.tecc-cd--banner .tecc-cd__body {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: clamp(16px, 4%, 40px);
+	}
+	.tecc-cd--banner .tecc-cd__banner-aside {
+		align-items: center;
+		align-self: auto;
+	}
+}
+
+/* WIDE: the timer block (eyebrow above the countdown) and the button share ONE
+   row — a proper full-width promo strip. The eyebrow stays over the timer only. */
+@container (min-width: 880px) {
+	.tecc-cd--banner .tecc-cd__banner-aside {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+		column-gap: 18px;
+	}
+}
+
+/* ------------------------------------------------------------------
+ * 7. Minimal template (legacy compact row) - preserved.
+ * ------------------------------------------------------------------ */
+.tecc-cd--minimal {
+	display: flex;
+	flex-direction: column;
+	gap: var(--tecc-gap);
+	inline-size: 100%;
+	padding-block: calc(var(--tecc-gap) * 0.75);
+	padding-inline: var(--tecc-gap);
+	background: var(--tecc-card-bg);
+	color: var(--tecc-fg);
+	border-radius: var(--tecc-radius);
+}
+
+.tecc-cd--minimal .tecc-cd__info {
+	display: flex;
+	flex-direction: column;
+	gap: calc(var(--tecc-gap) / 4);
+	min-inline-size: 0;
+}
+
+.tecc-cd--minimal .tecc-cd__title {
+	font-size: 1.05em;
+}
+
+.tecc-cd--minimal .tecc-cd__date {
+	font-size: 0.8em;
+	opacity: 0.75;
+}
+
+.tecc-cd--minimal .tecc-cd__digits {
+	display: flex;
+	flex-wrap: wrap;
+	gap: calc(var(--tecc-gap) * 0.75);
+}
+
+.tecc-cd--minimal .tecc-cd__unit {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.tecc-cd--minimal .tecc-cd__num {
+	display: inline-block;
+	min-inline-size: 2ch;
+	font-size: 1.3em;
+	font-weight: 700;
+	line-height: 1.1;
+	font-variant-numeric: tabular-nums;
+	font-feature-settings: "tnum" 1;
+}
+
+.tecc-cd--minimal .tecc-cd__label {
+	font-size: 0.7em;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	opacity: 0.85;
+}
+
+@media (min-width: 600px) {
+	.tecc-cd--minimal {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.tecc-cd--minimal .tecc-cd__info {
+		flex: 1 1 auto;
+	}
+
+	.tecc-cd--minimal .tecc-cd__timer {
+		flex: 0 0 auto;
+	}
+}
+
+/* ------------------------------------------------------------------
+ * 8. Carousel (card layout with 2+ events).
+ * Markup contract: includes/templates/card.php + assets/js/tecc-carousel.js.
+ * The track is moved ONLY by the JS-applied inline transform
+ * (translateX(+/- index * 100%), sign flipped for RTL by the JS) - no CSS
+ * rule may set a transform on it, so [dir=rtl] needs no override here.
+ * ------------------------------------------------------------------ */
+.tecc-cd--carousel {
+	position: relative;
+	inline-size: 100%;
+}
+
+/* Default width = "auto" = fill the container (matches the single card); a
+   preset/explicit width applies as a max below. */
+.tecc-cd--carousel.tecc-cd--w-auto {
+	max-inline-size: 100%;
+}
+
+.tecc-cd--carousel.tecc-cd--w-fixed {
+	max-inline-size: var(--tecc-width);
+}
+
+/* Mirror the single card: stay left by default, centre only when the design is
+   centre-aligned (was unconditionally margin-inline:auto, which hard-centred
+   the whole carousel regardless of the preset alignment). */
+.tecc-cd--carousel.tecc-cd--align-c {
+	margin-inline: auto;
+}
+.tecc-cd--carousel.tecc-cd--align-r {
+	margin-inline-start: auto;
+}
+
+/* The viewport clips adjacent slides horizontally (padding-inline 0) but pads
+   the block axis so a slide card's shadow is NOT cut off top/bottom; the slide's
+   own inline padding gives the horizontal shadow room while keeping the next
+   card from peeking. */
+.tecc-cd--carousel .tecc-cd__viewport {
+	overflow: hidden;
+	padding-block: 26px;
+	touch-action: pan-y; /* Keep vertical scrolling; horizontal = swipe. */
+}
+
+.tecc-cd--carousel .tecc-cd__track {
+	display: flex;
+	transition: transform 300ms ease;
+}
+
+.tecc-cd--carousel .tecc-cd__slide {
+	display: flex;
+	flex: 0 0 100%;
+	min-inline-size: 100%;
+	padding-inline: 22px;
+}
+
+.tecc-cd--carousel .tecc-cd__slide > .tecc-cd--card {
+	inline-size: 100%;
+	max-inline-size: 100%;
+}
+
+/* Controls: prev / dots / next in ONE centered row below the viewport. */
+.tecc-cd__controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	padding-block: 4px 2px;
+}
+
+/* Prev/next + dots are <span role="button|tab">, NOT <button>, so theme /
+   page-builder `button {}` styles never touch them. The .tecc-cd prefix +
+   an explicit reset also fence them off from broad content-area rules
+   (.entry-content span, global box-sizing/box-shadow, etc.). */
+.tecc-cd .tecc-cd__nav {
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: 30px;
+	block-size: 30px;
+	min-inline-size: 0;
+	min-block-size: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--tecc-main);
+	box-shadow: none;
+	color: var(--tecc-alt);
+	font-family: inherit;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1;
+	text-decoration: none;
+	text-transform: none;
+	letter-spacing: normal;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+	cursor: pointer;
+	opacity: 0.9;
+	flex: 0 0 auto;
+}
+
+.tecc-cd .tecc-cd__nav:hover {
+	opacity: 1;
+}
+
+/* :focus is the fallback so keyboard users on browsers without :focus-visible
+   (older Safari) still get a ring; :focus-visible then narrows it to keyboard. */
+.tecc-cd .tecc-cd__nav:focus {
+	outline: 2px solid var(--tecc-main);
+	outline-offset: 2px;
+	opacity: 1;
+}
+
+.tecc-cd .tecc-cd__nav:focus:not(:focus-visible) {
+	outline: none;
+}
+
+.tecc-cd .tecc-cd__nav:focus-visible {
+	outline: 2px solid var(--tecc-main);
+	outline-offset: 2px;
+	opacity: 1;
+}
+
+/* Dots (tabs built by tecc-carousel.js) sit between the arrows. */
+.tecc-cd__dots {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+.tecc-cd .tecc-cd__dot {
+	box-sizing: border-box;
+	display: inline-block;
+	inline-size: 8px;
+	block-size: 8px;
+	min-inline-size: 0;
+	min-block-size: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--tecc-main);
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	opacity: 0.35;
+	cursor: pointer;
+}
+
+.tecc-cd .tecc-cd__dot[aria-selected="true"] {
+	opacity: 1;
+}
+
+.tecc-cd .tecc-cd__dot:focus {
+	outline: 2px solid var(--tecc-main);
+	outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------
+ * 9. Reduced motion.
+ * Kill every transition/animation inside the widget on request; the
+ * carousel slide jump becomes instant.
+ * ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+	.tecc-cd,
+	.tecc-cd *,
+	.tecc-cd *::before,
+	.tecc-cd *::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}

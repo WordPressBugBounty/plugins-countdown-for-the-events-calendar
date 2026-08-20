@@ -5,8 +5,6 @@ jQuery(document).ready(function($) {
             action: 'cpfm_save_usage_data_sharing',
             opt_in: isChecked,
             nonce: cpfm_ajax_obj.nonce
-        }, function(response) {
-            console.log(response);
         });
     });
 });

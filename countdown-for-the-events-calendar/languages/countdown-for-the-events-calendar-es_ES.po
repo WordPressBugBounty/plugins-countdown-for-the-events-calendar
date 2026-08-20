@@ -1,185 +1,689 @@
+# Copyright (C) 2026 Cool Plugins
+# This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Event Countdown for The Events Calendar\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-21 04:56+0000\n"
-"PO-Revision-Date: 2026-02-21 05:05+0000\n"
+"Project-Id-Version: Event Countdown for The Events Calendar 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/countdown-for-the-"
+"events-calendar/\n"
+"POT-Creation-Date: 2026-08-19 06:11+0000\n"
+"PO-Revision-Date: 2026-08-19 09:33+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
-"Language: es_ES\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.1; wp-6.9.1; php-8.1.29\n"
-"X-Domain: countdown-for-the-events-calendar"
+"X-Domain: countdown-for-the-events-calendar\n"
+"Language: es_ES\n"
+"X-Loco-Version: 2.8.8; wp-7.0.4; php-8.2.29"
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:202
-msgid " More info"
+#. 1: slide number, 2: total number of slides.
+#: includes/templates/card.php:114
+#, php-format
+msgid "%1$d of %2$d"
+msgstr "%1$d de %2$d"
+
+#: admin/settings/class-tecc-settings-page.php:307
+msgid "(event has ended)"
+msgstr "(el evento ha terminado)"
+
+#: admin/settings/views/panel.php:452
+msgid "2 or more rotates the events as a carousel."
+msgstr "2 o más rota los eventos como un carrusel."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:298
+msgid "2 or more shows a carousel of upcoming events."
+msgstr "2 o más muestra un carrusel de próximos eventos."
+
+#. %s: company name.
+#: includes/class-tecc-plugin.php:318
+#, php-format
+msgid "A plugin by %s"
+msgstr "Un complemento por %s"
+
+#: includes/class-tecc-plugin.php:620
+msgid "A short review helps other event organisers find it."
 msgstr ""
+"Una breve reseña ayuda a que otros organizadores de eventos lo encuentren."
 
-#. %d: number of active addons
-#: admin/events-addon-page/includes/dashboard-page.php:45
-msgid "%d Active Addon"
-msgid_plural "%d Active Addons"
-msgstr[0] "%d Activa Addon"
-msgstr[1] "%d Activa Complementos"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:158
+msgid "A specific event"
+msgstr "un evento específico"
 
-#: admin/events-addon-page/events-addon-page.php:696
-msgid "Activate Now"
-msgstr "Activar Ahora"
+#: admin/settings/views/rules-tab.php:316
+msgid "Accent"
+msgstr "Acento"
 
-#: admin/events-addon-page/events-addon-page.php:730
-msgid "Activated"
-msgstr "Activado"
-
-#: admin/events-addon-page/events-addon-page.php:673
+#: admin/settings/views/panel.php:323
 msgid "Active"
 msgstr "Activo"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:38
-msgid "Aim to resolve issues in 24 hrs."
-msgstr "Objetivo para resolver problemas en 24 hrs."
+#: admin/settings/views/panel.php:314
+msgid "Add a countdown to any page"
+msgstr "Agregar una cuenta regresiva para cualquier página"
 
-#: admin/feedback-notice/tecc-feedback-notice.php:61
-msgid "Already Reviewed"
-msgstr "Ya Revisado"
+#: admin/settings/views/rules-tab.php:204
+#: admin/settings/views/rules-tab.php:211
+msgid "Add condition"
+msgstr "Añadir condición"
 
-#: includes/tecc-setting-panel.php:88
-msgid "Autostart countdown of next future event"
+#: admin/settings/views/rules-tab.php:133
+msgid "Add sitewide display"
+msgstr "Agregar pantalla en todo el sitio"
+
+#: admin/settings/views/panel.php:303
+msgid ""
+"Add the Event Countdown block to any page or post — no shortcode needed."
 msgstr ""
-"Inicio automático de la cuenta regresiva del próximo evento en el futuro"
+"Agregue el bloque de cuenta regresiva de eventos a cualquier página o "
+"publicación: no se necesita código corto."
 
-#: includes/tecc-setting-panel.php:79
-msgid "Autostart countdown of next upcoming event"
-msgstr "Inicio automático de la cuenta regresiva del próximo evento"
+#: admin/settings/views/rules-tab.php:68
+msgid "All calendar pages"
+msgstr "Todas las páginas del calendario"
 
-#: admin/events-addon-page/includes/dashboard-page.php:77
-msgid "Available Addons"
-msgstr "Disponible Complementos"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:675
+msgid "Alternate color (on main)"
+msgstr "Color alternativo (en principal)"
 
-#: admin/events-addon-page/events-addon-page.php:707
-msgid "Buy Pro"
-msgstr "Comprar Pro"
+#: includes/class-tecc-plugin.php:303
+msgid "Another reason"
+msgstr "Otra razón"
 
-#: admin/events-addon-page/includes/dashboard-header.php:55
-msgid "Check Docs"
-msgstr "Revise La Documentación"
+#: admin/settings/views/rules-tab.php:288
+msgid "Appearance"
+msgstr "Apariencia"
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:210
+#: includes/class-tecc-plugin.php:610
+msgid "Ask me later"
+msgstr "Pregúntame luego"
+
+#: admin/settings/views/rules-tab.php:378
+msgid "auto, 800 or 70%"
+msgstr "Automático, 800 o 70%"
+
+#: admin/settings/views/panel.php:650
+msgid "auto, 800, 70%, 100%"
+msgstr "Automático, 800, 70%, 100%"
+
+#: admin/settings/views/rules-tab.php:320
+msgid "Background"
+msgstr "Fondo"
+
+#: includes/class-tecc-plugin.php:309
+msgid "Before you go…"
+msgstr "Antes de ir…"
+
+#: includes/compat/class-tecc-migrate.php:511
+#: includes/render/class-tecc-args.php:544
+#: includes/templates/tecc-template-helpers.php:34
+msgid "Begins in"
+msgstr "comienza en"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block description"
+msgid "Live countdown to your next event from The Events Calendar."
+msgstr "Cuenta atrás en vivo para tu próximo evento del calendario de eventos."
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block keyword"
+msgid "countdown"
+msgstr "cuenta regresiva"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block keyword"
+msgid "event"
+msgstr "evento"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block keyword"
+msgid "events calendar"
+msgstr "calendario de eventos"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block keyword"
+msgid "timer"
+msgstr "minutero"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block title"
+msgid "Event Countdown"
+msgstr "Cuenta regresiva del evento"
+
+#: admin/settings/views/rules-tab.php:64
+msgid "Blog page"
+msgstr "página de blog"
+
+#: admin/settings/views/rules-tab.php:344
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:771
+msgid "Body size"
+msgstr "Tamaño del cuerpo"
+
+#: admin/settings/views/panel.php:600
+msgid "Body size (px)"
+msgstr "Tamaño del cuerpo (PX)"
+
+#: admin/settings/views/rules-tab.php:319 admin/settings/views/panel.php:564
+msgid "Body text"
+msgstr "texto corporal"
+
+#: includes/render/class-tecc-presets.php:139
+msgid "Bold Poster"
+msgstr "Negrita Póster"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:608
+msgid "Border"
+msgstr "Frontera"
+
+#: admin/settings/views/rules-tab.php:346
+msgid "Border width"
+msgstr "Ancho del borde"
+
+#: admin/settings/views/panel.php:641
+msgid "Border width (px, 0 = none)"
+msgstr "Ancho de borde (PX, 0 = Ninguno)"
+
+#: admin/settings/views/rules-tab.php:300 admin/settings/views/panel.php:168
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:470
+msgid "Boxes"
+msgstr "cajas"
+
+#: admin/settings/views/panel.php:288
+msgid "Build a countdown for any page, or show one sitewide automatically."
+msgstr ""
+"Construya una cuenta atrás para cualquier página o muestre una de todo el "
+"sitio automáticamente."
+
+#: admin/settings/views/panel.php:494
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:431
+msgid "Button text"
+msgstr "Texto del botón"
+
+#: admin/settings/views/panel.php:572
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:714
+msgid "Card background"
+msgstr "Fondo de tarjeta"
+
+#: admin/settings/views/rules-tab.php:265
+msgid "Carousel — show multiple events"
+msgstr "Carrusel — Mostrar múltiples eventos"
+
+#: admin/settings/views/panel.php:426
+msgid "Categories"
+msgstr "Categorías"
+
+#: admin/settings/views/rules-tab.php:247
+msgid "Category IDs or slugs (comma-separated)"
+msgstr "ID de categoría o slugs (separados por comas)"
+
+#: admin/settings/views/panel.php:626
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:526
+msgid "Center"
+msgstr "Centrar"
+
+#: admin/settings/class-tecc-settings-rest.php:200
+msgid "Choose a category to see the preview."
+msgstr "Elija una categoría para ver la vista previa."
+
+#: includes/templates/card.php:133
+msgid "Choose event"
+msgstr "Elige evento"
+
+#: admin/settings/views/panel.php:398
+msgid "Choose events"
+msgstr "Elige eventos"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:275
+msgid "Choosing a preset overwrites the style and layout options below."
+msgstr ""
+"Elegir un preset sobrescribe las opciones de estilo y diseño a continuación."
+
+#: includes/render/class-tecc-presets.php:104
+msgid "Classic Design"
+msgstr "Diseño clásico"
+
+#: admin/settings/views/panel.php:711
+msgid "Click Here"
+msgstr "Haga clic aquí"
+
+#: includes/class-tecc-plugin.php:356
 msgid "Click here"
 msgstr "Haga clic aquí"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:41
-msgid "Contact Support"
-msgstr "Contacto Con El Soporte"
+#: includes/class-tecc-plugin.php:316 includes/class-tecc-plugin.php:518
+#: includes/class-tecc-plugin.php:621
+msgid "Close"
+msgstr "Cerrar"
+
+#: admin/settings/views/rules-tab.php:324 admin/settings/views/panel.php:549
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:651
+msgid "Colors"
+msgstr "Bandera"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:185
+msgid "Comma-separated category slugs."
+msgstr "Babosas de categoría separadas por comas."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:171
+msgid "Comma-separated event IDs — find an ID in the event’s edit URL."
+msgstr ""
+"ID de evento separados por comas: busque una ID en la URL de edición del "
+"evento."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:199
+msgid "Comma-separated tag slugs."
+msgstr "Babosas de etiqueta separadas por comas."
+
+#: admin/settings/views/rules-tab.php:164
+msgid "Conditions"
+msgstr "condiciones"
+
+#: admin/settings/views/panel.php:346
+msgid "Content &amp; Source"
+msgstr "Contenido &amp; Fuente"
+
+#: admin/settings/views/panel.php:623
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:516
+msgid "Content alignment"
+msgstr "Alineación de contenido"
 
 #. Author of the plugin
 msgid "Cool Plugins"
-msgstr "Fresco Plugins"
+msgstr "Complementos geniales"
 
-#: includes/tecc-setting-panel.php:115
-msgid "Countdown Background Color"
-msgstr "Cuenta Regresiva Color De Fondo"
+#: admin/settings/class-tecc-settings-page.php:474
+msgid "Copied!"
+msgstr "¡Copiado!"
 
-#: includes/tecc-setting-panel.php:123
-msgid "Countdown Font Color"
-msgstr "Cuenta Regresiva Color De La Fuente"
+#: admin/settings/class-tecc-settings-page.php:480
+msgid "Copied! Paste it on your page now."
+msgstr "¡Copiado! Pégalo en tu página ahora."
 
-#: includes/tecc-setting-panel.php:548
-msgid "Countdown for the events calendar Shortcode :"
-msgstr "Cuenta atrás para el calendario de eventos Abreviado :"
+#: admin/settings/views/panel.php:198 admin/settings/views/panel.php:236
+msgid "Copy shortcode"
+msgstr "Copiar código corto"
 
-#: includes/tecc-setting-panel.php:491
-msgid "Countdown Settings"
-msgstr "Configuración De La Cuenta Atrás"
-
-#: includes/tecc-setting-panel.php:73
-msgid "Create Shortcode for the Event countdown using below mentioned settings"
-msgstr ""
-"Crear Shortcode para la cuenta atrás del Evento utilizando a continuación se "
-"mencionan los ajustes"
-
-#: admin/events-addon-page/includes/dashboard-page.php:43
-msgid "Currently Activated Addons"
-msgstr "Actualmente Activado Complementos"
-
-#: admin/events-addon-page/events-addon-page.php:261
-#: admin/events-addon-page/events-addon-page.php:262
-msgid "Dashboard"
-msgstr "Tablero de instrumentos"
-
-#: admin/events-addon-page/events-addon-page.php:578
-msgid "Demo"
-msgstr "Demo"
-
-#: includes/tecc-setting-panel.php:163
-msgid "Display Text When Event Ends"
-msgstr "Texto De La Pantalla Cuando El Evento Termine"
-
-#: includes/tecc-setting-panel.php:154
-msgid "Display Text When Event Starts"
-msgstr "Texto De La Pantalla Cuando El Evento Se Inicia"
-
-#: includes/tecc-setting-panel.php:172
+#: admin/settings/views/panel.php:661
 msgid ""
-"Display Text When Event Starts (Default is \"Event Starts refresh page to "
-"see next upcoming event\") "
+"Copy the shortcode to paste anywhere. Saving keeps these settings for next "
+"time; it does not change countdowns already on your site."
 msgstr ""
+"Copie el código corto para pegar en cualquier lugar. Guardar mantiene estos "
+"ajustes para la próxima vez; No cambia las cuentas regresivas ya en su sitio."
 
-#: admin/events-addon-page/events-addon-page.php:582
-msgid "Docs"
-msgstr "Docs"
+#: admin/settings/views/rules-tab.php:345
+msgid "Corner radius"
+msgstr "radio de esquina"
 
-#: admin/events-addon-page/events-addon-page.php:580
-msgid "Documentation"
-msgstr "Documentación"
+#: admin/settings/views/panel.php:637
+msgid "Corner radius (px)"
+msgstr "Radio de esquina (PX)"
 
-#. Name of the plugin
-msgid "Event Countdown for The Events Calendar"
-msgstr "Cuenta atrás del evento para El Calendario de Eventos"
+#: admin/settings/views/rules-tab.php:267
+msgid "Corner-card locations only; bars and middle show one event."
+msgstr ""
+"Solo ubicaciones de tarjetas de esquina; Los bares y el medio muestran un "
+"evento."
+
+#: admin/settings/views/panel.php:345
+msgid "Countdown settings"
+msgstr "Configuración de cuenta regresiva"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:745
+msgid "Countdown size"
+msgstr "Tamaño de cuenta regresiva"
+
+#: admin/settings/views/panel.php:592
+msgid "Countdown size (px)"
+msgstr "Tamaño de cuenta regresiva (PX)"
+
+#: admin/settings/views/panel.php:354
+msgid "Countdown source"
+msgstr "Fuente de cuenta regresiva"
+
+#: admin/settings/views/panel.php:534
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:464
+msgid "Countdown style"
+msgstr "Estilo de cuenta regresiva"
+
+#: admin/settings/views/panel.php:456
+msgid "Counts down events already in progress instead of hiding them."
+msgstr "Cuenta los eventos que ya están en progreso en lugar de ocultarlos."
+
+#: admin/settings/views/rules-tab.php:47 admin/settings/views/panel.php:514
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:252
+msgid "Dark"
+msgstr "Oscuro"
+
+#: includes/templates/tecc-template-helpers.php:64
+#: includes/templates/classic.php:57 includes/templates/minimal.php:80
+#: admin/settings/class-tecc-settings-page.php:461
+msgid "days"
+msgstr "días"
+
+#: includes/templates/tecc-template-helpers.php:57
+#: admin/settings/class-tecc-settings-page.php:467
+msgctxt "days unit abbreviation"
+msgid "D"
+msgstr "Re"
+
+#: includes/class-tecc-plugin.php:314
+msgid "Deactivating…"
+msgstr "Desactivando…"
+
+#: admin/settings/views/rules-tab.php:158
+msgid "Delete"
+msgstr "Borrar"
+
+#: admin/settings/views/panel.php:347
+msgid "Design &amp; Styles"
+msgstr "Diseño y Amp; estilos"
+
+#: admin/settings/views/panel.php:208
+msgid "Desktop (Real View)"
+msgstr "Escritorio (vista real)"
+
+#: includes/class-tecc-plugin.php:517
+msgid "Dismiss"
+msgstr "Despedir"
+
+#: includes/display/class-tecc-locations.php:194
+msgid "Dismiss countdown"
+msgstr "descartar cuenta regresiva"
+
+#: admin/settings/views/panel.php:485
+msgid "Display elements"
+msgstr "Mostrar elementos"
+
+#: admin/settings/views/rules-tab.php:150
+msgid "Display enabled"
+msgstr "Pantalla habilitada"
+
+#: admin/settings/views/rules-tab.php:163
+msgid "Display settings"
+msgstr "Configuración de pantalla"
 
 #. Description of the plugin
 msgid ""
-"Event Countdown for The Events Calendar provides the ability to create "
-"Beautiful Countdown for <a href=\"http://wordpress.org/plugins/the-events-"
-"calendar/\">The Events Calendar (by Modern Tribe)</a> events with just a few "
-"clicks."
+"Display upcoming events with countdown timer using a shortcode, Elementor "
+"widget, Gutenberg block or sitewide floating header/footer bar, built for "
+"The Events Calendar."
 msgstr ""
+"Mostrar próximos eventos con temporizador de cuenta regresiva utilizando un "
+"código corto, un widget Elementor, un bloque de Gutenberg o una barra de pie "
+"de pie/pie de página flotante en todo el sitio, construida para el "
+"calendario de eventos."
 
-#: admin/events-addon-page/events-addon-page.php:251
-#: admin/events-addon-page/events-addon-page.php:252
+#. %s: plugin name.
+#: includes/class-tecc-plugin.php:605
+#, php-format
+msgid "Do you like the %s plugin?"
+msgstr "¿Te gusta el complemento %s?"
+
+#: includes/class-tecc-plugin.php:614
+msgid "Do you like this plugin?"
+msgstr "¿Te gusta este complemento?"
+
+#: admin/settings/views/panel.php:268
+msgid "Docs"
+msgstr "estudiantes"
+
+#: admin/settings/views/panel.php:300
+msgid "Drop the Event Countdown widget into any Elementor layout."
+msgstr ""
+"Suelte el widget de cuenta regresiva de eventos en cualquier diseño de "
+"Elementor."
+
+#: admin/settings/views/rules-tab.php:257
+msgid "e.g. 123, 456"
+msgstr "por ejemplo 123, 456"
+
+#: admin/settings/views/rules-tab.php:248
+msgid "e.g. concerts, 12, workshops"
+msgstr "por ejemplo conciertos, 12, talleres"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:421
+msgid "Ended title"
+msgstr "Título terminado"
+
+#: includes/compat/class-tecc-migrate.php:512
+#: includes/render/class-tecc-args.php:545
+msgid "ENDS IN"
+msgstr "termina en"
+
+#. %s: plugin name.
+#: includes/class-tecc-plugin.php:617
+#, php-format
+msgid "Enjoying %s?"
+msgstr "¿Disfrutando de %s?"
+
+#: admin/settings/views/rules-tab.php:56
+msgid "Entire site"
+msgstr "sitio completo"
+
+#: admin/settings/views/rules-tab.php:76
+msgid "Event archive"
+msgstr "Archivo de eventos"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:181
+msgid "Event categories"
+msgstr "Categorías de eventos"
+
+#: admin/settings/views/rules-tab.php:92
+msgid "Event category (slugs)"
+msgstr "Categoría de evento (babosas)"
+
+#: admin/settings/class-tecc-settings-page.php:127
+#: admin/settings/views/panel.php:260
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:45
+msgid "Event Countdown"
+msgstr "Cuenta regresiva del evento"
+
+#: includes/class-tecc-plugin.php:514
+msgid "Event Countdown 2.0 major update."
+msgstr "Actualización importante de la cuenta atrás del evento 2.0."
+
+#. Name of the plugin
+msgid "Event Countdown for The Events Calendar"
+msgstr "Cuenta regresiva de eventos para el calendario de eventos"
+
+#: admin/settings/class-tecc-settings-page.php:126
+msgid "Event Countdown Settings"
+msgstr "Configuración de cuenta regresiva de eventos"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:167
+msgid "Event ID(s)"
+msgstr "ID de evento"
+
+#: admin/settings/views/rules-tab.php:256
+msgid "Event IDs (comma-separated)"
+msgstr "ID de eventos (separados por comas)"
+
+#: includes/compat/class-tecc-migrate.php:497
+#: includes/render/class-tecc-args.php:543 admin/settings/views/panel.php:473
+msgid "Event in Progress"
+msgstr "evento en progreso"
+
+#: admin/settings/views/rules-tab.php:165
+msgid "Event Source"
+msgstr "Fuente del evento"
+
+#: admin/settings/views/rules-tab.php:234
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:145
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:153
+msgid "Event source"
+msgstr "Fuente del evento"
+
+#: admin/settings/views/rules-tab.php:96
+msgid "Event tag (slugs)"
+msgstr "Etiqueta de evento (babosas)"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:195
+msgid "Event tags"
+msgstr "Etiquetas de eventos"
+
+#: includes/editors/elementor/class-tecc-elementor.php:123
 msgid "Events Addons"
-msgstr "Eventos Complementos"
+msgstr "Complementos de eventos"
 
-#: countdown-for-events-calendar.php:225
+#: includes/class-tecc-plugin.php:339
 msgid "Events Addons By Cool Plugins"
-msgstr "Eventos Complementos Por Cool Plugins"
+msgstr "Complementos de eventos de Cool Plugins"
 
-#: admin/events-addon-page/includes/dashboard-header.php:48
+#: admin/settings/views/panel.php:257
 msgid "Events Calendar Addons"
-msgstr "Calendario De Eventos Complementos"
+msgstr "Complementos de calendario de eventos"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:66
-msgid "EVENTS CALENDAR PRO"
-msgstr "CALENDARIO DE EVENTOS PRO"
+#: admin/settings/views/panel.php:366
+msgid "Events in a category (Upcoming)"
+msgstr "Eventos en una categoría (próximo)"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:70
-msgid "Get Events Calendar Pro"
-msgstr "Obtener Calendario De Eventos Pro"
+#: admin/settings/views/panel.php:443
+msgid "Events in any of the selected categories are used."
+msgstr "Se utilizan eventos en cualquiera de las categorías seleccionadas."
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:176
+#: admin/settings/views/rules-tab.php:155
+msgid "Expand / collapse"
+msgstr "Expand / collapse"
+
+#: admin/settings/views/rules-tab.php:40
+msgid "Filtered by category"
+msgstr "Filtrado por categoría"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:159
+msgid "Filtered by taxonomy"
+msgstr "Filtrado por taxonomía"
+
+#: includes/compat/class-tecc-migrate.php:515
+#: includes/render/class-tecc-args.php:546
+#: includes/templates/tecc-template-helpers.php:35
+#: admin/settings/views/panel.php:495
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:435
+msgid "Find out more"
+msgstr "Descubra más"
+
+#: admin/settings/views/panel.php:319
+msgid "Floating Event Countdown"
+msgstr "Cuenta regresiva de eventos flotantes"
+
+#: admin/settings/views/rules-tab.php:181
+msgid "Floats over the page. Within a location, the highest in the list wins."
+msgstr ""
+"Flota sobre la página. Dentro de una ubicación, gana el más alto de la lista."
+
+#: includes/render/class-tecc-presets.php:174
+msgid "Flush image, split layout"
+msgstr "Imagen de descarga, diseño dividido"
+
+#: admin/settings/views/rules-tab.php:31
+msgid "Footer bar (banner)"
+msgstr "Barra de pie de página (bandera)"
+
+#: admin/settings/views/rules-tab.php:33
+msgid "Footer left (card)"
+msgstr "Pie de página izquierda (tarjeta)"
+
+#: admin/settings/views/rules-tab.php:32
+msgid "Footer middle (banner)"
+msgstr "Pie de página central (banner)"
+
+#: admin/settings/views/rules-tab.php:34
+msgid "Footer right (card)"
+msgstr "Pie de página derecha (tarjeta)"
+
+#: admin/settings/views/rules-tab.php:60
+msgid "Front page"
+msgstr "primera plana"
+
+#: includes/render/class-tecc-presets.php:140
+msgid "Full image, solid card"
+msgstr "Imagen completa, tarjeta sólida"
+
+#: includes/render/class-tecc-presets.php:175
+msgid "Full-height image flush to the left edge, content on the right."
+msgstr ""
+"Imagen de altura completa al ras del borde izquierdo, contenido a la derecha."
+
+#: includes/render/class-tecc-presets.php:283
+msgid "Full-width strip: details left, countdown and button right."
+msgstr ""
+"Tira de ancho completo: detalles a la izquierda, cuenta atrás y botón a la "
+"derecha."
+
+#: includes/templates/tecc-template-helpers.php:31
+#: includes/templates/minimal.php:55
+msgid "Happening now"
+msgstr "Sucediendo ahora"
+
+#: includes/compat/class-tecc-migrate.php:509
+#: includes/render/class-tecc-args.php:542
+msgid "Happening now!"
+msgstr "pasando ahora!"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:400
+msgid "Heading"
+msgstr "Título"
+
+#: includes/class-tecc-plugin.php:351
 msgid "Help Improve Plugins"
-msgstr "Ayudar A Mejorar Los Plugins"
+msgstr "Ayuda a mejorar los plugins"
 
-#: countdown-for-events-calendar.php:226
+#: includes/class-tecc-plugin.php:340 admin/settings/views/panel.php:705
 msgid ""
 "Help us make this plugin more compatible with your site by sharing non-"
-"sensitive site data."
+"sensitive site data. "
 msgstr ""
-"Ayúdenos a hacer de este plugin más compatible con su sitio por compartir no "
-"sensibles los datos del sitio."
+"Ayúdenos a hacer que este plugin sea más compatible con su sitio "
+"compartiendo datos de sitios no sensibles."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:308
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:319
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:330
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:341
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:352
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:363
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:374
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:546
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:626
+msgid "Hide"
+msgstr "Esconder"
+
+#: admin/settings/views/rules-tab.php:191
+msgid "Hide for 7 days"
+msgstr "esconderse durante 7 días"
+
+#: admin/settings/views/rules-tab.php:190
+msgid "Hide for this browsing session"
+msgstr "Ocultar para esta sesión de navegación"
+
+#: admin/settings/views/rules-tab.php:208
+msgid "Hide on"
+msgstr "ocultarse sobre"
+
+#: admin/settings/views/rules-tab.php:192
+msgid "Hide permanently"
+msgstr "ocultar permanentemente"
+
+#: admin/settings/views/rules-tab.php:189
+msgid "Hide until the next event"
+msgstr "Ocultar hasta el próximo evento"
+
+#: admin/settings/views/rules-tab.php:195
+msgid "Hides it in that visitor’s browser only, not for everyone."
+msgstr "Lo oculta solo en el navegador de ese visitante, no para todos."
+
+#: includes/templates/tecc-template-helpers.php:65
+#: includes/templates/classic.php:61 includes/templates/minimal.php:81
+#: admin/settings/class-tecc-settings-page.php:462
+msgid "hours"
+msgstr "horas"
+
+#: includes/templates/tecc-template-helpers.php:58
+#: admin/settings/class-tecc-settings-page.php:468
+msgctxt "hours unit abbreviation"
+msgid "H"
+msgstr "marido"
 
 #. Author URI of the plugin
 msgid ""
@@ -191,277 +695,775 @@ msgstr ""
 msgid "https://eventscalendaraddons.com/"
 msgstr ""
 
-#: admin/feedback/admin-feedback-form.php:108
-msgid ""
-"I agree to share anonymous usage data and basic site details (such as server,"
-" PHP, and WordPress versions) to support The Events Calendar Countdown Addon "
-"improvement efforts. Additionally, I allow Cool Plugins to store all "
-"information provided through this form and to respond to my inquiry."
-msgstr ""
-"Estoy de acuerdo en compartir el uso anónimo de los datos básicos y los "
-"detalles de la sede (como el servidor, PHP y WordPress versiones) para "
-"apoyar El Calendario de Eventos de la cuenta Regresiva Complemento de los "
-"esfuerzos de mejora. Además, me permiten Enfriar Plugins para almacenar toda "
-"la información proporcionada a través de este formulario y responder a mi "
-"pregunta."
+#: includes/class-tecc-plugin.php:613
+msgid "I do not like it, dismiss"
+msgstr "no me gusta, descartar"
 
-#: admin/feedback/admin-feedback-form.php:197
+#: includes/class-tecc-plugin.php:295
 msgid "I found a better plugin"
-msgstr "He encontrado un plugin mejor"
+msgstr "Encontré un complemento mejor"
 
-#: admin/feedback/admin-feedback-form.php:55
-msgid "I found a better plugin."
-msgstr "He encontrado un plugin mejor."
+#: admin/settings/views/rules-tab.php:352
+msgid "Image"
+msgstr "Imagen"
 
-#: admin/feedback/admin-feedback-form.php:87
-msgid ""
-"If you have a moment, please share the reason for deactivating this plugin."
+#: includes/render/class-tecc-presets.php:211
+msgid "Image on the left, left-aligned content, transparent card."
 msgstr ""
-"Si tienes un momento, por favor compartir el motivo de la desactivación de "
-"este plugin."
+"Imagen a la izquierda, contenido alineado a la izquierda, tarjeta "
+"transparente."
 
-#: admin/events-addon-page/events-addon-page.php:696
-msgid "Install Now"
-msgstr "Instalar Ahora"
+#: includes/render/class-tecc-presets.php:141
+msgid "Image on top, generous spacing, rounded corners and a soft shadow."
+msgstr ""
+"Imagen en la parte superior, espacios generosos, esquinas redondeadas y una "
+"suave sombra."
 
-#: admin/feedback/admin-feedback-form.php:63
-#: admin/feedback/admin-feedback-form.php:205
-msgid "It's a temporary deactivation."
-msgstr "Es una desactivación temporal."
+#: admin/settings/views/panel.php:614
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:491
+msgid "Image position"
+msgstr "Posición de imagen"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:49
-msgid "LOVING OUR PLUGINS?"
-msgstr "AMAR A NUESTROS PLUGINS?"
+#: admin/settings/views/panel.php:323
+msgid "Inactive"
+msgstr "Inactivo"
 
-#: includes/tecc-setting-panel.php:181 includes/tecc-setting-panel.php:188
-msgid "Main Title (Default is \"Next Upcoming Event\")"
-msgstr "Título principal (por Defecto es \"Próximo Evento\")"
+#: admin/settings/views/rules-tab.php:302 admin/settings/views/panel.php:170
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:478
+msgid "Inline"
+msgstr "alineado"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:37
-msgid "Mon–Fri, 9:30 AM–6:30 PM IST."
-msgstr "De lunes a Viernes, de 9:30 AM–6:30 PM IST."
+#: admin/settings/views/panel.php:631
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:543
+msgid "Inset image"
+msgstr "Imagen de recuadro"
 
-#: includes/tecc-setting-panel.php:227 includes/tecc-setting-panel.php:395
-msgid "No Future Event found."
-msgstr "No hay Futuro Evento."
+#: includes/class-tecc-plugin.php:291
+msgid "It didn't do what I expected"
+msgstr "no hizo lo que esperaba"
 
-#: admin/events-addon-page/events-addon-page.php:73
-msgid "No plugin specified."
-msgstr "Ningún plugin especificado."
+#: includes/class-tecc-plugin.php:299
+msgid "It's a temporary deactivation"
+msgstr "Es una desactivación temporal"
 
-#: admin/events-addon-page/events-addon-page.php:476
-msgid "No plugins data available at the moment."
-msgstr "No hay plugins de datos disponibles en el momento."
+#: admin/settings/views/panel.php:610
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:219
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:456
+msgid "Layout"
+msgstr "Disposición"
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:217
+#: admin/settings/views/rules-tab.php:356 admin/settings/views/panel.php:617
+#: admin/settings/views/panel.php:625
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:501
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:522
+msgid "Left"
+msgstr "Izquierda"
+
+#: admin/settings/views/rules-tab.php:46 admin/settings/views/panel.php:510
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:248
+msgid "Light"
+msgstr "Ligero"
+
+#: admin/settings/class-tecc-settings-page.php:477
+#: admin/settings/views/panel.php:218
+msgid "Live preview"
+msgstr "Vista previa en vivo"
+
+#: admin/settings/views/panel.php:224
+msgid "Loading preview…"
+msgstr "Cargando vista previa…"
+
+#: admin/settings/views/rules-tab.php:174
+msgid "Location"
+msgstr "Ubicación"
+
+#: admin/settings/views/panel.php:690
+msgid "Location and page conditions apply on your live site only."
+msgstr ""
+"Las condiciones de la ubicación y la página se aplican solo en su sitio en "
+"vivo."
+
+#: admin/settings/views/panel.php:552
+msgid "Main / accent"
+msgstr "Principal / acento"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:662
+msgid "Main color"
+msgstr "color principal"
+
+#: includes/templates/tecc-template-helpers.php:66
+#: includes/templates/classic.php:65 includes/templates/minimal.php:82
+#: admin/settings/class-tecc-settings-page.php:463
+msgid "min"
+msgstr "min"
+
+#: includes/class-tecc-plugin.php:296
+msgid "Mind sharing which one?"
+msgstr "¿Le importa compartir cuál?"
+
+#: includes/render/class-tecc-presets.php:246
+msgid "Minimal Text"
+msgstr "Texto mínimo"
+
+#: includes/templates/tecc-template-helpers.php:59
+#: admin/settings/class-tecc-settings-page.php:469
+msgctxt "minutes unit abbreviation"
+msgid "M"
+msgstr "metro"
+
+#: admin/settings/views/rules-tab.php:112
+msgid "Mobile device"
+msgstr "dispositivo móvil"
+
+#: includes/render/class-tecc-presets.php:173
+msgid "Modern Split"
+msgstr "división moderna"
+
+#: includes/class-tecc-plugin.php:352
+msgid "More info"
+msgstr "más información"
+
+#: admin/settings/views/rules-tab.php:146
+msgid "Move display down"
+msgstr "Mover pantalla hacia abajo"
+
+#: admin/settings/views/rules-tab.php:145
+msgid "Move display up"
+msgstr "Mover pantalla hacia arriba"
+
+#: includes/compat/class-tecc-migrate.php:491
+#: includes/render/class-tecc-args.php:540 admin/settings/views/panel.php:468
+msgid "Next Event"
+msgstr "Próximo evento"
+
+#: includes/templates/card.php:134
+msgid "Next event"
+msgstr "Próximo evento"
+
+#: admin/settings/views/rules-tab.php:39
+msgid "Next event in page context"
+msgstr "Próximo evento en el contexto de la página"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:403
+msgid "Next Upcoming Event"
+msgstr "Próximo evento próximo"
+
+#: admin/settings/views/rules-tab.php:38
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:157
+msgid "Next upcoming event"
+msgstr "Próximo evento próximo"
+
+#: admin/settings/class-tecc-settings-rest.php:252
+msgid "No event currently matches this display."
+msgstr "Ningún evento actualmente coincide con esta pantalla."
+
+#: includes/render/class-tecc-presets.php:247
+msgid "No image, centered"
+msgstr "Sin imagen, centrada"
+
+#: admin/settings/class-tecc-settings-rest.php:288
+msgid "No published events yet. Publish an event and it will show up here."
+msgstr "Aún no hay eventos publicados. Publica un evento y aparecerá aquí."
+
+#: admin/settings/class-tecc-settings-page.php:481
+msgid "No sitewide displays yet. Add one and it will preview here."
+msgstr ""
+"Aún no hay pantallas en todo el sitio. Agregue uno y se mostrará una vista "
+"previa aquí."
+
+#: admin/settings/class-tecc-settings-rest.php:295
+msgid "No upcoming events match this setup right now."
+msgstr ""
+"No hay próximos eventos que coincidan con esta configuración en este momento."
+
+#: includes/class-tecc-plugin.php:358
 msgid "No, Thanks"
-msgstr "No, Gracias"
+msgstr "No, gracias"
 
-#: admin/feedback-notice/tecc-feedback-notice.php:62
-msgid "Not Interested"
-msgstr "No Interesa"
+#: admin/settings/views/rules-tab.php:354
+msgid "None"
+msgstr "Ninguno"
 
-#: admin/cpfm-feedback/cron/class-cron.php:90
-msgid "Once every 30 days"
-msgstr "Una vez cada 30 días"
+#: includes/class-tecc-plugin.php:609
+msgid "Not good, dismiss"
+msgstr "No es bueno, descartar"
 
-#: includes/tecc-setting-panel.php:459
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:206
+#: admin/settings/views/rules-tab.php:272
+msgid "Number of events"
+msgstr "Número de eventos"
+
+#: admin/settings/views/panel.php:447
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:293
+msgid "Number of events (for carousel view)"
+msgstr "Número de eventos (para la vista Carrusel)"
+
+#: admin/settings/views/rules-tab.php:317 admin/settings/views/panel.php:556
+msgid "On-accent text"
+msgstr "Texto al acento"
+
+#: admin/settings/views/rules-tab.php:123
+msgid "One display per location; the lower priority number wins."
+msgstr "una pantalla por ubicación; Gana el número de prioridad más bajo."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:410
+msgid "Ongoing title"
+msgstr "Título continuo"
+
+#: includes/class-tecc-plugin.php:353 admin/settings/views/panel.php:711
 msgid ""
 "Opt in to receive email updates about security improvements, new features, "
 "helpful tutorials, and occasional special offers. We'll collect:"
 msgstr ""
-"Inscribirse para recibir actualizaciones por correo electrónico acerca de la "
-"seguridad de mejoras, nuevas características, tutoriales útiles, ocasionales "
-"y ofertas especiales. Vamos a recolectar:"
+"Opte por recibir actualizaciones por correo electrónico sobre mejoras de "
+"seguridad, nuevas funciones, tutoriales útiles y ofertas especiales "
+"ocasionales. Recopilaremos:"
 
-#: admin/feedback/admin-feedback-form.php:209
-msgid "Other"
-msgstr "Otros"
+#: admin/settings/views/rules-tab.php:347
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:591
+msgid "Padding"
+msgstr "Relleno"
 
-#: admin/feedback/admin-feedback-form.php:67
-msgid "Other reason."
-msgstr "Otro motivo."
+#: admin/settings/views/panel.php:645
+msgid "Padding (px)"
+msgstr "Relleno (PX)"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:68
-msgid ""
-"Our addons works perfectly with both The Events Calendar free and official "
-"pro version."
+#: admin/settings/views/rules-tab.php:280
+msgid "Page context applies on your live site; the preview shows a fallback."
 msgstr ""
-"Nuestros complementos funciona a la perfección tanto con El Calendario de "
-"Eventos gratis y oficial para la versión pro."
+"Se aplica el contexto de la página en su sitio en vivo; La vista previa "
+"muestra un respaldo."
 
-#: admin/events-addon-page/events-addon-page.php:124
-msgid "Permission denied"
-msgstr "Permiso denegado"
+#: admin/settings/views/rules-tab.php:84
+msgid "Page IDs (comma-separated)"
+msgstr "ID de página (separados por comas)"
 
-#: admin/feedback/admin-feedback-form.php:68
-#: admin/feedback/admin-feedback-form.php:210
-msgid "Please share the reason."
-msgstr "Por favor compartan la razón."
+#: includes/class-tecc-plugin.php:315
+msgid "Please choose a reason."
+msgstr "Por favor, elija una razón."
 
-#: admin/feedback/admin-feedback-form.php:56
-#: admin/feedback/admin-feedback-form.php:198
-msgid "Please share which plugin."
-msgstr "Por favor, comparta qué plugin."
+#: includes/class-tecc-plugin.php:304
+msgid "Please tell us more"
+msgstr "Por favor cuéntanos más"
 
-#: admin/events-addon-page/events-addon-page.php:138
-msgid "Plugin activated successfully"
-msgstr "Plugin activado con éxito"
+#: admin/settings/views/rules-tab.php:88
+msgid "Post IDs (comma-separated)"
+msgstr "ID de publicaciones (separados por comas)"
 
-#: admin/events-addon-page/includes/dashboard-page.php:61
-msgid "Premium Addons"
-msgstr "Premium Complementos"
+#: admin/settings/views/rules-tab.php:80
+msgid "Post type (slug)"
+msgstr "Tipo de publicación (babosa)"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:33
-msgid "PREMIUM SUPPORT"
-msgstr "SOPORTE PREMIUM"
+#: admin/settings/views/panel.php:302
+msgid "Prefer the block editor?"
+msgstr "¿Prefieres el editor de bloques?"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:36
-msgid "Priority fast support."
-msgstr "La prioridad de apoyo rápido."
+#: admin/settings/views/panel.php:507
+msgid "Preset colour mode"
+msgstr "Modo de color preestablecido"
 
-#: admin/events-addon-page/events-addon-page.php:657
-msgid "Pro"
-msgstr "Pro"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:242
+msgid "Preset colours"
+msgstr "Colores preestablecidos"
 
-#: admin/feedback/admin-feedback-form.php:78
-msgid "Quick Feedback"
-msgstr "Retroalimentación Rápida"
+#: admin/settings/views/rules-tab.php:153
+msgid "Preview"
+msgstr "Avance"
 
-#: admin/feedback-notice/tecc-feedback-notice.php:60
-msgid "Rate Now! ★★★★★"
+#: admin/settings/views/panel.php:201
+msgid "Preview mode"
+msgstr "Modo de vista previa"
+
+#: admin/settings/class-tecc-settings-page.php:475
+msgid "Preview unavailable."
+msgstr "vista previa no disponible."
+
+#: includes/templates/card.php:132
+msgid "Previous event"
+msgstr "Evento anterior"
+
+#: includes/render/class-tecc-presets.php:281
+msgid "Promo Banner"
+msgstr "Bandera promocional"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:578
+msgid "Radius"
+msgstr "Radio"
+
+#: admin/settings/views/panel.php:237
+msgid "Remember these settings so the generator opens with them next time"
 msgstr ""
+"Recuerde estas configuraciones para que el generador abra con ellos la "
+"próxima vez"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:57
-msgid "Rate us on WP.org"
-msgstr "Tasa nosotros en WP.org"
+#: admin/settings/class-tecc-settings-page.php:479
+#: admin/settings/views/panel.php:413 admin/settings/views/panel.php:435
+msgid "Remove"
+msgstr "Retirar"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:55
-msgid "Review us on WP.org and share your feedback with the community."
-msgstr ""
-"Revisión con nosotros en WP.org y compartir sus comentarios con la comunidad."
+#: admin/settings/views/rules-tab.php:223
+msgid "Remove condition"
+msgstr "Eliminar condición"
 
-#: includes/tecc-setting-panel.php:106
-msgid "Select an Event"
-msgstr "Seleccione un Evento"
+#: admin/settings/views/rules-tab.php:357 admin/settings/views/panel.php:618
+#: admin/settings/views/panel.php:627
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:505
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:530
+msgid "Right"
+msgstr "Derecho"
 
-#: includes/tecc-setting-panel.php:146
-msgid "Select Countdown Size"
-msgstr "Seleccione La Cuenta Regresiva Tamaño"
+#: admin/settings/views/rules-tab.php:301 admin/settings/views/panel.php:169
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:474
+msgid "Rings"
+msgstr "aros"
 
-#: includes/tecc-setting-panel.php:97
-msgid "Select Events for autostart Countdown"
-msgstr "Los Eventos de selección para autoarranque de cuenta atrás"
+#: admin/settings/views/rules-tab.php:137
+msgid "Save sitewide displays"
+msgstr "Guardar pantallas en todo el sitio"
 
-#: countdown-for-events-calendar.php:268
+#: admin/settings/views/panel.php:237
+msgid "Save these settings"
+msgstr "Guarde estos ajustes"
+
+#: admin/settings/views/panel.php:439
+msgid "Search categories…"
+msgstr "Categorías de búsqueda…"
+
+#: admin/settings/views/panel.php:418
+msgid "Search events…"
+msgstr "Buscar eventos…"
+
+#: includes/templates/tecc-template-helpers.php:67
+#: includes/templates/classic.php:70 includes/templates/minimal.php:83
+#: admin/settings/class-tecc-settings-page.php:464
+msgid "sec"
+msgstr "segundo"
+
+#: includes/templates/tecc-template-helpers.php:60
+#: admin/settings/class-tecc-settings-page.php:470
+msgctxt "seconds unit abbreviation"
+msgid "S"
+msgstr "es"
+
+#: includes/class-tecc-plugin.php:516
+msgid "See new shortcode & use it"
+msgstr "Ver nuevo código corto y usarlo"
+
+#: admin/settings/views/panel.php:707
+msgid "See terms"
+msgstr "Ver términos"
+
+#: admin/settings/class-tecc-settings-rest.php:201
+#: admin/settings/class-tecc-settings-page.php:478
+msgid "Select an event to see the preview."
+msgstr "Seleccione un evento para ver la vista previa."
+
+#: includes/class-tecc-plugin.php:635
 msgid "Settings"
-msgstr "Configuración"
+msgstr "trastafo"
 
-#: includes/tecc-setting-panel.php:506
-msgid "Shortcode generated"
-msgstr "Shortcode generado"
+#: admin/settings/views/panel.php:333
+msgid "Settings saved."
+msgstr "Configuración guardada."
 
-#: includes/tecc-setting-panel.php:545
-msgid "Shortcode Preview"
-msgstr "Código Corto De Vista Previa"
+#: admin/settings/views/panel.php:310
+msgid "Settings sections"
+msgstr "Secciones de configuración"
 
-#: includes/tecc-setting-panel.php:138
-msgid "Show Image in Countdown"
-msgstr "Mostrar Imagen en la cuenta atrás"
+#: admin/settings/views/panel.php:634
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:623
+msgid "Shadow"
+msgstr "Sombra"
 
-#: includes/tecc-setting-panel.php:131
-msgid "Show Seconds in Countdown"
-msgstr "Mostrar Segundos en cuenta Regresiva"
+#: admin/settings/views/panel.php:651
+msgid "Shortcode default caps at 480px; use 100% to fill the container."
+msgstr ""
+"Tapas predeterminadas de código corto a 480 px; Usa el 100% para llenar el "
+"recipiente."
 
-#: admin/events-addon-page/events-addon-page.php:65
-msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Lo sentimos, no se permite la instalación de plugins en este sitio."
+#: admin/settings/views/panel.php:313
+msgid "Shortcode Generator"
+msgstr "Generador de código corto"
 
-#: admin/feedback/admin-feedback-form.php:193
-msgid "The plugin didn't work as expected"
-msgstr "El plugin no funciona como se esperaba"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:307
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:318
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:329
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:340
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:351
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:362
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:373
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:545
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:625
+msgid "Show"
+msgstr "Show"
 
-#: admin/feedback/admin-feedback-form.php:51
-msgid "The plugin didn't work as expected."
-msgstr "El plugin no funciona como se esperaba."
+#: admin/settings/views/rules-tab.php:120
+msgid "Show a countdown automatically in a site location on chosen pages."
+msgstr ""
+"Mostrar una cuenta atrás automáticamente en la ubicación de un sitio en las "
+"páginas elegidas."
 
-#: admin/feedback/admin-feedback-form.php:201
-msgid "The plugin is not working"
-msgstr "El plugin no funciona"
+#: admin/settings/views/panel.php:145
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:349
+msgid "Show cost"
+msgstr "Mostrar costo"
 
-#: admin/feedback/admin-feedback-form.php:59
-msgid "The plugin is not working."
-msgstr "El plugin no está funcionando."
+#: admin/settings/views/panel.php:157
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:360
+msgid "Show divider"
+msgstr "Mostrar divisor"
 
-#: includes/tecc-shortcode.php:127
+#: admin/settings/views/panel.php:149
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:371
+msgid "Show event button"
+msgstr "Mostrar botón de evento"
+
+#: admin/settings/views/panel.php:137
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:327
+msgid "Show event image"
+msgstr "Mostrar imagen de evento"
+
+#: admin/settings/views/panel.php:320
+msgid "Show it automatically, sitewide"
+msgstr "Muéstralo automáticamente, en todo el sitio"
+
+#: admin/settings/views/rules-tab.php:201
+msgid "Show on"
+msgstr "presumir"
+
+#: admin/settings/views/panel.php:456
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:305
+msgid "Show ongoing events"
+msgstr "Mostrar eventos en curso"
+
+#: admin/settings/views/panel.php:153
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:316
+msgid "Show seconds"
+msgstr "Mostrar segundos"
+
+#: admin/settings/views/panel.php:462
+msgid "Show status label above event title"
+msgstr "Mostrar la etiqueta de estado sobre el título del evento"
+
+#: admin/settings/views/panel.php:141
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:338
+msgid "Show venue"
+msgstr "Mostrar lugar"
+
+#: admin/settings/views/panel.php:161
+msgid "Show “Begins in” label"
+msgstr "Mostrar la etiqueta \"comienza en\""
+
+#: admin/settings/views/panel.php:496
+msgid "Shown only while the event button is on. Try Learn More or Register."
+msgstr ""
+"Se muestra solo mientras el botón de evento está activado. Intente obtener "
+"más información o regístrese."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:414
+msgid "Shown while the event is in progress."
+msgstr "se muestra mientras el evento está en curso."
+
+#: includes/render/class-tecc-presets.php:209
+msgid "Side Image"
+msgstr "imagen lateral"
+
+#: admin/settings/views/rules-tab.php:72
+msgid "Single event page"
+msgstr "Página de evento único"
+
+#: admin/settings/views/panel.php:589
+msgid "Sizes"
+msgstr "tallas"
+
+#: includes/class-tecc-plugin.php:313
+msgid "Skip & Deactivate"
+msgstr "Saltar y desactivar"
+
+#: admin/settings/views/rules-tab.php:41 admin/settings/views/panel.php:362
+msgid "Specific events"
+msgstr "eventos específicos"
+
+#: admin/settings/views/panel.php:506
+msgid "Start from a preset, then customize"
+msgstr "Comience desde un ajuste preestablecido, luego personalice"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:262
+msgid "Starter preset"
+msgstr "Preajuste de arranque"
+
+#: admin/settings/views/panel.php:477
+msgid "Status label — after it ends"
+msgstr "Etiqueta de estado: después de que termine"
+
+#: admin/settings/views/panel.php:467
+msgid "Status label — before it starts"
+msgstr "Etiqueta de estado: antes de que comience"
+
+#: admin/settings/views/panel.php:472
+msgid "Status label — while it’s happening"
+msgstr "Etiqueta de estado: mientras suceda"
+
+#: admin/settings/views/rules-tab.php:166
+msgid "Styles"
+msgstr "estilos"
+
+#: includes/class-tecc-plugin.php:312
+msgid "Submit & Deactivate"
+msgstr "Enviar y desactivar"
+
+#: includes/class-tecc-plugin.php:612
+msgid "Submit review"
+msgstr "Enviar revisión"
+
+#: includes/class-tecc-plugin.php:321
+msgid ""
+"Submitting shares your reason plus your site URL, admin email and basic "
+"environment details (PHP, WordPress, active plugins). Skip & Deactivate "
+"sends nothing."
+msgstr ""
+"El envío comparte su razón más la URL de su sitio, el correo electrónico de "
+"administrador y los detalles básicos del entorno (PHP, WordPress, "
+"complementos activos). Saltar y desactivar no envía nada."
+
+#: admin/settings/views/panel.php:272
+msgid "Support"
+msgstr "Apoyo"
+
+#: admin/settings/views/rules-tab.php:334
+msgid "Switching Light / Dark resets these colours."
+msgstr "Conmutación de luz / oscuridad reinicia estos colores."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:392
+msgid "Text"
+msgstr "Texto"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:701
+msgid "Text color"
+msgstr "color del texto"
+
+#: includes/render/class-tecc-presets.php:248
+msgid "Text-only classic card, centered, transparent background."
+msgstr "Tarjeta clásica de solo texto, fondo centrado, transparente."
+
+#: includes/class-tecc-plugin.php:611
+msgid ""
+"That is great to hear! A quick review on WordPress.org would really help us."
+msgstr ""
+"¡Es genial escuchar eso! Una revisión rápida en WordPress.org realmente nos "
+"ayudaría."
+
+#: admin/settings/class-tecc-settings-rest.php:283
+msgid "The Events Calendar is not active, so there is nothing to preview."
+msgstr ""
+"El calendario de eventos no está activo, por lo que no hay nada que ver."
+
+#. %s: minimum required The Events Calendar version.
+#: admin/settings/class-tecc-settings-rest.php:278
+#, php-format
+msgid ""
+"The Events Calendar needs to be version %s or newer for the preview to work."
+msgstr ""
+"El calendario de eventos debe ser la versión %s o más reciente para que "
+"funcione la vista previa."
+
+#: includes/class-tecc-plugin.php:515
+msgid ""
+"The plugin has been rewritten completely, with new features and designs."
+msgstr ""
+"El plugin se ha reescrito por completo, con nuevas características y diseños."
+
+#: includes/class-tecc-plugin.php:287
+msgid "The plugin isn't working"
+msgstr "el plugin no funciona"
+
+#: admin/settings/views/panel.php:422
+msgid ""
+"The soonest selected event is used. Raise Number of events for a carousel."
+msgstr ""
+"Se utiliza el evento más pronto seleccionado. Aumenta el número de eventos "
+"para un carrusel."
+
+#: includes/render/class-tecc-renderer.php:60
 msgid "There is no upcoming event"
-msgstr "No hay ningún evento próximo"
+msgstr "No hay evento próximo"
 
-#: includes/tecc-setting-panel.php:554
+#: admin/settings/class-tecc-settings-rest.php:242
 msgid ""
-"There is no upcoming event. Please add atleast one upcoming event to "
-"generate countdown."
+"This display needs a valid location and event source before it can preview."
 msgstr ""
-"No hay ningún evento próximo. Por favor, añada al menos uno de los próximos "
-"eventos para generar la cuenta atrás."
+"Esta pantalla necesita una ubicación válida y una fuente de eventos antes de "
+"que pueda obtener una vista previa."
 
-#: admin/events-addon-page/events-addon-page.php:99
-msgid "This plugin cannot be installed from here."
-msgstr "Este plugin puede ser instalado desde aquí."
+#: includes/compat/class-tecc-migrate.php:503
+#: includes/render/class-tecc-args.php:541 admin/settings/views/panel.php:478
+msgid "This Event Has Ended"
+msgstr "Este evento ha terminado"
 
-#: includes/tecc-setting-panel.php:462
+#: includes/templates/tecc-template-helpers.php:32
+#: includes/templates/minimal.php:56
+msgid "This event has ended."
+msgstr "Este evento ha terminado."
+
+#: admin/settings/views/panel.php:709
+msgid ""
+"This setting controls usage data sharing for Event Countdown only. Other "
+"Events Addons keep their own choice."
+msgstr ""
+"Esta configuración controla el uso compartido de datos de uso solo para la "
+"cuenta regresiva de eventos. Otros complementos de eventos mantienen su "
+"propia elección."
+
+#: admin/settings/views/rules-tab.php:361
+msgid "Timer size (px)"
+msgstr "Tamaño del temporizador (PX)"
+
+#: admin/settings/views/rules-tab.php:298
+msgid "Timer style"
+msgstr "Estilo de temporizador"
+
+#: admin/settings/views/rules-tab.php:318 admin/settings/views/panel.php:560
+msgid "Title"
+msgstr "Título"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:688
+msgid "Title color"
+msgstr "Color del título"
+
+#: admin/settings/views/rules-tab.php:343
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:758
+msgid "Title size"
+msgstr "Tamaño del título"
+
+#: admin/settings/views/panel.php:596
+msgid "Title size (px)"
+msgstr "Tamaño del título (PX)"
+
+#: includes/class-tecc-plugin.php:355 admin/settings/views/panel.php:715
 msgid ""
 "To check plugin compatibility, we will collect the following: list of active "
-"plugins and themes, server type, MySQL version, WordPress version, memory "
-"limit, site language and database prefix."
+"plugins and themes, PHP, MySQL and WordPress versions, memory limit, whether "
+"the site is multisite, and the site language. "
 msgstr ""
-"Para comprobar plugin de compatibilidad, vamos a recoger la siguiente: lista "
-"de plugins activos y temas, tipo de servidor, versión de MySQL, versión de "
-"WordPress, el límite de memoria, idioma del sitio y el prefijo de base de "
-"datos."
+"Para verificar la compatibilidad de los complementos, recopilaremos lo "
+"siguiente: Lista de complementos y temas activos, PHP, versiones de MySQL y "
+"WordPress, Límite de memoria, si el sitio es multisitio y el idioma del "
+"sitio."
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:209
-msgid ""
-"To check plugin compatibility, we will collect the following: list of active "
-"plugins and themes, server type, MySQL version, WordPress version, memory "
-"limit, site language and database prefix. "
-msgstr ""
+#: admin/settings/views/rules-tab.php:355 admin/settings/views/panel.php:616
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:497
+msgid "Top"
+msgstr "Superior"
 
-#: admin/events-addon-page/events-addon-page.php:212
-msgid "Unable to connect to the filesystem. Please confirm your credentials."
-msgstr ""
-"No se puede conectar al sistema de ficheros. Por favor confirmar sus "
-"credenciales."
+#: admin/settings/views/rules-tab.php:30
+msgid "Top bar (banner)"
+msgstr "Barra superior (bandera)"
 
-#: admin/events-addon-page/events-addon-page.php:652
-#: admin/events-addon-page/events-addon-page.php:653
-msgid "Update available"
-msgstr "Actualización disponible"
+#: admin/settings/views/panel.php:578
+msgid "Transparent"
+msgstr "Transparente"
 
-#: includes/tecc-setting-panel.php:431
-msgid "Usage Data Sharing"
-msgstr "Los Datos De Uso Compartido"
+#: includes/render/class-tecc-presets.php:106
+msgid "Transparent card that blends in — closest to the classic look."
+msgstr "Tarjeta transparente que se combina con el aspecto clásico."
 
-#: admin/events-addon-page/events-addon-page.php:576
-msgid "View Demo"
-msgstr "Ver Demo"
+#: includes/render/class-tecc-presets.php:210
+msgid "Transparent, image left"
+msgstr "Transparente, imagen izquierda"
 
-#: admin/events-addon-page/includes/dashboard-header.php:52
-msgid "View Demos"
-msgstr "Ver Demostraciones De La"
+#: includes/render/class-tecc-presets.php:105
+msgid "Transparent, image on top"
+msgstr "Transparente, imagen en la parte superior"
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:216
-msgid "Yes, I Agree"
-msgstr "Sí, Estoy De Acuerdo"
+#: admin/settings/views/panel.php:462
+msgid "Turning it off also hides the three status labels below."
+msgstr "Apagarlo también oculta las tres etiquetas de estado a continuación."
 
-#: includes/tecc-setting-panel.php:471
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:737
+msgid "Typography"
+msgstr "Tipografía"
+
+#: admin/settings/views/panel.php:358
+msgid "Upcoming event (automatic)"
+msgstr "Próximo evento (automático)"
+
+#: includes/templates/card.php:95
+msgid "Upcoming events"
+msgstr "Próximos eventos"
+
+#: admin/settings/class-tecc-settings-page.php:476
+#: admin/settings/views/panel.php:229
+msgid "Updating preview…"
+msgstr "Actualización de la vista previa…"
+
+#: admin/settings/views/rules-tab.php:104
+msgid "URL contains"
+msgstr "URL contiene"
+
+#: admin/settings/views/rules-tab.php:108
+msgid "User is logged in"
+msgstr "El usuario ha iniciado sesión"
+
+#: admin/settings/views/panel.php:299
+msgid "Using Elementor? Skip the shortcode"
+msgstr "usando elementor? Omitir el código corto"
+
+#: admin/settings/views/rules-tab.php:222
+msgid "Value"
+msgstr "Valor"
+
+#: admin/settings/views/rules-tab.php:100
+msgid "Venue IDs (comma-separated)"
+msgstr "ID de lugar (separado en comas)"
+
+#: admin/settings/views/panel.php:293
+msgid "Ways to add the countdown"
+msgstr "Formas de agregar la cuenta atrás"
+
+#. %s: plugin name (bold).
+#: includes/class-tecc-plugin.php:311
+#, php-format
+msgid "What made you deactivate %s? Your answer helps us fix it."
+msgstr "¿Qué te hizo desactivar %s? Tu respuesta nos ayuda a arreglarlo."
+
+#: includes/class-tecc-plugin.php:292
+msgid "What were you hoping it would do?"
+msgstr "¿Qué esperabas que hiciera?"
+
+#: admin/settings/views/rules-tab.php:187
+msgid "When a visitor closes it"
+msgstr "Cuando un visitante lo cierra"
+
+#: includes/class-tecc-plugin.php:288
+msgid "Which problem did you run into? We read every reply."
+msgstr "¿Con qué problema te encontraste? Leemos cada respuesta."
+
+#: includes/render/class-tecc-presets.php:282
+msgid "Wide strip, inline timer"
+msgstr "Tira ancha, temporizador en línea"
+
+#: admin/settings/views/rules-tab.php:377 admin/settings/views/panel.php:649
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:557
+msgid "Width"
+msgstr "Anchura"
+
+#: includes/class-tecc-plugin.php:608
+msgid "Yes, I like it"
+msgstr "si, me gusta"
+
+#: includes/class-tecc-plugin.php:357
+msgid "Yes, it's OK"
+msgstr "si, esta bien"
+
+#: admin/settings/class-tecc-settings-page.php:496
 msgid "You do not have sufficient permissions to access this page."
-msgstr "Usted no tiene permisos suficientes para acceder a esta página."
+msgstr "No tiene permisos suficientes para acceder a esta página."
 
-#: includes/tecc-setting-panel.php:461
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:208
+#: includes/class-tecc-plugin.php:354 admin/settings/views/panel.php:713
 msgid "Your website home URL and WordPress admin email."
 msgstr ""
-"Su sitio web URL de inicio y de administración de WordPress de correo "
-"electrónico."
+"La URL de inicio de su sitio web y el correo electrónico de administrador de "
+"WordPress."
+
+#: admin/settings/views/panel.php:207
+msgid "Zoomed out"
+msgstr "alejado"

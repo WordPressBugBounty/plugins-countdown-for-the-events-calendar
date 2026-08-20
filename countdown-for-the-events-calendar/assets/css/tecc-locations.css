@@ -1,0 +1,212 @@
+/**
+ * Event Countdown for The Events Calendar - auto-display locations.
+ *
+ * Positioning for the five floating Display Rules locations (top-bar,
+ * footer-bar, footer-left, footer-right, footer-middle) plus the dismiss
+ * control. All are position:fixed with a slide-in entrance; the full-width
+ * bars additionally get body padding (set by the runtime JS) so they never
+ * cover content. Logical properties throughout for RTL. Colors come from the
+ * design tokens (var(--tecc-*)) or neutral rgba; nothing brand-hardcoded.
+ *
+ * Markup contract: includes/display/class-tecc-locations.php +
+ * assets/js/tecc-locations.js (client conditions + dismissal).
+ *
+ * @since 2.0.0
+ */
+
+.tecc-location {
+	box-sizing: border-box;
+}
+
+/* [hidden] must win over any theme display rules (client conditions and
+   dismissal toggle the attribute). */
+.tecc-location[hidden] {
+	display: none !important;
+}
+
+/* ------------------------------------------------------------------
+ * Entrance: each location arrives from its nearest edge a short beat
+ * after load (animation-delay), so it reads as sliding in.
+ * ------------------------------------------------------------------ */
+@keyframes tecc-loc-down  { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes tecc-loc-up    { from { transform: translateY(100%);  opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes tecc-loc-left  { from { transform: translateX(-120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes tecc-loc-right { from { transform: translateX(120%);  opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes tecc-loc-rise  { from { transform: translateY(16px);  opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.tecc-location--top-bar,
+.tecc-location--footer-bar,
+.tecc-location--footer-left,
+.tecc-location--footer-right,
+.tecc-location--footer-middle {
+	position: fixed;
+	z-index: 9990;
+	animation-duration: 0.45s;
+	animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+	animation-fill-mode: both;
+	animation-delay: 0.6s;
+}
+
+/*
+ * Divi compatibility (theme only — other themes keep z-index: 9990 above).
+ *
+ * Stock Divi paints a fixed/sticky header above almost everything:
+ *   #main-header { z-index: 99999 }
+ *   #top-header  { z-index: 100000 }
+ * Our default 9990 therefore sits UNDER the Divi header. Bump only on
+ * body.et_divi_theme so corner/middle floats clear the header.
+ *
+ * Top-bar is different: raising z-index alone covers (hides) the Divi header.
+ * When a top-bar is showing we keep the countdown at the viewport top and
+ * slide Divi's fixed headers down by --tecc-top-bar-h so both stay visible
+ * (countdown first, then Divi header). JS sets --tecc-divi-header-h and
+ * page-container padding so content is not trapped under the shifted header.
+ */
+body.et_divi_theme .tecc-location--top-bar,
+body.et_divi_theme .tecc-location--footer-bar,
+body.et_divi_theme .tecc-location--footer-left,
+body.et_divi_theme .tecc-location--footer-right,
+body.et_divi_theme .tecc-location--footer-middle {
+	z-index: 100010;
+}
+
+body.et_divi_theme.tecc-has-top-bar #main-header,
+body.et_divi_theme.tecc-has-top-bar #top-header,
+body.et_divi_theme.tecc-has-top-bar .et-l--header {
+	top: var(--tecc-top-bar-h, 0px) !important;
+}
+
+body.et_divi_theme.admin-bar.tecc-has-top-bar #main-header,
+body.et_divi_theme.admin-bar.tecc-has-top-bar #top-header,
+body.et_divi_theme.admin-bar.tecc-has-top-bar .et-l--header {
+	top: calc(32px + var(--tecc-top-bar-h, 0px)) !important;
+}
+
+@media screen and (max-width: 782px) {
+	body.et_divi_theme.admin-bar.tecc-has-top-bar #main-header,
+	body.et_divi_theme.admin-bar.tecc-has-top-bar #top-header,
+	body.et_divi_theme.admin-bar.tecc-has-top-bar .et-l--header {
+		top: calc(46px + var(--tecc-top-bar-h, 0px)) !important;
+	}
+}
+
+/* Replace Divi's fixed-nav top padding with countdown + header heights. */
+body.et_divi_theme.et_fixed_nav.tecc-has-top-bar #page-container,
+body.et_divi_theme.et-tb-has-header.tecc-has-top-bar #page-container {
+	padding-top: calc(var(--tecc-top-bar-h, 0px) + var(--tecc-divi-header-h, 80px)) !important;
+}
+
+/* ------------------------------------------------------------------
+ * Bars: full-width strips pinned to the top / bottom edge.
+ * ------------------------------------------------------------------ */
+.tecc-location--top-bar,
+.tecc-location--footer-bar {
+	inset-inline: 0;
+}
+.tecc-location--top-bar    { inset-block-start: 0; animation-name: tecc-loc-down; }
+.tecc-location--footer-bar { inset-block-end: 0; animation-name: tecc-loc-up; }
+
+/* The inner countdown stretches across the whole bar; flush edges force
+   square corners regardless of the display's radius. */
+.tecc-location--top-bar .tecc-cd,
+.tecc-location--footer-bar .tecc-cd {
+	inline-size: 100%;
+	max-inline-size: none;
+	border-radius: 0;
+}
+
+/* ------------------------------------------------------------------
+ * Corner cards (bottom-left / bottom-right).
+ * ------------------------------------------------------------------ */
+.tecc-location--footer-left,
+.tecc-location--footer-right {
+	inset-block-end: 24px;
+	max-inline-size: 380px;
+}
+.tecc-location--footer-left  { inset-inline-start: 24px; animation-name: tecc-loc-left; }
+.tecc-location--footer-right { inset-inline-end: 24px; animation-name: tecc-loc-right; }
+
+/* ------------------------------------------------------------------
+ * Middle: a banner strip floating just above the bottom edge, centered
+ * and capped at 960px (override via the public --tecc-loc-width hook).
+ * ------------------------------------------------------------------ */
+.tecc-location--footer-middle {
+	inset-block-end: 20px;
+	inset-inline: 0;
+	margin-inline: auto;
+	inline-size: calc(100% - 40px);
+	max-inline-size: var(--tecc-loc-width, 960px);
+	animation-name: tecc-loc-rise;
+}
+
+/* ------------------------------------------------------------------
+ * Dismiss control (floating + bar locations; footer is not dismissible).
+ * Real button, 28px hit target, painted above the countdown.
+ * ------------------------------------------------------------------ */
+.tecc-location__dismiss {
+	position: absolute;
+	inset-block-start: 6px;
+	inset-inline-end: 6px;
+	z-index: 2;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: 28px;
+	block-size: 28px;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	user-select: none;
+	-webkit-appearance: none;
+	appearance: none;
+	border-radius: 50%;
+	/* Tinted from the display's own preset accent (lifted onto the wrapper by
+	   tecc-locations.js); --tecc-bg/--tecc-fg kept as a legacy fallback. */
+	background: var(--tecc-main, var(--tecc-bg, #4395cb));
+	color: var(--tecc-alt, var(--tecc-fg, #fff));
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+	font-size: 16px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+.tecc-location__dismiss:hover {
+	filter: brightness(1.15);
+}
+
+.tecc-location__dismiss:focus {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------------
+ * Reduced motion: no entrance animation, elements appear in place.
+ * ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+	.tecc-location,
+	.tecc-location *,
+	.tecc-location *::before,
+	.tecc-location *::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
+/* Admin-toolbar offset: the WP toolbar is fixed at top with z-index 99999 —
+   without this a logged-in admin sees the top bar hidden behind it. */
+body.admin-bar .tecc-location--top-bar {
+	inset-block-start: 32px;
+}
+@media screen and (max-width: 782px) {
+	body.admin-bar .tecc-location--top-bar {
+		inset-block-start: 46px;
+	}
+}
+
+/* Body padding so a full-width bar never covers page content. The runtime JS
+   measures each bar and sets these vars; the fallbacks keep layout sane if JS
+   is unavailable. */
+body.tecc-has-top-bar { padding-block-start: var(--tecc-top-bar-h, 0px); }
+body.tecc-has-footer-bar { padding-block-end: var(--tecc-footer-bar-h, 0px); }

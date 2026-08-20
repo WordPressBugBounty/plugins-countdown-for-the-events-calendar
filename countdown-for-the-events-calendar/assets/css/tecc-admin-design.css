@@ -1,0 +1,233 @@
+/**
+ * Event Countdown for The Events Calendar — flexible-design controls.
+ *
+ * Layered on tecc-admin-settings.css; scoped under .tecc-settings-wrap.
+ * Styles the presets bar, the 5-up color grid, the compact sizes/layout
+ * grid, the category checklist and the countdown-style pills. Logical
+ * properties are used for RTL. Reuses the shared tokens (#dcdcde borders,
+ * #2271b1 blue).
+ *
+ * @since 2.0.0
+ */
+
+/* -------------------------------------------------------------------------
+ * Full-bleed: connect the panel to the WP menu (remove #wpcontent padding).
+ * ---------------------------------------------------------------------- */
+body.tecc-fullbleed #wpcontent {
+	padding-inline-start: 0;
+}
+body.tecc-fullbleed #wpbody-content {
+	padding-block-end: 0;
+}
+body.tecc-fullbleed .tecc-settings-wrap.wrap {
+	margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * Hero: title + small description only — no card background or box shadow.
+ * ---------------------------------------------------------------------- */
+.tecc-settings-shell .eca-hero--compact {
+	background: none;
+	box-shadow: none;
+	border: 0;
+	padding-inline: 0;
+	padding-block: 0px;
+}
+.tecc-settings-shell .eca-hero--compact h1 {
+	margin: 0 0 4px;
+}
+.tecc-settings-shell .eca-hero--compact p {
+	margin: 0;
+	max-width: 60ch;
+	color: #50575e;
+}
+
+/* -------------------------------------------------------------------------
+ * Preset gallery: label + Light/Dark toggle, then a grid of preset tiles.
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-presets {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-block-end: 20px;
+	padding-block-end: 18px;
+	border-block-end: 1px solid #dcdcde;
+}
+
+.tecc-settings-wrap .tecc-presets-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.tecc-settings-wrap .tecc-mode-toggle {
+	display: inline-flex;
+	border: 1px solid #c3c4c7;
+	border-radius: 999px;
+	overflow: hidden;
+	background: #f6f7f7;
+}
+
+.tecc-settings-wrap .tecc-mode-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	border: 0;
+	background: transparent;
+	color: #50575e;
+	padding: 5px 12px;
+	cursor: pointer;
+	font-size: 12px;
+	line-height: 1.4;
+}
+.tecc-settings-wrap .tecc-mode-btn .dashicons {
+	font-size: 15px;
+	width: 15px;
+	height: 15px;
+}
+.tecc-settings-wrap .tecc-mode-btn.is-active {
+	background: #1d2327;
+	color: #fff;
+}
+
+.tecc-settings-wrap .tecc-preset-gallery {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+}
+
+.tecc-settings-wrap .tecc-preset-tile {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	padding: 12px;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	background: #fff;
+	cursor: pointer;
+	text-align: start;
+	transition: border-color .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.tecc-settings-wrap .tecc-preset-tile:hover {
+	border-color: #8c8f94;
+}
+.tecc-settings-wrap .tecc-preset-tile.is-selected {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	background: #f5faff;
+}
+
+.tecc-settings-wrap .tecc-preset-name {
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	line-height: 1.3;
+}
+.tecc-settings-wrap .tecc-preset-desc {
+	font-size: 11.5px;
+	color: #79818c;
+	line-height: 1.35;
+}
+
+@media (max-width: 600px) {
+	.tecc-settings-wrap .tecc-preset-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* -------------------------------------------------------------------------
+ * Colors: 5-up grid that wraps at ~140px
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-color-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 12px 14px;
+}
+
+/* -------------------------------------------------------------------------
+ * Sizes / Layout: compact auto-fit grid
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-design-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 14px;
+}
+
+.tecc-settings-wrap .tecc-design-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+/* A field that needs room for a hint spans the full grid row. */
+.tecc-settings-wrap .tecc-design-field--wide {
+	grid-column: 1 / -1;
+}
+.tecc-settings-wrap .tecc-field-hint {
+	margin: 2px 0 0;
+	font-size: 11px;
+	line-height: 1.4;
+	color: #787c82;
+}
+
+.tecc-settings-wrap .tecc-design-field .tecc-field-label {
+	font-weight: 400;
+	color: #50575e;
+}
+
+.tecc-settings-wrap .tecc-design-field select,
+.tecc-settings-wrap .tecc-design-field input[type="number"],
+.tecc-settings-wrap .tecc-design-field input[type="text"] {
+	width: 100%;
+	max-width: 100%;
+}
+
+/* Tier-2 label: names ONE swatch inside the "Colors" setting. Small, muted
+   and upper-cased so it reads as subordinate to the tier-1 label heading the
+   group — before this both tiers were 13px/600 and looked identical. */
+.tecc-settings-wrap .tecc-color-field .tecc-field-label {
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: #646970;
+}
+
+/* -------------------------------------------------------------------------
+ * Countdown-style pills (reuse .tecc-choice-pill; keep the group tidy)
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-pill-group {
+	row-gap: 8px;
+}
+
+.tecc-settings-wrap .tecc-choice-pill {
+	user-select: none;
+}
+
+/* -------------------------------------------------------------------------
+ * Copy-first save: primary Copy, subtle "Save as site default" link.
+ * ---------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------
+ * Page footer: relocated usage-data-sharing consent strip.
+ * ---------------------------------------------------------------------- */
+.tecc-settings-shell .tecc-page-footer {
+	margin-block-start: 24px;
+	padding-block-start: 16px;
+	border-block-start: 1px solid #dcdcde;
+	color: #646970;
+	font-size: 12px;
+}
+.tecc-settings-shell .tecc-data-sharing__opt {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+.tecc-settings-shell .tecc-terms-box {
+	margin-block-start: 10px;
+	padding-inline-start: 20px;
+	color: #999;
+}
+.tecc-settings-shell .tecc-terms-box ul {
+	list-style: disc;
+	padding-inline-start: 20px;
+}

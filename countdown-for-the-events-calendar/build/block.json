@@ -1,0 +1,183 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "tecc/countdown",
+  "version": "2.0.0",
+  "title": "Event Countdown",
+  "category": "widgets",
+  "icon": "clock",
+  "description": "Live countdown to your next event from The Events Calendar.",
+  "keywords": [
+    "countdown",
+    "event",
+    "timer",
+    "events calendar"
+  ],
+  "textdomain": "countdown-for-the-events-calendar",
+  "supports": {
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "attributes": {
+    "source": {
+      "type": "string",
+      "default": "next-upcoming"
+    },
+    "eventId": {
+      "type": "integer",
+      "default": 0
+    },
+    "eventIds": {
+      "type": "string",
+      "default": ""
+    },
+    "categories": {
+      "type": "string",
+      "default": ""
+    },
+    "tags": {
+      "type": "string",
+      "default": ""
+    },
+    "template": {
+      "type": "string",
+      "default": "card"
+    },
+    "stylePreset": {
+      "type": "string",
+      "default": "default"
+    },
+    "size": {
+      "type": "string",
+      "default": "large"
+    },
+    "bgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "fgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "accentColor": {
+      "type": "string",
+      "default": ""
+    },
+    "showSeconds": {
+      "type": "boolean",
+      "default": true
+    },
+    "showImage": {
+      "type": "boolean",
+      "default": false
+    },
+    "showVenue": {
+      "type": "boolean",
+      "default": true
+    },
+    "showButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "mainTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "noOfEvents": {
+      "type": "integer",
+      "default": 1
+    },
+    "mainColor": {
+      "type": "string",
+      "default": ""
+    },
+    "altColor": {
+      "type": "string",
+      "default": ""
+    },
+    "titleColor": {
+      "type": "string",
+      "default": ""
+    },
+    "textColor": {
+      "type": "string",
+      "default": ""
+    },
+    "cardBg": {
+      "type": "string",
+      "default": ""
+    },
+    "titleSize": {
+      "type": "integer",
+      "default": 20
+    },
+    "bodySize": {
+      "type": "integer",
+      "default": 14
+    },
+    "countdownSize": {
+      "type": "integer",
+      "default": 0
+    },
+    "border": {
+      "type": "integer",
+      "default": 0
+    },
+    "radius": {
+      "type": "integer",
+      "default": 10
+    },
+    "padding": {
+      "type": "integer",
+      "default": 15
+    },
+    "width": {
+      "type": "string",
+      "default": "auto"
+    },
+    "shadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "countdownStyle": {
+      "type": "string",
+      "default": "box"
+    },
+    "imagePosition": {
+      "type": "string",
+      "default": "top"
+    },
+    "contentAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "imageGap": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCost": {
+      "type": "boolean",
+      "default": false
+    },
+    "showDivider": {
+      "type": "boolean",
+      "default": false
+    },
+    "showOngoing": {
+      "type": "boolean",
+      "default": true
+    },
+    "ongoingTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonText": {
+      "type": "string",
+      "default": ""
+    },
+    "endedTitle": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

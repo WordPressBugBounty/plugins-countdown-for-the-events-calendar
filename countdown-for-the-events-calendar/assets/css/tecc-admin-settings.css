@@ -1,0 +1,745 @@
+/**
+ * Event Countdown for The Events Calendar — settings panel styles.
+ *
+ * Editor-style shell layered on the shared Events Addons chrome (eca-base.css
+ * supplies the header/hero/button styles). Scoped under .tecc-settings-wrap.
+ * Logical properties are used for RTL. Preview CONTENT is not styled here.
+ *
+ * @since 2.0.0
+ */
+
+/* Shell: full-bleed dashboard page, centered 1200px content. */
+.tecc-settings-wrap { margin: 0; color: #1d2327; }
+.tecc-settings-wrap .eca-admin-header { position: static; } /* avoid two sticky headers */
+.tecc-settings-wrap .tecc-settings-shell { max-width: 1200px; }
+
+/* Compact hero: the flat/tight treatment (background, borders, padding) lives
+   in tecc-admin-design.css; only spacing + type scale belong here. */
+.tecc-settings-wrap .eca-hero--compact { margin-block-end: 20px; }
+.tecc-settings-wrap .eca-hero--compact::before { content: none; }
+.tecc-settings-wrap .eca-hero--compact h1 { font-size: 22px; margin-block-end: 4px; }
+.tecc-settings-wrap .eca-hero--compact p { font-size: 14px; }
+
+/* Hero split: title/desc on the left ~50%, an "how to add it" info card right. */
+.tecc-settings-wrap .tecc-hero__inner {
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 22px;
+	align-items: stretch;
+}
+.tecc-settings-wrap .tecc-hero__lead { align-self: center; }
+.tecc-settings-wrap .tecc-hero__lead p { max-width: none; }
+
+.tecc-settings-wrap .tecc-hero__card {
+	display: flex;
+	gap: 13px;
+	padding: 15px 17px;
+	background: linear-gradient(135deg, rgba(6, 147, 227, 0.07), rgba(0, 114, 179, 0.03));
+	border: 1px solid var(--eca-border-soft, #e2e4e9);
+	border-radius: var(--eca-radius-md, 10px);
+}
+.tecc-settings-wrap .tecc-hero__card-icon {
+	flex: 0 0 auto;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: 38px;
+	block-size: 38px;
+	border-radius: 9px;
+	background: #fff;
+	color: #0073b1;
+	box-shadow: var(--eca-shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.08));
+}
+.tecc-settings-wrap .tecc-hero__card-icon .dashicons { font-size: 22px; inline-size: 22px; block-size: 22px; }
+.tecc-settings-wrap .tecc-hero__card-body { min-inline-size: 0; }
+.tecc-settings-wrap .tecc-hero__card-title { margin: 1px 0 4px; font-size: 14px; font-weight: 700; line-height: 1.3; }
+.tecc-settings-wrap .tecc-hero__card-text { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--eca-text-muted, #5b6470); }
+
+@media (max-width: 900px) {
+	.tecc-settings-wrap .tecc-hero__inner { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* -------------------------------------------------------------------------
+ * Full-width top tab nav + status badge
+ * ---------------------------------------------------------------------- */
+/* Folder-tab nav: the active tab is a rounded-top white card bordered on
+   top/left/right, whose bottom edge merges into the panel below; the inactive
+   tab is plain text sitting on the shared baseline. */
+.tecc-settings-wrap .tecc-tab-nav {
+	display: flex;
+	gap: 8px;
+	align-items: flex-end;
+	border-block-end: 1px solid #dcdcde;
+	margin-block-end: 20px;
+	padding-inline: 12px;
+}
+
+.tecc-settings-wrap .tecc-tab-button {
+	position: relative;
+	appearance: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: transparent;
+	border: 1px solid transparent;
+	border-block-end: none;
+	border-start-start-radius: 10px;
+	border-start-end-radius: 10px;
+	margin-block-end: -1px;
+	padding: 16px 22px;
+	font-size: 14px;
+	color: #50575e;
+	cursor: pointer;
+	text-align: start;
+}
+
+.tecc-settings-wrap .tecc-tab-text { display: flex; flex-direction: column; line-height: 1.25; gap: 4px; }
+.tecc-settings-wrap .tecc-tab-title { font-size: 14px; font-weight: 600; color: #454b53; }
+.tecc-settings-wrap .tecc-tab-desc { font-size: 11.5px; font-weight: 400; color: #8a929b; }
+.tecc-settings-wrap .tecc-tab-button:hover .tecc-tab-title { color: #2271b1; }
+
+.tecc-settings-wrap .tecc-tab-button.is-active {
+	border-color: #dcdcde;
+	box-shadow: 0 -3px 10px rgba(15, 23, 42, 0.05), inset 0 12px 8px rgba(255, 255, 255, 1);
+}
+.tecc-settings-wrap .tecc-tab-button.is-active .tecc-tab-title { color: #1d2327; }
+.tecc-settings-wrap .tecc-tab-button.is-active .tecc-tab-desc { color: #79818c; }
+/* Cut the nav baseline under the active tab so it "opens" into the panel. */
+.tecc-settings-wrap .tecc-tab-button.is-active::after {
+	content: "";
+	position: absolute;
+	inset-inline: 0;
+	inset-block-end: -1px;
+	block-size: 2px;
+	background: var(--eca-bg);
+}
+
+.tecc-settings-wrap .tecc-badge {
+	display: inline-block;
+	padding: 1px 8px;
+	border-radius: 999px;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.7;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}
+.tecc-settings-wrap .tecc-badge.is-active { background: #edfaef; color: #007017; border: 1px solid #b8e6c0; }
+.tecc-settings-wrap .tecc-badge.is-inactive { background: #f0f0f1; color: #646970; border: 1px solid #dcdcde; }
+
+/* Panels: bare containers (chrome lives on the cards inside). */
+.tecc-settings-wrap .tecc-tab-panel { display: none; }
+.tecc-settings-wrap .tecc-tab-panel.is-active { display: block; }
+
+/* -------------------------------------------------------------------------
+ * Editor layout: settings card (<=420) + preview column (remaining)
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-editor-columns {
+	display: grid;
+	grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+	gap: 20px;
+	align-items: start;
+}
+
+@media (max-width: 1024px) {
+	/* minmax(0, 1fr), never a bare 1fr: a 1fr track has an automatic minimum,
+	   so it cannot shrink below its widest item. The preview box is a literal
+	   1280px in Desktop mode, which would drag BOTH stacked rows - including
+	   the settings card above - off the side of a phone screen. */
+	.tecc-settings-wrap .tecc-editor-columns { grid-template-columns: minmax(0, 1fr); }
+}
+
+.tecc-settings-wrap .tecc-editor-main {
+	/* Grid items default to min-width:auto; without this the 1280px preview
+	   can stretch the column again from any future layout change. */
+	min-inline-size: 0;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	padding: 20px;
+}
+
+.tecc-settings-wrap .tecc-editor-side { display: flex; flex-direction: column; gap: 16px; min-inline-size: 0; }
+
+@media (min-width: 1025px) {
+	.tecc-settings-wrap .tecc-editor-side { position: sticky; top: 52px; }
+}
+
+/* -------------------------------------------------------------------------
+ * Left-card sub-tabs
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-subtab-nav {
+	display: flex;
+	gap: 2px;
+	/* Bleed to the card edges so the bar reads as the panel's own header and the
+	   active tab is continuous with the content below it. The inset MUST match
+	   .tecc-editor-main's padding (20px) or the bar will not reach the edges. */
+	margin: -20px -20px 20px;
+	flex-wrap: wrap;
+	padding: 5px 12px 0;
+	border-block-end: 1px solid #dcdcde;
+	border-start-start-radius: 6px;
+	border-start-end-radius: 6px;
+}
+
+.tecc-settings-wrap .tecc-subtab-button {
+	appearance: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	background: transparent;
+	border: 1px solid transparent;
+	border-block-end: none;
+	margin-block-end: -1px;
+	padding: 11px 16px;
+	font-size: 13px;
+	font-weight: 500;
+	color: #50575e;
+	cursor: pointer;
+}
+.tecc-settings-wrap .tecc-subtab-button .dashicons { width: 17px; height: 17px; font-size: 17px; flex: 0 0 auto; color: #8a929b; }
+.tecc-settings-wrap .tecc-subtab-button:hover { color: #1d2327; background: rgba(255, 255, 255, 0.55); }
+.tecc-settings-wrap .tecc-subtab-button:hover .dashicons { color: #2271b1; }
+.tecc-settings-wrap .tecc-subtab-button:focus-visible { outline: 2px solid #2271b1; outline-offset: -2px; }
+.tecc-settings-wrap .tecc-subtab-button.is-active {
+	background: #fff;
+	color: #1d2327;
+	font-weight: 600;
+	border-start-start-radius: 5px;
+	border-start-end-radius: 5px;
+	/* Accent on TOP: at the bottom it lands exactly where the tab meets the
+	   panel and reads as a divider, when the tab must flow INTO the panel. */
+	box-shadow: 0 -3px 0 #2271b1 inset;
+}
+.tecc-settings-wrap .tecc-subtab-button.is-active .dashicons { color: #2271b1; }
+
+.tecc-settings-wrap .tecc-subtab-panel { display: none; }
+.tecc-settings-wrap .tecc-subtab-panel.is-active { display: block; }
+
+/* -------------------------------------------------------------------------
+ * Form rows (label above input)
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-form-row,
+.tecc-settings-wrap .tecc-color-field {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.tecc-settings-wrap .tecc-form-row, .tecc-settings-wrap .tecc-status-fields { margin-block-end: 24px; }
+.tecc-settings-wrap .tecc-form-row:last-child { margin-block-end: 0; }
+.tecc-settings-wrap .tecc-field-label { display: block; font-size: 13px; font-weight: 600; color: #1d2327; }
+.tecc-settings-wrap .tecc-form-row select,
+.tecc-settings-wrap .tecc-form-row input[type="text"] { max-width: 100%; }
+.tecc-settings-wrap .description { margin: 2px 0 0; font-size: 12px; color: #646970; }
+
+/* Style preset pills (their radios are visually hidden but focusable) */
+.tecc-settings-wrap .tecc-choice-pill input[type="radio"] { position: absolute; opacity: 0; width: 1px; height: 1px; }
+
+.tecc-settings-wrap .tecc-choice-pill:focus-within { outline: 2px solid #2271b1; outline-offset: 1px; }
+
+/* Style preset pills */
+.tecc-settings-wrap .tecc-pill-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.tecc-settings-wrap .tecc-choice-pill {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	padding: 5px 14px;
+	border: 1px solid #dcdcde;
+	border-radius: 999px;
+	font-size: 13px;
+	background: #fff;
+	cursor: pointer;
+}
+.tecc-settings-wrap .tecc-choice-pill.is-selected,
+.tecc-settings-wrap .tecc-choice-pill:has(input:checked) { border-color: #2271b1; background: #f0f6fc; color: #2271b1; font-weight: 600; }
+
+/* Colors, toggles, source */
+.tecc-settings-wrap .tecc-color-field input[type="color"] {
+	width: 64px;
+	height: 36px;
+	padding: 2px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+	cursor: pointer;
+}
+
+.tecc-settings-wrap .tecc-source-radios { display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
+
+/* -------------------------------------------------------------------------
+ * Toggle switches (yes/no) — hidden checkbox drives a sliding pill
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-switch-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 12px 18px;
+}
+.tecc-settings-wrap .tecc-switch-field { display: flex; flex-direction: column; gap: 4px; }
+.tecc-settings-wrap .tecc-switch {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	font-size: 13px;
+	color: #1d2327;
+	user-select: none;
+}
+.tecc-settings-wrap .tecc-switch__input {
+	position: absolute;
+	opacity: 0;
+	width: 1px;
+	height: 1px;
+	margin: 0;
+}
+.tecc-settings-wrap .tecc-switch__track {
+	position: relative;
+	flex: 0 0 auto;
+	inline-size: 38px;
+	block-size: 22px;
+	border-radius: 999px;
+	background: #c3c8cf;
+	transition: background 0.15s ease;
+}
+.tecc-settings-wrap .tecc-switch__thumb {
+	position: absolute;
+	inset-block-start: 2px;
+	inset-inline-start: 2px;
+	inline-size: 18px;
+	block-size: 18px;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	transition: transform 0.15s ease;
+}
+.tecc-settings-wrap .tecc-switch__input:checked + .tecc-switch__track { background: #2271b1; }
+.tecc-settings-wrap .tecc-switch__input:checked + .tecc-switch__track .tecc-switch__thumb { transform: translateX(16px); }
+.tecc-settings-wrap .tecc-switch__input:focus-visible + .tecc-switch__track { outline: 2px solid #2271b1; outline-offset: 2px; }
+.tecc-settings-wrap .tecc-switch__text { font-weight: 500; }
+.tecc-settings-wrap .tecc-switch__desc { margin: 0; padding-inline-start: 48px; }
+
+/* -------------------------------------------------------------------------
+ * Range slider with a live value readout
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-range-field { display: flex; align-items: center; gap: 12px; }
+.tecc-settings-wrap .tecc-range { flex: 1 1 auto; max-inline-size: 240px; accent-color: #2271b1; }
+.tecc-settings-wrap .tecc-range__value {
+	flex: 0 0 auto;
+	min-inline-size: 28px;
+	padding: 2px 8px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: 700;
+	color: #1d2327;
+	background: #f0f3f7;
+	border-radius: 6px;
+}
+
+@media (max-width: 480px) {
+	.tecc-settings-wrap .tecc-switch-grid { grid-template-columns: 1fr; }
+}
+
+/* -------------------------------------------------------------------------
+ * Source token-select (events / categories) — select2-style multi-select
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-ts { position: relative; }
+
+.tecc-settings-wrap .tecc-ts-control {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	min-block-size: 38px;
+	padding: 5px 8px;
+	border: 1px solid #8c8f94;
+	border-radius: 4px;
+	background: #fff;
+	cursor: text;
+}
+.tecc-settings-wrap .tecc-ts-control:focus-within {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+
+.tecc-settings-wrap .tecc-ts-chips { display: contents; }
+
+.tecc-settings-wrap .tecc-ts-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 2px 4px 2px 8px;
+	background: #eef2f8;
+	border: 1px solid #d3dae6;
+	border-radius: 4px;
+	font-size: 12px;
+	line-height: 1.6;
+	color: #1d2327;
+}
+.tecc-settings-wrap .tecc-ts-remove {
+	border: 0;
+	background: none;
+	color: #646970;
+	cursor: pointer;
+	font-size: 15px;
+	line-height: 1;
+	padding: 0 2px;
+}
+.tecc-settings-wrap .tecc-ts-remove:hover { color: #d63638; }
+
+.tecc-settings-wrap .tecc-ts-input {
+	flex: 1 1 90px;
+	min-inline-size: 90px;
+	border: 0;
+	outline: 0;
+	padding: 2px;
+	font-size: 13px;
+	background: transparent;
+}
+
+.tecc-settings-wrap .tecc-ts-menu {
+	position: absolute;
+	z-index: 20;
+	inset-inline: 0;
+	margin: 2px 0 0;
+	padding: 4px;
+	max-block-size: 220px;
+	overflow-y: auto;
+	list-style: none;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 6px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+	font-size: 13px;
+}
+.tecc-settings-wrap .tecc-ts-option {
+	padding: 6px 8px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.tecc-settings-wrap .tecc-ts-option:hover,
+.tecc-settings-wrap .tecc-ts-option.is-active {
+	background: #2271b1;
+	color: #fff;
+}
+
+/* -------------------------------------------------------------------------
+ * Shortcode box
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-shortcode-output {
+	display: block;
+	font-family: Consolas, Monaco, monospace;
+	font-size: 13px;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	padding: 12px;
+	border-radius: 4px;
+	word-break: break-all;
+}
+.tecc-settings-wrap .tecc-copy-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 12px 0 0; }
+.tecc-settings-wrap .tecc-copy-feedback { font-size: 13px; color: #007017; }
+
+/* -------------------------------------------------------------------------
+ * Browser-frame live preview: top bar (dots + width controls + status pill)
+ * over a fixed-height, grid-backed viewport the JS scales/scrolls, with an
+ * optional shortcode + copy footer in the same card.
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-preview-frame {
+	border: 1px solid #dcdcde;
+	border-radius: 10px;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.tecc-settings-wrap .tecc-preview-topbar {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 12px;
+	background: #f6f7f7;
+	border-block-end: 1px solid #e2e3e5;
+}
+
+.tecc-settings-wrap .tecc-preview-dots { display: inline-flex; gap: 6px; }
+.tecc-settings-wrap .tecc-preview-dots i { inline-size: 11px; block-size: 11px; border-radius: 50%; display: block; background: #d3d5d9; }
+.tecc-settings-wrap .tecc-preview-dots i:nth-child(1) { background: #ff5f57; }
+.tecc-settings-wrap .tecc-preview-dots i:nth-child(2) { background: #febc2e; }
+.tecc-settings-wrap .tecc-preview-dots i:nth-child(3) { background: #28c840; }
+
+/* Copy control in the preview chrome. Confirms in place: the label swaps to
+   the paste hint for a moment, so the feedback is where the click was. */
+.tecc-settings-wrap .tecc-preview-copy {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 1px 8px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+	color: #50575e;
+	font-size: 11px;
+	line-height: 1.7;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.tecc-settings-wrap .tecc-preview-copy .dashicons { font-size: 13px; inline-size: 13px; block-size: 13px; }
+.tecc-settings-wrap .tecc-preview-copy:hover { color: #1d2327; border-color: #c3c4c7; }
+.tecc-settings-wrap .tecc-preview-copy:focus-visible { outline: 2px solid #2271b1; outline-offset: 1px; }
+.tecc-settings-wrap .tecc-preview-copy.is-copied {
+	background: #edfaef;
+	border-color: #68de7c;
+	color: #00690f;
+}
+
+.tecc-settings-wrap .tecc-preview-widths {
+	display: inline-flex;
+	gap: 2px;
+	margin-inline-start: auto;
+	padding: 2px;
+	background: #e9eaec;
+	border-radius: 6px;
+}
+.tecc-settings-wrap .tecc-pw-btn {
+	border: 0;
+	background: transparent;
+	color: #50575e;
+	font-size: 11px;
+	line-height: 1.7;
+	padding: 1px 8px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.tecc-settings-wrap .tecc-pw-btn.is-active { background: #fff; color: #1d2327; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12); }
+
+.tecc-settings-wrap .tecc-preview-status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #50575e; white-space: nowrap; }
+.tecc-settings-wrap .tecc-preview-dot { inline-size: 8px; block-size: 8px; border-radius: 50%; background: #28c840; }
+.tecc-settings-wrap .tecc-preview-status:not(.is-updating) .tecc-preview-dot { animation: tecc-pulse 2s ease-in-out infinite; }
+.tecc-settings-wrap .tecc-preview-status.is-updating .tecc-preview-dot { background: #dba617; }
+@keyframes tecc-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.tecc-settings-wrap .tecc-preview-viewport {
+	position: relative;
+	block-size: 500px;
+	overflow: auto;
+	background-color: #fbfbfc;
+	background-image:
+		linear-gradient(#edeef1 1px, transparent 1px),
+		linear-gradient(90deg, #edeef1 1px, transparent 1px);
+	background-size: 22px 22px;
+}
+
+.tecc-settings-wrap .tecc-preview-scaler { transform-origin: top left; }
+
+.tecc-settings-wrap .tecc-preview-box {
+	box-sizing: border-box;
+	padding: 20px;
+	min-block-size: 460px;
+}
+
+.tecc-settings-wrap .tecc-preview-overlay {
+	position: absolute;
+	inset: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	background: rgba(251, 251, 252, 0.72);
+	font-size: 13px;
+	color: #1d2327;
+	z-index: 2;
+}
+.tecc-settings-wrap .tecc-preview-overlay.is-visible { display: flex; }
+
+.tecc-settings-wrap .tecc-preview-spinner {
+	width: 16px;
+	height: 16px;
+	border: 2px solid #c3c4c7;
+	border-top-color: #2271b1;
+	border-radius: 50%;
+	animation: tecc-spin 0.7s linear infinite;
+}
+
+@keyframes tecc-spin { to { transform: rotate(360deg); } }
+
+.tecc-settings-wrap .tecc-preview-shortcode {
+	padding: 12px;
+	border-block-start: 1px solid #e2e3e5;
+	background: #fff;
+}
+.tecc-settings-wrap .tecc-preview-shortcode .tecc-shortcode-output { margin-block-end: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+	/* Must out-specify the pulse rule's :not(.is-updating) selector. */
+	.tecc-settings-wrap .tecc-preview-spinner,
+	.tecc-settings-wrap .tecc-preview-status:not(.is-updating) .tecc-preview-dot,
+	.tecc-settings-wrap .tecc-preview-status .tecc-preview-dot { animation: none; }
+}
+
+@media (forced-colors: active) {
+	.tecc-settings-wrap .tecc-preview-overlay { background: Canvas; color: CanvasText; border: 1px solid CanvasText; }
+}
+
+.tecc-settings-wrap .tecc-preview-placeholder { margin: 0; font-size: 13px; color: #646970; }
+/* Both stay large: the frame is scaled DOWN in Zoomed out mode, so anything
+   smaller becomes unreadable there. Only a real failure is red — an empty
+   preview is a normal state, not an error. */
+.tecc-settings-wrap .tecc-preview-error,
+.tecc-settings-wrap .tecc-preview-empty {
+	margin: 0;
+	padding: 48px 32px;
+	font-size: 25px;
+	line-height: 1.5;
+	text-align: center;
+}
+.tecc-settings-wrap .tecc-preview-error { color: #d63638; }
+.tecc-settings-wrap .tecc-preview-empty { color: #646970; }
+.tecc-settings-wrap .tecc-preview-note { margin-block-start: 10px; }
+
+/* Action buttons (copy/save/add): inline-flex centres the dashicon with the
+   label reliably (vertical-align hacks looked off). Copy-row and the sitewide
+   Add/Save buttons share the exact same treatment so they read consistently. */
+.tecc-settings-wrap .tecc-copy-row .button,
+.tecc-settings-wrap .tecc-rules-actions .button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	text-decoration: none;
+}
+/* Some admin/theme CSS underlines these submit buttons — force it off. */
+.tecc-settings-wrap .tecc-copy-row .button,
+.tecc-settings-wrap .tecc-copy-row .button:hover,
+.tecc-settings-wrap .tecc-copy-row .button:focus,
+.tecc-settings-wrap .tecc-copy-row .button span {
+	text-decoration: none !important;
+}
+.tecc-settings-wrap .tecc-copy-row .button .dashicons,
+.tecc-settings-wrap .tecc-rules-actions .button .dashicons {
+	font-size: 17px;
+	width: 17px;
+	height: 17px;
+	line-height: 1;
+	margin: 0;
+}
+/* On a filled (primary) button the icon must be white — WP tints .dashicons the
+   admin link colour (#3858e9), invisible on the blue background; force white. */
+.tecc-settings-wrap .tecc-copy-row .button-primary .dashicons,
+.tecc-settings-wrap .tecc-rules-actions .button-primary .dashicons {
+	color: #fff !important;
+}
+.tecc-settings-wrap .tecc-rules-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-block-start: 10px; }
+
+/* Saved confirmation (our own — foreign notices are hidden on this screen). */
+.tecc-settings-wrap .tecc-saved-notice {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-block-end: 16px;
+	padding: 10px 16px;
+	border: 1px solid #b8e6c0;
+	border-radius: 8px;
+	background: #edfaef;
+	color: #04722b;
+	font-size: 13px;
+	font-weight: 600;
+	transition: opacity 0.4s ease;
+}
+.tecc-settings-wrap .tecc-saved-notice .dashicons { color: #00a32a; width: 18px; height: 18px; font-size: 18px; }
+.tecc-settings-wrap .tecc-sitewide-consent { margin-block-start: 24px; padding-block-start: 16px; border-block-start: 1px solid #e2e4e9; }
+/* (Save-as-default now inherits the shared .tecc-copy-row .button treatment
+   above — it's a standard .button-secondary, so no bespoke styling remains.) */
+
+/* -------------------------------------------------------------------------
+ * Usage-data sharing opt-in
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-data-sharing { font-size: 13px; }
+/* Scope note: the toggle writes the SHARED consent flag, so the copy has to say
+   so. Block-level under the inline label + "See terms" link. */
+.tecc-settings-wrap .tecc-data-sharing__scope { margin-block-start: 6px; max-inline-size: 70ch; }
+.tecc-settings-wrap .tecc-terms-box { font-size: 12px; color: #646970; }
+
+/* Notices render above the hero, full width of the shell (WP would otherwise
+   drop them after the first h1, i.e. mid-panel on this full-bleed layout). */
+.tecc-settings-wrap .tecc-notices { margin: 0 0 16px; }
+.tecc-settings-wrap .tecc-notices > .notice { margin: 0 0 10px; }
+.tecc-settings-wrap .tecc-notices > .notice:last-child { margin-bottom: 0; }
+
+/* -------------------------------------------------------------------------
+ * Header brand: shared mark + the current screen underneath
+ *
+ * Same rules in every addon so the chrome is identical across the family. They
+ * live HERE rather than in eca-base.css because that file is a byte-identical
+ * vendored copy of the shared module and must not be edited locally.
+ * ---------------------------------------------------------------------- */
+.tecc-brand { text-decoration: none; align-items: center; }
+.tecc-brand:focus { box-shadow: none; }
+.tecc-brand__stack {
+	display: flex;
+	flex-direction: column;
+	/* Optical: the two lines read as one block rather than a list. */
+	gap: 1px;
+	min-inline-size: 0;
+}
+.tecc-brand__page {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 11.5px;
+	font-weight: 500;
+	line-height: 1.3;
+	color: var(--eca-text-muted, #5b6470);
+	/* Long addon names must not push the header buttons off-screen. */
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.tecc-brand__arrow { flex: 0 0 auto; opacity: 0.75; }
+.tecc-brand:hover .tecc-brand__page { color: var(--eca-text, #1d2327); }
+
+/* -------------------------------------------------------------------------
+ * Label hierarchy — two tiers keyed off nesting:
+ *   1. Setting name = direct child of .tecc-form-row + switch text.
+ *   2. Sub-label names one input inside a multi-input setting (owned by
+ *      tecc-admin-design.css to avoid a load-order fight).
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-form-row > .tecc-field-label,
+.tecc-settings-wrap .tecc-switch__text {
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #1d2327;
+}
+
+
+
+/* Group separator. A settings panel this dense reads as one undifferentiated
+   column without them; the rule marks where one group of settings ends and the
+   next begins. The preceding row already supplies the space above, so this only
+   carries space below. Never after the final group in a panel. */
+.tecc-settings-wrap .tecc-sep {
+	border: 0;
+	border-block-start: 1px solid #e0e0e1;
+	margin-block: 0 20px;
+}
+
+/* Adjacent margins collapse, so the space ABOVE the rule is the preceding
+   row's bottom margin, not the rule's. Match them or the rule sits off-centre
+   between the two groups it divides. */
+.tecc-settings-wrap .tecc-form-row:has( + .tecc-sep ),
+.tecc-settings-wrap .tecc-status-fields:has( + .tecc-sep ) { margin-block-end: 20px; }
+
+/* -------------------------------------------------------------------------
+ * Preview chrome on small screens
+ *
+ * The top bar is dots + copy + width toggle + status on one line. Below the
+ * wp-admin mobile breakpoint that does not fit: the toggle wrapped to three
+ * lines and the status pill was clipped off the right edge. Let the bar wrap
+ * into rows and drop the window dots, which are pure decoration (aria-hidden)
+ * and the cheapest thing to give up.
+ * ---------------------------------------------------------------------- */
+@media (max-width: 782px) {
+	.tecc-settings-wrap .tecc-preview-topbar { flex-wrap: wrap; row-gap: 8px; }
+	.tecc-settings-wrap .tecc-preview-dots { display: none; }
+	.tecc-settings-wrap .tecc-preview-widths { margin-inline-start: 0; }
+	.tecc-settings-wrap .tecc-preview-status { margin-inline-start: auto; }
+}

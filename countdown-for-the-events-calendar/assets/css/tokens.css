@@ -1,0 +1,108 @@
+/**
+ * Event Countdown for The Events Calendar - design tokens.
+ *
+ * Single source of truth for all countdown colors, spacing, and radii.
+ * Every editor adapter (shortcode, block, Elementor) sets
+ * ONLY these custom properties (inline on the instance wrapper or via a
+ * style preset class); templates.css and the classic mapping below consume
+ * them. No layout rules belong in this file.
+ *
+ * @since 2.0.0
+ */
+
+/* ------------------------------------------------------------------
+ * 1. Token defaults.
+ * Scoped to the new template root (.tecc-cd) and the legacy classic
+ * wrapper (.tecc-wrapper[data-tecc]) so both looks share one contract.
+ * ------------------------------------------------------------------ */
+.tecc-cd,
+.tecc-wrapper[data-tecc] {
+	--tecc-bg: #4395cb;
+	--tecc-fg: #ffffff;
+	--tecc-radius: 8px;
+	--tecc-gap: 12px;
+	--tecc-size: 1rem;
+}
+
+/* ------------------------------------------------------------------
+ * 1b. Flexible design-engine defaults (card + banner).
+ * These are FALLBACKS only: every card/banner instance overrides them
+ * inline via the per-instance style attribute (Args::design_style_attr).
+ * Scoped to .tecc-cd so the classic .tecc-wrapper mapping above is
+ * untouched. Declared after section 1 so the overlapping --tecc-bg /
+ * --tecc-radius resolve to the design-engine values for .tecc-cd roots.
+ * ------------------------------------------------------------------ */
+.tecc-cd {
+	--tecc-main: #4395cb;
+	--tecc-alt: #ffffff;
+	--tecc-title-color: #1d2327;
+	--tecc-text-color: #50575e;
+	--tecc-card-bg: #ffffff;
+	--tecc-title-size: 20px;
+	--tecc-body-size: 14px;
+	--tecc-cd-size: 28px;
+	--tecc-border: 0px;
+	--tecc-radius: 10px;
+	--tecc-pad: 15px;
+	--tecc-width: auto;
+}
+
+/* ------------------------------------------------------------------
+ * 2. Style presets.
+ * Presets ONLY set custom properties - never layout or typography.
+ * ------------------------------------------------------------------ */
+.tecc-cd--style-default {
+	--tecc-bg: #4395cb;
+	--tecc-fg: #ffffff;
+	--tecc-radius: 8px;
+	--tecc-gap: 12px;
+	--tecc-size: 1rem;
+}
+
+.tecc-cd--style-dark {
+	--tecc-bg: #16181d;
+	--tecc-fg: #ffffff;
+}
+
+.tecc-cd--style-light {
+	--tecc-bg: #ffffff;
+	--tecc-fg: #1e2430;
+}
+
+.tecc-cd--style-vivid {
+	--tecc-bg: #d81b60;
+	--tecc-fg: #ffffff;
+}
+
+/* ------------------------------------------------------------------
+ * 3. Classic template var mapping (back-compat).
+ * The legacy classic template previously injected these colors as
+ * inline CSS; the same look is now driven by the tokens above. Keep
+ * specificity LOW (no ids) so existing sites' custom overrides win.
+ * ------------------------------------------------------------------ */
+.tecc-wrapper[data-tecc] .tec-countdown-timer .tecc-section {
+	color: var(--tecc-fg, #ffffff);
+	background: var(--tecc-bg, #4395cb);
+}
+
+.tecc-wrapper[data-tecc] .tecc-event-detail a.tecc-event-button {
+	color: var(--tecc-fg, #ffffff);
+	background: var(--tecc-bg, #4395cb);
+}
+
+.tecc-wrapper[data-tecc] .tecc-event-info h3.tecc-title {
+	color: var(--tecc-bg, #4395cb);
+}
+
+.tecc-wrapper[data-tecc] .tecc-event-info h2.tecc-up-event {
+	color: var(--tecc-bg, #4395cb);
+}
+
+.tecc-wrapper[data-tecc] .event-date-location {
+	color: var(--tecc-bg, #4395cb);
+}
+
+.tecc-wrapper[data-tecc] .eventstart_msz,
+.tecc-wrapper[data-tecc] .eventend_msz {
+	color: var(--tecc-bg, #4395cb);
+}

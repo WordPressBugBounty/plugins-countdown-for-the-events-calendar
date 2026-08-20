@@ -1,0 +1,388 @@
+/**
+ * Sitewide Display builder styles.
+ * Scoped under #tecc-rules-app; matches modern WP admin card styling.
+ */
+
+#tecc-rules-app {
+	margin: 12px 0;
+}
+
+/* --- Per-rule sub-tabs (Display Conditions | Event Source | Styles) --- */
+
+#tecc-rules-app .tecc-rule-subnav {
+	display: flex;
+	gap: 4px;
+	border-block-end: 1px solid #dcdcde;
+	margin-block-end: 14px;
+}
+
+#tecc-rules-app .tecc-rule-subtab-button {
+	appearance: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background: transparent;
+	border: none;
+	border-block-end: 2px solid transparent;
+	margin-block-end: -1px;
+	padding: 7px 12px;
+	font-size: 13px;
+	color: #50575e;
+	cursor: pointer;
+}
+#tecc-rules-app .tecc-rule-subtab-button .dashicons { width: 16px; height: 16px; font-size: 16px; flex: 0 0 auto; color: #8a929b; }
+#tecc-rules-app .tecc-rule-subtab-button:hover { color: #2271b1; }
+#tecc-rules-app .tecc-rule-subtab-button:hover .dashicons { color: #2271b1; }
+#tecc-rules-app .tecc-rule-subtab-button.is-active { color: #1d2327; font-weight: 600; border-block-end-color: #2271b1; }
+#tecc-rules-app .tecc-rule-subtab-button.is-active .dashicons { color: #2271b1; }
+
+#tecc-rules-app .tecc-rule-subpanel { display: none; }
+#tecc-rules-app .tecc-rule-subpanel.is-active { display: block; }
+
+#tecc-rules-app .tecc-rule-preview {
+	font-size: 12px;
+	cursor: pointer;
+	text-decoration: none;
+	color: #2271b1;
+	flex-shrink: 0;
+}
+#tecc-rules-app .tecc-rule-preview:hover { text-decoration: underline; }
+
+#tecc-rules-app .tecc-rule-context-note { margin-block-start: 4px; }
+
+/* --- Rule card --- */
+
+#tecc-rules-app .tecc-rule-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+#tecc-rules-app .tecc-rule-card.tecc-rule-off {
+	opacity: 0.55;
+}
+
+/* --- Header row --- */
+
+#tecc-rules-app .tecc-rule-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 12px;
+	border-bottom: 1px solid #f0f0f1;
+}
+
+#tecc-rules-app .tecc-collapsed .tecc-rule-header {
+	border-bottom: none;
+}
+
+#tecc-rules-app .tecc-rule-move {
+	display: inline-flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+#tecc-rules-app .tecc-rule-move .button-link {
+	font-size: 9px;
+	line-height: 1.2;
+	color: #787c82;
+	padding: 0 4px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+#tecc-rules-app .tecc-rule-move .button-link:hover {
+	color: #2271b1;
+}
+
+#tecc-rules-app .tecc-rule-enabled-wrap {
+	margin: 0;
+}
+
+#tecc-rules-app .tecc-rule-summary {
+	flex: 1;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#tecc-rules-app .tecc-rule-off .tecc-rule-summary {
+	color: #787c82;
+}
+
+#tecc-rules-app .tecc-rule-toggle,
+#tecc-rules-app .tecc-rule-delete {
+	font-size: 12px;
+	cursor: pointer;
+	text-decoration: none;
+	color: #2271b1;
+	flex-shrink: 0;
+}
+
+#tecc-rules-app .tecc-rule-delete {
+	color: #b32d2e;
+}
+
+#tecc-rules-app .tecc-rule-toggle:hover,
+#tecc-rules-app .tecc-rule-delete:hover {
+	text-decoration: underline;
+}
+
+/* --- Collapsible body --- */
+
+#tecc-rules-app .tecc-rule-body {
+	padding: 12px 16px 16px;
+}
+
+#tecc-rules-app .tecc-collapsed .tecc-rule-body {
+	display: none;
+}
+
+/* --- Field layout --- */
+
+/* Two controls per row, matching the shortcode Styles panel. */
+#tecc-rules-app .tecc-rule-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px 16px;
+	margin-bottom: 12px;
+}
+
+#tecc-rules-app .tecc-rule-field {
+	min-width: 0;
+}
+
+/* A field OUTSIDE .tecc-rule-grid has no grid gap to space it, so it carries
+   its own bottom margin (the close-behaviour field sits full width under
+   Location rather than beside it). */
+#tecc-rules-app .tecc-rule-subpanel > .tecc-rule-field {
+	margin-bottom: 16px;
+}
+
+#tecc-rules-app .tecc-rule-field input[type="text"],
+#tecc-rules-app .tecc-range {
+	max-width: 100%;
+	max-inline-size: 100%;
+	box-sizing: border-box;
+}
+
+/* Setting name — matches the tier-1 label in tecc-admin-settings.css so the
+   two tabs read the same way. */
+#tecc-rules-app .tecc-rule-label {
+	display: block;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+	color: #1d2327;
+	margin-bottom: 6px;
+}
+
+/* Carousel toggle row: checkbox inline with its label. */
+#tecc-rules-app .tecc-rule-switch-inline {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+}
+#tecc-rules-app .tecc-rule-switch-inline .tecc-rule-label {
+	margin-bottom: 0;
+}
+
+#tecc-rules-app .tecc-rule-field .description,
+#tecc-rules-app .description {
+	font-size: 12px;
+	color: #646970;
+	margin: 4px 0 0;
+}
+
+#tecc-rules-app .tecc-rule-subsection {
+	background: #f6f7f7;
+	border: 1px solid #f0f0f1;
+	border-radius: 4px;
+	padding: 10px 12px;
+	margin-bottom: 12px;
+}
+
+/* --- Colours (real pickers, seeded by Light/Dark) --- */
+
+#tecc-rules-app .tecc-rule-colors {
+	margin-bottom: 12px;
+}
+
+#tecc-rules-app .tecc-rule-colors-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	align-items: flex-end;
+}
+
+#tecc-rules-app .tecc-rule-color-field {
+	display: inline-flex;
+	flex-direction: column;
+	gap: 4px;
+	font-size: 12px;
+	color: #50575e;
+}
+#tecc-rules-app .tecc-rule-color-field .tecc-rule-color-name {
+	font-weight: 600;
+	color: #1d2327;
+}
+#tecc-rules-app .tecc-rule-color-field input[type="color"] {
+	width: 46px;
+	height: 28px;
+	padding: 0 2px;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	background: #fff;
+	cursor: pointer;
+}
+
+/* --- Conditions --- */
+
+#tecc-rules-app .tecc-rule-conditions {
+	margin-bottom: 12px;
+}
+
+#tecc-rules-app .tecc-rule-conditions-group {
+	margin-bottom: 10px;
+}
+
+#tecc-rules-app .tecc-condition-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 5px;
+	margin-bottom: 6px;
+}
+
+#tecc-rules-app .tecc-condition-row select {
+	max-width: 100%;
+	font-size: 13px;
+}
+
+#tecc-rules-app .tecc-condition-row input[type="text"] {
+	width: 220px;
+	max-width: 100%;
+	font-size: 13px;
+}
+
+#tecc-rules-app .tecc-condition-remove {
+	flex: 0 0 auto;
+	font-size: 18px;
+	line-height: 1;
+	color: #b32d2e;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	padding: 2px 4px;
+}
+
+#tecc-rules-app .tecc-condition-remove:hover {
+	color: #8a2424;
+}
+
+/* --- Inline cap notice --- */
+
+.tecc-rules-notice {
+	display: inline-block;
+	margin-left: 8px;
+	padding: 2px 8px;
+	font-size: 12px;
+	color: #8a2424;
+	background: #fcf0f1;
+	border: 1px solid #f0b7b8;
+	border-radius: 3px;
+}
+
+/* -------------------------------------------------------------------------
+ * Location-aware preview stage: the sitewide preview box becomes a page mock
+ * and the rendered display is placed where the chosen location puts it —
+ * corner cards, flush top/bottom bars, or a floating middle banner. Set by
+ * applyPreviewLocation() in tecc-admin-rules.js. Everything scales with the
+ * preview frame's zoom.
+ * ---------------------------------------------------------------------- */
+.tecc-settings-wrap .tecc-preview-box.tecc-preview-stage {
+	position: relative;
+	padding: 0;
+	overflow: hidden;
+	min-block-size: 0;
+	/* A distinct "page" rectangle (its width/height are set by the width mode).
+	 * A faint grid reads it as a design canvas rather than a blank white slab. */
+	background-color: #ffffff;
+	background-image:
+		linear-gradient(#eef0f3 1px, transparent 1px),
+		linear-gradient(90deg, #eef0f3 1px, transparent 1px);
+	background-size: 26px 26px;
+	box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+.tecc-settings-wrap .tecc-preview-stage > .tecc-cd {
+	position: absolute;
+	margin: 0;
+}
+/* Corner cards */
+.tecc-settings-wrap .tecc-loc-footer-left > .tecc-cd {
+	inset-inline-start: 18px;
+	inset-block-end: 18px;
+	inline-size: min(340px, 62%);
+}
+.tecc-settings-wrap .tecc-loc-footer-right > .tecc-cd {
+	inset-inline-end: 18px;
+	inset-block-end: 18px;
+	inline-size: min(340px, 62%);
+}
+/* Flush bars (banner edge-to-edge, square corners) */
+.tecc-settings-wrap .tecc-loc-top-bar > .tecc-cd {
+	inset-block-start: 0;
+	inset-inline: 0;
+	border-radius: 0;
+}
+.tecc-settings-wrap .tecc-loc-footer-bar > .tecc-cd {
+	inset-block-end: 0;
+	inset-inline: 0;
+	border-radius: 0;
+}
+/* Floating middle banner: centred with a capped width so it never spills off
+ * the right edge of the page mock (anchoring both insets let a fixed --tecc-width
+ * override the end inset and overflow). */
+.tecc-settings-wrap .tecc-loc-footer-middle > .tecc-cd {
+	inset-block-end: 20px;
+	inset-inline-start: 50%;
+	transform: translateX(-50%);
+	inline-size: min(760px, 82%);
+}
+
+/* Group separator inside a rule card — matches .tecc-sep in
+   tecc-admin-settings.css so both tabs break up their groups the same way. */
+#tecc-rules-app .tecc-rule-sep {
+	border: 0;
+	border-block-start: 1px solid #e0e0e1;
+	margin: 0 0 20px;
+}
+
+/* Conditions tab: every dropdown fills its container. The option labels here
+   are full sentences ("Hide until the next event", "Next event in page
+   context"), and at an auto width they were truncated to the point of being
+   unreadable. */
+#tecc-rules-app [data-tecc-rule-subtab-panel="conditions"] select {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+}
+
+/* Location is the only field left in this grid since close-behaviour moved to
+   its own full-width row, and a 2-column grid would strand it at half width. */
+#tecc-rules-app [data-tecc-rule-subtab-panel="conditions"] .tecc-rule-grid {
+	grid-template-columns: minmax(0, 1fr);
+}
+
+/* A condition row still pairs a type with a value and a remove control, so the
+   select fills the line it lands on rather than forcing the other two off it. */
+#tecc-rules-app .tecc-condition-row select {
+	flex: 1 1 180px;
+	width: auto;
+}

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Event Countdown for The Events Calendar\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-21 04:56+0000\n"
-"PO-Revision-Date: 2026-02-21 04:59+0000\n"
+"PO-Revision-Date: 2026-08-19 07:16+0000\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -13,173 +13,673 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.1; wp-6.9.1; php-8.1.29\n"
+"X-Loco-Version: 2.8.8; wp-7.0.4; php-8.2.29\n"
 "X-Domain: countdown-for-the-events-calendar"
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:202
-msgid " More info"
-msgstr ""
+#. 1: slide number, 2: total number of slides.
+#: includes/templates/card.php:114
+#, php-format
+msgid "%1$d of %2$d"
+msgstr "%1$d z %2$d"
 
-#. %d: number of active addons
-#: admin/events-addon-page/includes/dashboard-page.php:45
-msgid "%d Active Addon"
-msgid_plural "%d Active Addons"
-msgstr[0] "%d Aktivní Addon"
-msgstr[1] "%d Aktivní Addony"
-msgstr[2] ""
+#: admin/settings/class-tecc-settings-page.php:307
+msgid "(event has ended)"
+msgstr "(akce skončila)"
 
-#: admin/events-addon-page/events-addon-page.php:696
-msgid "Activate Now"
-msgstr "Aktivovat Nyní"
+#: admin/settings/views/panel.php:452
+msgid "2 or more rotates the events as a carousel."
+msgstr "2 nebo více událostí střídá jako karusel."
 
-#: admin/events-addon-page/events-addon-page.php:730
-msgid "Activated"
-msgstr "Aktivován"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:298
+msgid "2 or more shows a carousel of upcoming events."
+msgstr "2 nebo více zobrazuje karusel nadcházejících událostí."
 
-#: admin/events-addon-page/events-addon-page.php:673
+#. %s: company name.
+#: includes/class-tecc-plugin.php:318
+#, php-format
+msgid "A plugin by %s"
+msgstr "Plugin od %s"
+
+#: includes/class-tecc-plugin.php:620
+msgid "A short review helps other event organisers find it."
+msgstr "Krátká recenze pomůže ostatním organizátorům akcí ji najít."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:158
+msgid "A specific event"
+msgstr "Konkrétní událost"
+
+#: admin/settings/views/rules-tab.php:316
+msgid "Accent"
+msgstr "Přízvuk"
+
+#: admin/settings/views/panel.php:323
 msgid "Active"
 msgstr "Aktivní"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:38
-msgid "Aim to resolve issues in 24 hrs."
-msgstr "Cílem je vyřešit problémy v 24 hodin."
+#: admin/settings/views/panel.php:314
+msgid "Add a countdown to any page"
+msgstr "Přidejte odpočítávání na libovolnou stránku"
 
-#: admin/feedback-notice/tecc-feedback-notice.php:61
-msgid "Already Reviewed"
-msgstr "Již Přezkoumány"
+#: admin/settings/views/rules-tab.php:204
+#: admin/settings/views/rules-tab.php:211
+msgid "Add condition"
+msgstr "Přidat podmínku"
 
-#: includes/tecc-setting-panel.php:88
-msgid "Autostart countdown of next future event"
-msgstr "Automatické spuštění odpočítávání na další budoucí akci"
+#: admin/settings/views/rules-tab.php:133
+msgid "Add sitewide display"
+msgstr "Přidat celostátní zobrazování"
 
-#: includes/tecc-setting-panel.php:79
-msgid "Autostart countdown of next upcoming event"
-msgstr "Automatické spuštění odpočítávání na další nadcházející události"
+#: admin/settings/views/panel.php:303
+msgid ""
+"Add the Event Countdown block to any page or post — no shortcode needed."
+msgstr ""
+"Přidejte blok Event Countdown na libovolnou stránku nebo příspěvek – žádný "
+"shortcode není potřeba."
 
-#: admin/events-addon-page/includes/dashboard-page.php:77
-msgid "Available Addons"
-msgstr "K Dispozici Addony"
+#: admin/settings/views/rules-tab.php:68
+msgid "All calendar pages"
+msgstr "Všechny stránky kalendáře"
 
-#: admin/events-addon-page/events-addon-page.php:707
-msgid "Buy Pro"
-msgstr "Koupit Pro"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:675
+msgid "Alternate color (on main)"
+msgstr "Alternativní barva (na hlavní)"
 
-#: admin/events-addon-page/includes/dashboard-header.php:55
-msgid "Check Docs"
-msgstr "Zkontrolujte Docs"
+#: includes/class-tecc-plugin.php:303
+#| msgid "Other reason."
+msgid "Another reason"
+msgstr "Jiný důvod."
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:210
+#: admin/settings/views/rules-tab.php:288
+msgid "Appearance"
+msgstr "Vzhled"
+
+#: includes/class-tecc-plugin.php:610
+msgid "Ask me later"
+msgstr "Zeptej se mě později"
+
+#: admin/settings/views/rules-tab.php:378
+msgid "auto, 800 or 70%"
+msgstr "auto, 800 nebo 70 %"
+
+#: admin/settings/views/panel.php:650
+msgid "auto, 800, 70%, 100%"
+msgstr "auto, 800, 70 %, 100 %"
+
+#: admin/settings/views/rules-tab.php:320
+msgid "Background"
+msgstr "Pozadí"
+
+#: includes/class-tecc-plugin.php:309
+msgid "Before you go…"
+msgstr "Než půjdete…"
+
+#: includes/compat/class-tecc-migrate.php:511
+#: includes/render/class-tecc-args.php:544
+#: includes/templates/tecc-template-helpers.php:34
+msgid "Begins in"
+msgstr "Začíná v"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block description"
+msgid "Live countdown to your next event from The Events Calendar."
+msgstr "Živé odpočítávání do vaší další události z Kalendáře událostí."
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block keyword"
+msgid "countdown"
+msgstr "odpočítávání"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block keyword"
+msgid "event"
+msgstr "událost"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block keyword"
+msgid "events calendar"
+msgstr "kalendář událostí"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block keyword"
+msgid "timer"
+msgstr "časovač"
+
+#: build/block.json:1 src/block.json:1
+msgctxt "block title"
+msgid "Event Countdown"
+msgstr "Odpočítávání události"
+
+#: admin/settings/views/rules-tab.php:64
+msgid "Blog page"
+msgstr "Stránka blogu"
+
+#: admin/settings/views/rules-tab.php:344
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:771
+msgid "Body size"
+msgstr "Velikost těla"
+
+#: admin/settings/views/panel.php:600
+msgid "Body size (px)"
+msgstr "Velikost těla (px)"
+
+#: admin/settings/views/rules-tab.php:319 admin/settings/views/panel.php:564
+msgid "Body text"
+msgstr "Text těla"
+
+#: includes/render/class-tecc-presets.php:139
+msgid "Bold Poster"
+msgstr "Tučný plakát"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:608
+msgid "Border"
+msgstr "Pohraniční"
+
+#: admin/settings/views/rules-tab.php:346
+msgid "Border width"
+msgstr "Šířka okraje"
+
+#: admin/settings/views/panel.php:641
+msgid "Border width (px, 0 = none)"
+msgstr "Šířka okraje (px, 0 = žádná)"
+
+#: admin/settings/views/rules-tab.php:300 admin/settings/views/panel.php:168
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:470
+msgid "Boxes"
+msgstr "Krabice"
+
+#: admin/settings/views/panel.php:288
+msgid "Build a countdown for any page, or show one sitewide automatically."
+msgstr ""
+"Vytvořte odpočítávání pro libovolnou stránku nebo ho zobrazte automaticky na "
+"celém webu."
+
+#: admin/settings/views/panel.php:494
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:431
+msgid "Button text"
+msgstr "Text tlačítka"
+
+#: admin/settings/views/panel.php:572
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:714
+msgid "Card background"
+msgstr "Pozadí karty"
+
+#: admin/settings/views/rules-tab.php:265
+msgid "Carousel — show multiple events"
+msgstr "Kolotoč – zobrazení více událostí"
+
+#: admin/settings/views/panel.php:426
+msgid "Categories"
+msgstr "Kategorie"
+
+#: admin/settings/views/rules-tab.php:247
+msgid "Category IDs or slugs (comma-separated)"
+msgstr "ID kategorií nebo popisky (oddělené čárkami)"
+
+#: admin/settings/views/panel.php:626
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:526
+msgid "Center"
+msgstr "Centrum"
+
+#: admin/settings/class-tecc-settings-rest.php:200
+msgid "Choose a category to see the preview."
+msgstr "Vyberte kategorii pro zobrazení náhledu."
+
+#: includes/templates/card.php:133
+msgid "Choose event"
+msgstr "Vyberte událost"
+
+#: admin/settings/views/panel.php:398
+msgid "Choose events"
+msgstr "Vyberte události"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:275
+msgid "Choosing a preset overwrites the style and layout options below."
+msgstr "Výběrem předvolby se přepíší níže uvedené možnosti stylu a rozvržení."
+
+#: includes/render/class-tecc-presets.php:104
+msgid "Classic Design"
+msgstr "Klasický design"
+
+#: admin/settings/views/panel.php:711
+msgid "Click Here"
+msgstr "Klikněte zde"
+
+#: includes/class-tecc-plugin.php:356
 msgid "Click here"
 msgstr "Klikněte zde"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:41
-msgid "Contact Support"
-msgstr "Obraťte Se Na Podporu"
+#: includes/class-tecc-plugin.php:316 includes/class-tecc-plugin.php:518
+#: includes/class-tecc-plugin.php:621
+msgid "Close"
+msgstr "Blízko"
+
+#: admin/settings/views/rules-tab.php:324 admin/settings/views/panel.php:549
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:651
+msgid "Colors"
+msgstr "Barvy"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:185
+msgid "Comma-separated category slugs."
+msgstr "Čárkami oddělené kategorie slugů."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:171
+msgid "Comma-separated event IDs — find an ID in the event’s edit URL."
+msgstr ""
+"ID událostí oddělená čárkami – vyhledejte ID v URL adresě pro úpravy "
+"události."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:199
+msgid "Comma-separated tag slugs."
+msgstr "Čárkami oddělené tagy slug."
+
+#: admin/settings/views/rules-tab.php:164
+msgid "Conditions"
+msgstr "Podmínky"
+
+#: admin/settings/views/panel.php:346
+msgid "Content &amp; Source"
+msgstr "Obsah a zdroj"
+
+#: admin/settings/views/panel.php:623
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:516
+msgid "Content alignment"
+msgstr "Zarovnání obsahu"
 
 #. Author of the plugin
 msgid "Cool Plugins"
 msgstr "Super Pluginy"
 
-#: includes/tecc-setting-panel.php:115
-msgid "Countdown Background Color"
-msgstr "Odpočítávání Barva Pozadí"
+#: admin/settings/class-tecc-settings-page.php:474
+msgid "Copied!"
+msgstr "Zkopírováno!"
 
-#: includes/tecc-setting-panel.php:123
-msgid "Countdown Font Color"
-msgstr "Odpočítávání Písma, Barvu Písma"
+#: admin/settings/class-tecc-settings-page.php:480
+msgid "Copied! Paste it on your page now."
+msgstr "Zkopírováno! Vložte to hned na svou stránku."
 
-#: includes/tecc-setting-panel.php:548
-msgid "Countdown for the events calendar Shortcode :"
-msgstr "Odpočítávání pro události kalendáře Krátký :"
+#: admin/settings/views/panel.php:198 admin/settings/views/panel.php:236
+msgid "Copy shortcode"
+msgstr "Kopírovat krátký kód"
 
-#: includes/tecc-setting-panel.php:491
-msgid "Countdown Settings"
+#: admin/settings/views/panel.php:661
+msgid ""
+"Copy the shortcode to paste anywhere. Saving keeps these settings for next "
+"time; it does not change countdowns already on your site."
+msgstr ""
+"Zkopírujte krátký kód a vložte ho kamkoli. Uložením se tato nastavení "
+"zachovají pro příště; nezmění se odpočítávání, která jsou již na vašem webu."
+
+#: admin/settings/views/rules-tab.php:345
+msgid "Corner radius"
+msgstr "Poloměr rohu"
+
+#: admin/settings/views/panel.php:637
+msgid "Corner radius (px)"
+msgstr "Poloměr rohu (px)"
+
+#: admin/settings/views/rules-tab.php:267
+msgid "Corner-card locations only; bars and middle show one event."
+msgstr ""
+"Pouze umístění rohových karet; sloupce a střed zobrazují jednu událost."
+
+#: admin/settings/views/panel.php:345
+#| msgid "Countdown Settings"
+msgid "Countdown settings"
 msgstr "Odpočítávání Nastavení"
 
-#: includes/tecc-setting-panel.php:73
-msgid "Create Shortcode for the Event countdown using below mentioned settings"
-msgstr ""
-"Vytvořit Zkrácený Události odpočítávání pomocí níže uvedených nastavení"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:745
+msgid "Countdown size"
+msgstr "Velikost odpočítávání"
 
-#: admin/events-addon-page/includes/dashboard-page.php:43
-msgid "Currently Activated Addons"
-msgstr "V Současné Době Aktivován Addony"
+#: admin/settings/views/panel.php:592
+msgid "Countdown size (px)"
+msgstr "Velikost odpočítávání (px)"
 
-#: admin/events-addon-page/events-addon-page.php:261
-#: admin/events-addon-page/events-addon-page.php:262
-msgid "Dashboard"
-msgstr "Dashboard"
+#: admin/settings/views/panel.php:354
+msgid "Countdown source"
+msgstr "Zdroj odpočítávání"
 
-#: admin/events-addon-page/events-addon-page.php:578
-msgid "Demo"
-msgstr "Demo"
+#: admin/settings/views/panel.php:534
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:464
+msgid "Countdown style"
+msgstr "Styl odpočítávání"
 
-#: includes/tecc-setting-panel.php:163
-msgid "Display Text When Event Ends"
-msgstr "Zobrazit Text, Když Událost Skončí"
+#: admin/settings/views/panel.php:456
+msgid "Counts down events already in progress instead of hiding them."
+msgstr "Odpočítává již probíhající události, místo aby je skrývá."
 
-#: includes/tecc-setting-panel.php:154
-msgid "Display Text When Event Starts"
-msgstr "Zobrazení Textu, Kdy Událost Začíná"
+#: admin/settings/views/rules-tab.php:47 admin/settings/views/panel.php:514
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:252
+msgid "Dark"
+msgstr "Tmavý"
 
-#: includes/tecc-setting-panel.php:172
+#: includes/templates/tecc-template-helpers.php:64
+#: includes/templates/classic.php:57 includes/templates/minimal.php:80
+#: admin/settings/class-tecc-settings-page.php:461
+msgid "days"
+msgstr "dny"
+
+#: includes/templates/tecc-template-helpers.php:57
+#: admin/settings/class-tecc-settings-page.php:467
+msgctxt "days unit abbreviation"
+msgid "D"
+msgstr "D"
+
+#: includes/class-tecc-plugin.php:314
+msgid "Deactivating…"
+msgstr "Deaktivace…"
+
+#: admin/settings/views/rules-tab.php:158
+msgid "Delete"
+msgstr "Vymazat"
+
+#: admin/settings/views/panel.php:347
+msgid "Design &amp; Styles"
+msgstr "Design a styly"
+
+#: admin/settings/views/panel.php:208
+msgid "Desktop (Real View)"
+msgstr "Plocha (reálné zobrazení)"
+
+#: includes/class-tecc-plugin.php:517
+msgid "Dismiss"
+msgstr "Propustit"
+
+#: includes/display/class-tecc-locations.php:194
+msgid "Dismiss countdown"
+msgstr "Zavřít odpočítávání"
+
+#: admin/settings/views/panel.php:485
+msgid "Display elements"
+msgstr "Prvky zobrazení"
+
+#: admin/settings/views/rules-tab.php:150
+msgid "Display enabled"
+msgstr "Zobrazení povoleno"
+
+#: admin/settings/views/rules-tab.php:163
+msgid "Display settings"
+msgstr "Nastavení displeje"
+
+#. Description of the plugin
 msgid ""
-"Display Text When Event Starts (Default is \"Event Starts refresh page to "
-"see next upcoming event\") "
+"Display upcoming events with countdown timer using a shortcode, Elementor "
+"widget, Gutenberg block or sitewide floating header/footer bar, built for "
+"The Events Calendar."
 msgstr ""
+"Zobrazujte nadcházející události s odpočítáváním pomocí shortcode, widgetu "
+"Elementor, bloku Gutenberg nebo plovoucí lišty záhlaví/zápatí celého webu, "
+"vytvořené pro Kalendář událostí."
 
-#: admin/events-addon-page/events-addon-page.php:582
+#. %s: plugin name.
+#: includes/class-tecc-plugin.php:605
+#, php-format
+msgid "Do you like the %s plugin?"
+msgstr "Líbí se vám plugin %s?"
+
+#: includes/class-tecc-plugin.php:614
+msgid "Do you like this plugin?"
+msgstr "Líbí se vám tento plugin?"
+
+#: admin/settings/views/panel.php:268
 msgid "Docs"
 msgstr "Docs"
 
-#: admin/events-addon-page/events-addon-page.php:580
-msgid "Documentation"
-msgstr "Dokumentace"
+#: admin/settings/views/panel.php:300
+msgid "Drop the Event Countdown widget into any Elementor layout."
+msgstr ""
+"Vložte widget Odpočítávání událostí do libovolného rozvržení Elementoru."
+
+#: admin/settings/views/rules-tab.php:257
+msgid "e.g. 123, 456"
+msgstr "např. 123, 456"
+
+#: admin/settings/views/rules-tab.php:248
+msgid "e.g. concerts, 12, workshops"
+msgstr "např. koncerty, 12, workshopy"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:421
+msgid "Ended title"
+msgstr "Ukončený titul"
+
+#: includes/compat/class-tecc-migrate.php:512
+#: includes/render/class-tecc-args.php:545
+msgid "ENDS IN"
+msgstr "KONČÍ ZA"
+
+#. %s: plugin name.
+#: includes/class-tecc-plugin.php:617
+#, php-format
+msgid "Enjoying %s?"
+msgstr "Užíváte si %s?"
+
+#: admin/settings/views/rules-tab.php:56
+msgid "Entire site"
+msgstr "Celý web"
+
+#: admin/settings/views/rules-tab.php:76
+msgid "Event archive"
+msgstr "Archiv událostí"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:181
+msgid "Event categories"
+msgstr "Kategorie událostí"
+
+#: admin/settings/views/rules-tab.php:92
+msgid "Event category (slugs)"
+msgstr "Kategorie události (slugs)"
+
+#: admin/settings/class-tecc-settings-page.php:127
+#: admin/settings/views/panel.php:260
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:45
+msgid "Event Countdown"
+msgstr "Odpočítávání události"
+
+#: includes/class-tecc-plugin.php:514
+msgid "Event Countdown 2.0 major update."
+msgstr "Hlavní aktualizace Event Countdown 2.0."
 
 #. Name of the plugin
 msgid "Event Countdown for The Events Calendar"
 msgstr "Událost Odpočítávání pro Události Kalendáře"
 
-#. Description of the plugin
-msgid ""
-"Event Countdown for The Events Calendar provides the ability to create "
-"Beautiful Countdown for <a href=\"http://wordpress.org/plugins/the-events-"
-"calendar/\">The Events Calendar (by Modern Tribe)</a> events with just a few "
-"clicks."
-msgstr ""
+#: admin/settings/class-tecc-settings-page.php:126
+msgid "Event Countdown Settings"
+msgstr "Nastavení odpočítávání událostí"
 
-#: admin/events-addon-page/events-addon-page.php:251
-#: admin/events-addon-page/events-addon-page.php:252
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:167
+msgid "Event ID(s)"
+msgstr "ID události"
+
+#: admin/settings/views/rules-tab.php:256
+msgid "Event IDs (comma-separated)"
+msgstr "ID událostí (oddělená čárkou)"
+
+#: includes/compat/class-tecc-migrate.php:497
+#: includes/render/class-tecc-args.php:543 admin/settings/views/panel.php:473
+msgid "Event in Progress"
+msgstr "Probíhající událost"
+
+#: admin/settings/views/rules-tab.php:165
+msgid "Event Source"
+msgstr "Zdroj události"
+
+#: admin/settings/views/rules-tab.php:234
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:145
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:153
+msgid "Event source"
+msgstr "Zdroj události"
+
+#: admin/settings/views/rules-tab.php:96
+msgid "Event tag (slugs)"
+msgstr "Štítek události (slugs)"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:195
+msgid "Event tags"
+msgstr "Štítky událostí"
+
+#: includes/editors/elementor/class-tecc-elementor.php:123
 msgid "Events Addons"
 msgstr "Události Addony"
 
-#: countdown-for-events-calendar.php:225
+#: includes/class-tecc-plugin.php:339
 msgid "Events Addons By Cool Plugins"
 msgstr "Události Addony Cool Pluginy"
 
-#: admin/events-addon-page/includes/dashboard-header.php:48
+#: admin/settings/views/panel.php:257
 msgid "Events Calendar Addons"
 msgstr "Kalendář Akcí Addony"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:66
-msgid "EVENTS CALENDAR PRO"
-msgstr "KALENDÁŘ AKCÍ PRO"
+#: admin/settings/views/panel.php:366
+msgid "Events in a category (Upcoming)"
+msgstr "Události v kategorii (Nadcházející)"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:70
-msgid "Get Events Calendar Pro"
-msgstr "Získat Kalendář Akcí Pro"
+#: admin/settings/views/panel.php:443
+msgid "Events in any of the selected categories are used."
+msgstr "Používají se události v kterékoli z vybraných kategorií."
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:176
+#: admin/settings/views/rules-tab.php:155
+msgid "Expand / collapse"
+msgstr "Rozbalit / sbalit"
+
+#: admin/settings/views/rules-tab.php:40
+msgid "Filtered by category"
+msgstr "Filtrováno podle kategorie"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:159
+msgid "Filtered by taxonomy"
+msgstr "Filtrováno podle taxonomie"
+
+#: includes/compat/class-tecc-migrate.php:515
+#: includes/render/class-tecc-args.php:546
+#: includes/templates/tecc-template-helpers.php:35
+#: admin/settings/views/panel.php:495
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:435
+msgid "Find out more"
+msgstr "Zjistěte více"
+
+#: admin/settings/views/panel.php:319
+msgid "Floating Event Countdown"
+msgstr "Odpočítávání plovoucí události"
+
+#: admin/settings/views/rules-tab.php:181
+msgid "Floats over the page. Within a location, the highest in the list wins."
+msgstr ""
+"Vznáší se nad stránkou. V rámci dané lokace vítězí ten, kdo je v seznamu "
+"nejvýše umístěn."
+
+#: includes/render/class-tecc-presets.php:174
+msgid "Flush image, split layout"
+msgstr "Zarovnaný obrázek, rozdělené rozvržení"
+
+#: admin/settings/views/rules-tab.php:31
+msgid "Footer bar (banner)"
+msgstr "Patka (banner)"
+
+#: admin/settings/views/rules-tab.php:33
+msgid "Footer left (card)"
+msgstr "Zápatí vlevo (karta)"
+
+#: admin/settings/views/rules-tab.php:32
+msgid "Footer middle (banner)"
+msgstr "Střední zápatí (banner)"
+
+#: admin/settings/views/rules-tab.php:34
+msgid "Footer right (card)"
+msgstr "Zápatí vpravo (karta)"
+
+#: admin/settings/views/rules-tab.php:60
+msgid "Front page"
+msgstr "Titulní strana"
+
+#: includes/render/class-tecc-presets.php:140
+msgid "Full image, solid card"
+msgstr "Celý obrázek, souvislá karta"
+
+#: includes/render/class-tecc-presets.php:175
+msgid "Full-height image flush to the left edge, content on the right."
+msgstr "Obrázek na celou výšku zarovnaný s levým okrajem, obsah vpravo."
+
+#: includes/render/class-tecc-presets.php:283
+msgid "Full-width strip: details left, countdown and button right."
+msgstr "Proužek po celé šířce: detaily vlevo, odpočet a tlačítko vpravo."
+
+#: includes/templates/tecc-template-helpers.php:31
+#: includes/templates/minimal.php:55
+msgid "Happening now"
+msgstr "Děje se právě teď"
+
+#: includes/compat/class-tecc-migrate.php:509
+#: includes/render/class-tecc-args.php:542
+msgid "Happening now!"
+msgstr "Právě se to děje!"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:400
+msgid "Heading"
+msgstr "Záhlaví"
+
+#: includes/class-tecc-plugin.php:351
 msgid "Help Improve Plugins"
 msgstr "Pomoci Zlepšit Pluginy"
 
-#: countdown-for-events-calendar.php:226
+#: includes/class-tecc-plugin.php:340 admin/settings/views/panel.php:705
+#| msgid ""
+#| "Help us make this plugin more compatible with your site by sharing non-"
+#| "sensitive site data."
 msgid ""
 "Help us make this plugin more compatible with your site by sharing non-"
-"sensitive site data."
+"sensitive site data. "
 msgstr ""
 "Pomozte nám, aby tento plugin kompatibilní s vaší stránky o sdílení non-"
 "citlivých dat webu."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:308
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:319
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:330
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:341
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:352
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:363
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:374
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:546
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:626
+msgid "Hide"
+msgstr "Skrýt"
+
+#: admin/settings/views/rules-tab.php:191
+msgid "Hide for 7 days"
+msgstr "Schovat se na 7 dní"
+
+#: admin/settings/views/rules-tab.php:190
+msgid "Hide for this browsing session"
+msgstr "Skrýt pro tuto relaci prohlížení"
+
+#: admin/settings/views/rules-tab.php:208
+msgid "Hide on"
+msgstr "Skrýt na"
+
+#: admin/settings/views/rules-tab.php:192
+msgid "Hide permanently"
+msgstr "Skrýt trvale"
+
+#: admin/settings/views/rules-tab.php:189
+msgid "Hide until the next event"
+msgstr "Skrýt do další události"
+
+#: admin/settings/views/rules-tab.php:195
+msgid "Hides it in that visitor’s browser only, not for everyone."
+msgstr "Skrývá to pouze v prohlížeči daného návštěvníka, ne pro všechny."
+
+#: includes/templates/tecc-template-helpers.php:65
+#: includes/templates/classic.php:61 includes/templates/minimal.php:81
+#: admin/settings/class-tecc-settings-page.php:462
+msgid "hours"
+msgstr "hodiny"
+
+#: includes/templates/tecc-template-helpers.php:58
+#: admin/settings/class-tecc-settings-page.php:468
+msgctxt "hours unit abbreviation"
+msgid "H"
+msgstr "H"
 
 #. Author URI of the plugin
 msgid ""
@@ -191,80 +691,215 @@ msgstr ""
 msgid "https://eventscalendaraddons.com/"
 msgstr ""
 
-#: admin/feedback/admin-feedback-form.php:108
-msgid ""
-"I agree to share anonymous usage data and basic site details (such as server,"
-" PHP, and WordPress versions) to support The Events Calendar Countdown Addon "
-"improvement efforts. Additionally, I allow Cool Plugins to store all "
-"information provided through this form and to respond to my inquiry."
-msgstr ""
-"Souhlasím s tím, aby sdílet anonymní data o využití a základní stránky, "
-"detaily (jako je server, PHP a WordPress verze) na podporu Akcí, Kalendář "
-"Odpočítávání Addon úsilí o zlepšení. Navíc, dovolím Skvělých Pluginů pro "
-"ukládání všechny informace poskytované prostřednictvím tohoto formuláře a "
-"reagovat na můj dotaz."
+#: includes/class-tecc-plugin.php:613
+msgid "I do not like it, dismiss"
+msgstr "Nelíbí se mi to, zavrhni to"
 
-#: admin/feedback/admin-feedback-form.php:197
+#: includes/class-tecc-plugin.php:295
 msgid "I found a better plugin"
 msgstr "Našel jsem lepší plugin"
 
-#: admin/feedback/admin-feedback-form.php:55
-msgid "I found a better plugin."
-msgstr "Našel jsem lepší plugin."
+#: admin/settings/views/rules-tab.php:352
+msgid "Image"
+msgstr "Obraz"
 
-#: admin/feedback/admin-feedback-form.php:87
-msgid ""
-"If you have a moment, please share the reason for deactivating this plugin."
-msgstr ""
-"Pokud máte chvilku, prosím, podělte se o důvod pro deaktivaci tohoto pluginu."
+#: includes/render/class-tecc-presets.php:211
+msgid "Image on the left, left-aligned content, transparent card."
+msgstr "Obrázek vlevo, obsah zarovnaný vlevo, průhledná karta."
 
-#: admin/events-addon-page/events-addon-page.php:696
-msgid "Install Now"
-msgstr "Instalovat Nyní"
+#: includes/render/class-tecc-presets.php:141
+msgid "Image on top, generous spacing, rounded corners and a soft shadow."
+msgstr "Obrázek nahoře, velkorysé rozestupy, zaoblené rohy a měkký stín."
 
-#: admin/feedback/admin-feedback-form.php:63
-#: admin/feedback/admin-feedback-form.php:205
-msgid "It's a temporary deactivation."
+#: admin/settings/views/panel.php:614
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:491
+msgid "Image position"
+msgstr "Pozice obrazu"
+
+#: admin/settings/views/panel.php:323
+msgid "Inactive"
+msgstr "Neaktivní"
+
+#: admin/settings/views/rules-tab.php:302 admin/settings/views/panel.php:170
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:478
+msgid "Inline"
+msgstr "Vložený"
+
+#: admin/settings/views/panel.php:631
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:543
+msgid "Inset image"
+msgstr "Vložený obrázek"
+
+#: includes/class-tecc-plugin.php:291
+msgid "It didn't do what I expected"
+msgstr "Nesplnilo to, co jsem očekával/a"
+
+#: includes/class-tecc-plugin.php:299
+#| msgid "It's a temporary deactivation."
+msgid "It's a temporary deactivation"
 msgstr "Je to dočasné deaktivaci."
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:49
-msgid "LOVING OUR PLUGINS?"
-msgstr "MILUJÍCÍ NAŠE PLUGINY?"
+#: admin/settings/views/panel.php:610
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:219
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:456
+msgid "Layout"
+msgstr "Rozvržení"
 
-#: includes/tecc-setting-panel.php:181 includes/tecc-setting-panel.php:188
-msgid "Main Title (Default is \"Next Upcoming Event\")"
-msgstr "Hlavní Název (Default je \"Další Nadcházející Události\")"
+#: admin/settings/views/rules-tab.php:356 admin/settings/views/panel.php:617
+#: admin/settings/views/panel.php:625
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:501
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:522
+msgid "Left"
+msgstr "Vlevo"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:37
-msgid "Mon–Fri, 9:30 AM–6:30 PM IST."
-msgstr "Po–Pá, 9:30–6:30 PM IST."
+#: admin/settings/views/rules-tab.php:46 admin/settings/views/panel.php:510
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:248
+msgid "Light"
+msgstr "Světlo"
 
-#: includes/tecc-setting-panel.php:227 includes/tecc-setting-panel.php:395
-msgid "No Future Event found."
-msgstr "Žádné Budoucí Události."
+#: admin/settings/class-tecc-settings-page.php:477
+#: admin/settings/views/panel.php:218
+msgid "Live preview"
+msgstr "Živý náhled"
 
-#: admin/events-addon-page/events-addon-page.php:73
-msgid "No plugin specified."
-msgstr "Žádný plugin uvedeno."
+#: admin/settings/views/panel.php:224
+msgid "Loading preview…"
+msgstr "Načítání náhledu…"
 
-#: admin/events-addon-page/events-addon-page.php:476
-msgid "No plugins data available at the moment."
-msgstr "Žádné pluginy k dispozici údaje v okamžiku, kdy."
+#: admin/settings/views/rules-tab.php:174
+msgid "Location"
+msgstr "Umístění"
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:217
+#: admin/settings/views/panel.php:690
+msgid "Location and page conditions apply on your live site only."
+msgstr "Podmínky umístění a stránky platí pouze pro váš aktivní web."
+
+#: admin/settings/views/panel.php:552
+msgid "Main / accent"
+msgstr "Hlavní / přízvuk"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:662
+msgid "Main color"
+msgstr "Hlavní barva"
+
+#: includes/templates/tecc-template-helpers.php:66
+#: includes/templates/classic.php:65 includes/templates/minimal.php:82
+#: admin/settings/class-tecc-settings-page.php:463
+msgid "min"
+msgstr "min."
+
+#: includes/class-tecc-plugin.php:296
+msgid "Mind sharing which one?"
+msgstr "Nevadí se podělit o který?"
+
+#: includes/render/class-tecc-presets.php:246
+msgid "Minimal Text"
+msgstr "Minimální text"
+
+#: includes/templates/tecc-template-helpers.php:59
+#: admin/settings/class-tecc-settings-page.php:469
+msgctxt "minutes unit abbreviation"
+msgid "M"
+msgstr "M"
+
+#: admin/settings/views/rules-tab.php:112
+msgid "Mobile device"
+msgstr "Mobilní zařízení"
+
+#: includes/render/class-tecc-presets.php:173
+msgid "Modern Split"
+msgstr "Moderní rozdělení"
+
+#: includes/class-tecc-plugin.php:352
+msgid "More info"
+msgstr "Více info"
+
+#: admin/settings/views/rules-tab.php:146
+msgid "Move display down"
+msgstr "Posunout displej dolů"
+
+#: admin/settings/views/rules-tab.php:145
+msgid "Move display up"
+msgstr "Posunout displej nahoru"
+
+#: includes/compat/class-tecc-migrate.php:491
+#: includes/render/class-tecc-args.php:540 admin/settings/views/panel.php:468
+msgid "Next Event"
+msgstr "Další událost"
+
+#: includes/templates/card.php:134
+msgid "Next event"
+msgstr "Další událost"
+
+#: admin/settings/views/rules-tab.php:39
+msgid "Next event in page context"
+msgstr "Další událost v kontextu stránky"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:403
+msgid "Next Upcoming Event"
+msgstr "Další nadcházející událost"
+
+#: admin/settings/views/rules-tab.php:38
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:157
+msgid "Next upcoming event"
+msgstr "Další nadcházející událost"
+
+#: admin/settings/class-tecc-settings-rest.php:252
+msgid "No event currently matches this display."
+msgstr "Tomuto zobrazení aktuálně neodpovídá žádná událost."
+
+#: includes/render/class-tecc-presets.php:247
+msgid "No image, centered"
+msgstr "Bez obrazu, vycentrováno"
+
+#: admin/settings/class-tecc-settings-rest.php:288
+msgid "No published events yet. Publish an event and it will show up here."
+msgstr ""
+"Zatím nejsou žádné publikované události. Publikujte událost a zobrazí se zde."
+
+#: admin/settings/class-tecc-settings-page.php:481
+msgid "No sitewide displays yet. Add one and it will preview here."
+msgstr ""
+"Zatím žádné celostátní displeje. Přidejte jeden a zobrazí se zde jeho náhled."
+
+#: admin/settings/class-tecc-settings-rest.php:295
+msgid "No upcoming events match this setup right now."
+msgstr "Tomuto nastavení momentálně neodpovídají žádné nadcházející události."
+
+#: includes/class-tecc-plugin.php:358
 msgid "No, Thanks"
 msgstr "Ne, Díky"
 
-#: admin/feedback-notice/tecc-feedback-notice.php:62
-msgid "Not Interested"
-msgstr "Není Zájem"
+#: admin/settings/views/rules-tab.php:354
+msgid "None"
+msgstr "Žádný"
 
-#: admin/cpfm-feedback/cron/class-cron.php:90
-msgid "Once every 30 days"
-msgstr "Jednou za 30 dní"
+#: includes/class-tecc-plugin.php:609
+msgid "Not good, dismiss"
+msgstr "Není dobré, zamítnout"
 
-#: includes/tecc-setting-panel.php:459
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:206
+#: admin/settings/views/rules-tab.php:272
+msgid "Number of events"
+msgstr "Počet událostí"
+
+#: admin/settings/views/panel.php:447
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:293
+msgid "Number of events (for carousel view)"
+msgstr "Počet událostí (pro karuselové zobrazení)"
+
+#: admin/settings/views/rules-tab.php:317 admin/settings/views/panel.php:556
+msgid "On-accent text"
+msgstr "Text s diakritikou"
+
+#: admin/settings/views/rules-tab.php:123
+msgid "One display per location; the lower priority number wins."
+msgstr "Jeden displej na místo; vítězí displej s nižší prioritou."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:410
+msgid "Ongoing title"
+msgstr "Probíhající titul"
+
+#: includes/class-tecc-plugin.php:353 admin/settings/views/panel.php:711
 msgid ""
 "Opt in to receive email updates about security improvements, new features, "
 "helpful tutorials, and occasional special offers. We'll collect:"
@@ -272,189 +907,540 @@ msgstr ""
 "Přihlaste se k odběru aktualizace e-mailem o bezpečnostní vylepšení, nové "
 "funkce, užitečné návody, a příležitostné speciálních nabídek. Budeme sbírat:"
 
-#: admin/feedback/admin-feedback-form.php:209
-msgid "Other"
-msgstr "Další"
+#: admin/settings/views/rules-tab.php:347
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:591
+msgid "Padding"
+msgstr "Výplň"
 
-#: admin/feedback/admin-feedback-form.php:67
-msgid "Other reason."
-msgstr "Jiný důvod."
+#: admin/settings/views/panel.php:645
+msgid "Padding (px)"
+msgstr "Odsazení (px)"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:68
-msgid ""
-"Our addons works perfectly with both The Events Calendar free and official "
-"pro version."
+#: admin/settings/views/rules-tab.php:280
+msgid "Page context applies on your live site; the preview shows a fallback."
 msgstr ""
-"Naše addony funguje perfektně s oběma Kalendáře Akcí zdarma a oficiální "
-"verzi pro."
+"Kontext stránky se vztahuje na váš aktivní web; náhled zobrazuje záložní "
+"verzi."
 
-#: admin/events-addon-page/events-addon-page.php:124
-msgid "Permission denied"
-msgstr "Permission denied"
+#: admin/settings/views/rules-tab.php:84
+msgid "Page IDs (comma-separated)"
+msgstr "ID stránek (oddělená čárkou)"
 
-#: admin/feedback/admin-feedback-form.php:68
-#: admin/feedback/admin-feedback-form.php:210
-msgid "Please share the reason."
-msgstr "Prosím sdílejte důvod."
+#: includes/class-tecc-plugin.php:315
+msgid "Please choose a reason."
+msgstr "Prosím, vyberte důvod."
 
-#: admin/feedback/admin-feedback-form.php:56
-#: admin/feedback/admin-feedback-form.php:198
-msgid "Please share which plugin."
-msgstr "Prosím, podělte se, který plugin."
+#: includes/class-tecc-plugin.php:304
+msgid "Please tell us more"
+msgstr "Prosím, řekněte nám více"
 
-#: admin/events-addon-page/events-addon-page.php:138
-msgid "Plugin activated successfully"
-msgstr "Plugin úspěšně aktivována"
+#: admin/settings/views/rules-tab.php:88
+msgid "Post IDs (comma-separated)"
+msgstr "ID příspěvků (oddělená čárkou)"
 
-#: admin/events-addon-page/includes/dashboard-page.php:61
-msgid "Premium Addons"
-msgstr "Premium Addony"
+#: admin/settings/views/rules-tab.php:80
+msgid "Post type (slug)"
+msgstr "Typ příspěvku (slug)"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:33
-msgid "PREMIUM SUPPORT"
-msgstr "PREMIUM SUPPORT"
+#: admin/settings/views/panel.php:302
+msgid "Prefer the block editor?"
+msgstr "Dáváte přednost editoru bloků?"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:36
-msgid "Priority fast support."
-msgstr "Prioritou rychlá podpora."
+#: admin/settings/views/panel.php:507
+msgid "Preset colour mode"
+msgstr "Přednastavený barevný režim"
 
-#: admin/events-addon-page/events-addon-page.php:657
-msgid "Pro"
-msgstr "Pro"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:242
+msgid "Preset colours"
+msgstr "Přednastavené barvy"
 
-#: admin/feedback/admin-feedback-form.php:78
-msgid "Quick Feedback"
-msgstr "Rychlou Zpětnou Vazbu"
+#: admin/settings/views/rules-tab.php:153
+msgid "Preview"
+msgstr "Náhled"
 
-#: admin/feedback-notice/tecc-feedback-notice.php:60
-msgid "Rate Now! ★★★★★"
-msgstr ""
+#: admin/settings/views/panel.php:201
+msgid "Preview mode"
+msgstr "Režim náhledu"
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:57
-msgid "Rate us on WP.org"
-msgstr "Hodnotit se k nám na WP.org"
+#: admin/settings/class-tecc-settings-page.php:475
+msgid "Preview unavailable."
+msgstr "Náhled není k dispozici."
 
-#: admin/events-addon-page/includes/dashboard-sidebar.php:55
-msgid "Review us on WP.org and share your feedback with the community."
-msgstr "Recenze nás na WP.org a podělte se o své názory s komunitou."
+#: includes/templates/card.php:132
+msgid "Previous event"
+msgstr "Předchozí událost"
 
-#: includes/tecc-setting-panel.php:106
-msgid "Select an Event"
-msgstr "Vyberte Událost"
+#: includes/render/class-tecc-presets.php:281
+msgid "Promo Banner"
+msgstr "Propagační banner"
 
-#: includes/tecc-setting-panel.php:146
-msgid "Select Countdown Size"
-msgstr "Vyberte Odpočítávání Velikost"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:578
+msgid "Radius"
+msgstr "Poloměr"
 
-#: includes/tecc-setting-panel.php:97
-msgid "Select Events for autostart Countdown"
-msgstr "Vyberte Akce pro automatické spuštění Odpočítávání"
+#: admin/settings/views/panel.php:237
+msgid "Remember these settings so the generator opens with them next time"
+msgstr "Zapamatujte si tato nastavení, aby se generátor příště s nimi otevřel."
 
-#: countdown-for-events-calendar.php:268
+#: admin/settings/class-tecc-settings-page.php:479
+#: admin/settings/views/panel.php:413 admin/settings/views/panel.php:435
+msgid "Remove"
+msgstr "Odstranit"
+
+#: admin/settings/views/rules-tab.php:223
+msgid "Remove condition"
+msgstr "Odebrat podmínku"
+
+#: admin/settings/views/rules-tab.php:357 admin/settings/views/panel.php:618
+#: admin/settings/views/panel.php:627
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:505
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:530
+msgid "Right"
+msgstr "Právo"
+
+#: admin/settings/views/rules-tab.php:301 admin/settings/views/panel.php:169
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:474
+msgid "Rings"
+msgstr "Prsteny"
+
+#: admin/settings/views/rules-tab.php:137
+msgid "Save sitewide displays"
+msgstr "Uložit zobrazení na celém webu"
+
+#: admin/settings/views/panel.php:237
+msgid "Save these settings"
+msgstr "Uložit tato nastavení"
+
+#: admin/settings/views/panel.php:439
+msgid "Search categories…"
+msgstr "Vyhledávání kategorií…"
+
+#: admin/settings/views/panel.php:418
+msgid "Search events…"
+msgstr "Hledat události…"
+
+#: includes/templates/tecc-template-helpers.php:67
+#: includes/templates/classic.php:70 includes/templates/minimal.php:83
+#: admin/settings/class-tecc-settings-page.php:464
+msgid "sec"
+msgstr "sekunda"
+
+#: includes/templates/tecc-template-helpers.php:60
+#: admin/settings/class-tecc-settings-page.php:470
+msgctxt "seconds unit abbreviation"
+msgid "S"
+msgstr "S"
+
+#: includes/class-tecc-plugin.php:516
+msgid "See new shortcode & use it"
+msgstr "Podívejte se na nový shortcode a použijte ho"
+
+#: admin/settings/views/panel.php:707
+msgid "See terms"
+msgstr "Zobrazit podmínky"
+
+#: admin/settings/class-tecc-settings-rest.php:201
+#: admin/settings/class-tecc-settings-page.php:478
+msgid "Select an event to see the preview."
+msgstr "Vyberte událost pro zobrazení náhledu."
+
+#: includes/class-tecc-plugin.php:635
 msgid "Settings"
 msgstr "Nastavení"
 
-#: includes/tecc-setting-panel.php:506
-msgid "Shortcode generated"
+#: admin/settings/views/panel.php:333
+msgid "Settings saved."
+msgstr "Nastavení uloženo."
+
+#: admin/settings/views/panel.php:310
+msgid "Settings sections"
+msgstr "Sekce nastavení"
+
+#: admin/settings/views/panel.php:634
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:623
+msgid "Shadow"
+msgstr "Stín"
+
+#: admin/settings/views/panel.php:651
+msgid "Shortcode default caps at 480px; use 100% to fill the container."
+msgstr ""
+"Výchozí limit shortcodu je 480px; pro vyplnění kontejneru použijte 100 %."
+
+#: admin/settings/views/panel.php:313
+#| msgid "Shortcode generated"
+msgid "Shortcode Generator"
 msgstr "Zkrácený generované"
 
-#: includes/tecc-setting-panel.php:545
-msgid "Shortcode Preview"
-msgstr "Krátký Náhled"
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:307
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:318
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:329
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:340
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:351
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:362
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:373
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:545
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:625
+msgid "Show"
+msgstr "Show"
 
-#: includes/tecc-setting-panel.php:138
-msgid "Show Image in Countdown"
-msgstr "Zobrazit Obrázek v Odpočítávání"
+#: admin/settings/views/rules-tab.php:120
+msgid "Show a countdown automatically in a site location on chosen pages."
+msgstr "Automaticky zobrazit odpočítávání na vybraných stránkách webu."
 
-#: includes/tecc-setting-panel.php:131
-msgid "Show Seconds in Countdown"
-msgstr "Ukázat Sekund do Odpočítávání"
+#: admin/settings/views/panel.php:145
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:349
+msgid "Show cost"
+msgstr "Zobrazit cenu"
 
-#: admin/events-addon-page/events-addon-page.php:65
-msgid "Sorry, you are not allowed to install plugins on this site."
-msgstr "Omlouvám se, není dovoleno instalovat pluginy na tomto webu."
+#: admin/settings/views/panel.php:157
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:360
+msgid "Show divider"
+msgstr "Zobrazit oddělovač"
 
-#: admin/feedback/admin-feedback-form.php:193
-msgid "The plugin didn't work as expected"
-msgstr "Plugin nefunguje, jak se očekávalo"
+#: admin/settings/views/panel.php:149
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:371
+msgid "Show event button"
+msgstr "Tlačítko Zobrazit událost"
 
-#: admin/feedback/admin-feedback-form.php:51
-msgid "The plugin didn't work as expected."
-msgstr "Plugin nefunguje, jak se očekávalo."
+#: admin/settings/views/panel.php:137
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:327
+msgid "Show event image"
+msgstr "Zobrazit obrázek události"
 
-#: admin/feedback/admin-feedback-form.php:201
-msgid "The plugin is not working"
+#: admin/settings/views/panel.php:320
+msgid "Show it automatically, sitewide"
+msgstr "Zobrazit automaticky na celém webu"
+
+#: admin/settings/views/rules-tab.php:201
+msgid "Show on"
+msgstr "Zobrazit na"
+
+#: admin/settings/views/panel.php:456
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:305
+msgid "Show ongoing events"
+msgstr "Zobrazit probíhající události"
+
+#: admin/settings/views/panel.php:153
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:316
+msgid "Show seconds"
+msgstr "Zobrazit sekundy"
+
+#: admin/settings/views/panel.php:462
+msgid "Show status label above event title"
+msgstr "Zobrazit popisek stavu nad názvem události"
+
+#: admin/settings/views/panel.php:141
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:338
+msgid "Show venue"
+msgstr "Místo konání výstavy"
+
+#: admin/settings/views/panel.php:161
+msgid "Show “Begins in” label"
+msgstr "Zobrazit štítek „Začíná v“"
+
+#: admin/settings/views/panel.php:496
+msgid "Shown only while the event button is on. Try Learn More or Register."
+msgstr ""
+"Zobrazuje se pouze tehdy, když je tlačítko události aktivní. Zkuste se "
+"dozvědět více nebo se zaregistrovat."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:414
+msgid "Shown while the event is in progress."
+msgstr "Zobrazuje se během probíhající události."
+
+#: includes/render/class-tecc-presets.php:209
+msgid "Side Image"
+msgstr "Boční obrázek"
+
+#: admin/settings/views/rules-tab.php:72
+msgid "Single event page"
+msgstr "Stránka s jednou událostí"
+
+#: admin/settings/views/panel.php:589
+msgid "Sizes"
+msgstr "Velikosti"
+
+#: includes/class-tecc-plugin.php:313
+msgid "Skip & Deactivate"
+msgstr "Přeskočit a deaktivovat"
+
+#: admin/settings/views/rules-tab.php:41 admin/settings/views/panel.php:362
+msgid "Specific events"
+msgstr "Specifické události"
+
+#: admin/settings/views/panel.php:506
+msgid "Start from a preset, then customize"
+msgstr "Začněte s předvolbou a poté ji upravte"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:262
+msgid "Starter preset"
+msgstr "Počáteční přednastavení"
+
+#: admin/settings/views/panel.php:477
+msgid "Status label — after it ends"
+msgstr "Stavový popisek – po skončení"
+
+#: admin/settings/views/panel.php:467
+msgid "Status label — before it starts"
+msgstr "Stavový štítek – před spuštěním"
+
+#: admin/settings/views/panel.php:472
+msgid "Status label — while it’s happening"
+msgstr "Stavový štítek – během probíhajícího procesu"
+
+#: admin/settings/views/rules-tab.php:166
+msgid "Styles"
+msgstr "Styly"
+
+#: includes/class-tecc-plugin.php:312
+msgid "Submit & Deactivate"
+msgstr "Odeslat a deaktivovat"
+
+#: includes/class-tecc-plugin.php:612
+msgid "Submit review"
+msgstr "Odeslat recenzi"
+
+#: includes/class-tecc-plugin.php:321
+msgid ""
+"Submitting shares your reason plus your site URL, admin email and basic "
+"environment details (PHP, WordPress, active plugins). Skip & Deactivate "
+"sends nothing."
+msgstr ""
+"Odesláním se sdílí váš důvod, URL adresa vašeho webu, administrátorský e-"
+"mail a základní informace o prostředí (PHP, WordPress, aktivní pluginy). "
+"Funkce Přeskočit a Deaktivovat neodesílá nic."
+
+#: admin/settings/views/panel.php:272
+msgid "Support"
+msgstr "Podpora"
+
+#: admin/settings/views/rules-tab.php:334
+msgid "Switching Light / Dark resets these colours."
+msgstr "Přepnutím možnosti Světlo / Tma se tyto barvy resetují."
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:392
+msgid "Text"
+msgstr "Text"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:701
+msgid "Text color"
+msgstr "Barva textu"
+
+#: includes/render/class-tecc-presets.php:248
+msgid "Text-only classic card, centered, transparent background."
+msgstr "Klasická textová karta, středová, průhledné pozadí."
+
+#: includes/class-tecc-plugin.php:611
+msgid ""
+"That is great to hear! A quick review on WordPress.org would really help us."
+msgstr ""
+"To je skvělé slyšet! Rychlá recenze na WordPress.org by nám opravdu pomohla."
+
+#: admin/settings/class-tecc-settings-rest.php:283
+msgid "The Events Calendar is not active, so there is nothing to preview."
+msgstr "Kalendář událostí není aktivní, takže si nic nelze prohlédnout."
+
+#. %s: minimum required The Events Calendar version.
+#: admin/settings/class-tecc-settings-rest.php:278
+#, php-format
+msgid ""
+"The Events Calendar needs to be version %s or newer for the preview to work."
+msgstr ""
+"Aby náhled fungoval, musí být verze Kalendáře událostí %s nebo novější."
+
+#: includes/class-tecc-plugin.php:515
+msgid ""
+"The plugin has been rewritten completely, with new features and designs."
+msgstr "Plugin byl kompletně přepracován a obsahuje nové funkce a design."
+
+#: includes/class-tecc-plugin.php:287
+#| msgid "The plugin is not working"
+msgid "The plugin isn't working"
 msgstr "Plugin nefunguje"
 
-#: admin/feedback/admin-feedback-form.php:59
-msgid "The plugin is not working."
-msgstr "Plugin nefunguje."
+#: admin/settings/views/panel.php:422
+msgid ""
+"The soonest selected event is used. Raise Number of events for a carousel."
+msgstr ""
+"Použije se nejdříve vybraná událost. Zvyšte počet událostí pro karusel."
 
-#: includes/tecc-shortcode.php:127
+#: includes/render/class-tecc-renderer.php:60
 msgid "There is no upcoming event"
 msgstr "Nemáme žádné nadcházející akce"
 
-#: includes/tecc-setting-panel.php:554
+#: admin/settings/class-tecc-settings-rest.php:242
 msgid ""
-"There is no upcoming event. Please add atleast one upcoming event to "
-"generate countdown."
+"This display needs a valid location and event source before it can preview."
 msgstr ""
-"Nemáme žádné nadcházející události. Prosím přidejte alespoň jednu "
-"nadcházející událost generovat odpočítávání."
+"Tento displej potřebuje před zobrazením náhledu platné umístění a zdroj "
+"události."
 
-#: admin/events-addon-page/events-addon-page.php:99
-msgid "This plugin cannot be installed from here."
-msgstr "Tento plugin nelze nainstalovat zde."
+#: includes/compat/class-tecc-migrate.php:503
+#: includes/render/class-tecc-args.php:541 admin/settings/views/panel.php:478
+msgid "This Event Has Ended"
+msgstr "Tato událost skončila"
 
-#: includes/tecc-setting-panel.php:462
+#: includes/templates/tecc-template-helpers.php:32
+#: includes/templates/minimal.php:56
+msgid "This event has ended."
+msgstr "Tato událost skončila."
+
+#: admin/settings/views/panel.php:709
+msgid ""
+"This setting controls usage data sharing for Event Countdown only. Other "
+"Events Addons keep their own choice."
+msgstr ""
+"Toto nastavení řídí sdílení dat o využití pouze pro odpočítávání událostí. "
+"Ostatní doplňky pro události si ponechávají vlastní volbu."
+
+#: admin/settings/views/rules-tab.php:361
+msgid "Timer size (px)"
+msgstr "Velikost časovače (px)"
+
+#: admin/settings/views/rules-tab.php:298
+msgid "Timer style"
+msgstr "Styl časovače"
+
+#: admin/settings/views/rules-tab.php:318 admin/settings/views/panel.php:560
+msgid "Title"
+msgstr "Titul"
+
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:688
+msgid "Title color"
+msgstr "Barva názvu"
+
+#: admin/settings/views/rules-tab.php:343
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:758
+msgid "Title size"
+msgstr "Velikost titulku"
+
+#: admin/settings/views/panel.php:596
+msgid "Title size (px)"
+msgstr "Velikost titulku (px)"
+
+#: includes/class-tecc-plugin.php:355 admin/settings/views/panel.php:715
 msgid ""
 "To check plugin compatibility, we will collect the following: list of active "
-"plugins and themes, server type, MySQL version, WordPress version, memory "
-"limit, site language and database prefix."
+"plugins and themes, PHP, MySQL and WordPress versions, memory limit, whether "
+"the site is multisite, and the site language. "
 msgstr ""
-"Zkontrolujte plugin kompatibilita, budeme shromažďovat následující: seznam "
-"aktivních pluginů a témat, typ serveru, verzi MySQL, WordPress verze, memory "
-"limit, jazyk webu a databáze předponu."
+"Pro kontrolu kompatibility pluginů shromáždíme následující údaje: seznam "
+"aktivních pluginů a šablon, verze PHP, MySQL a WordPressu, limit paměti, zda "
+"je web multisite a jazyk webu."
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:209
-msgid ""
-"To check plugin compatibility, we will collect the following: list of active "
-"plugins and themes, server type, MySQL version, WordPress version, memory "
-"limit, site language and database prefix. "
-msgstr ""
+#: admin/settings/views/rules-tab.php:355 admin/settings/views/panel.php:616
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:497
+msgid "Top"
+msgstr "Nahoře"
 
-#: admin/events-addon-page/events-addon-page.php:212
-msgid "Unable to connect to the filesystem. Please confirm your credentials."
-msgstr ""
-"Nelze se připojit do souborového systému. Potvrďte prosím, vaše přihlašovací "
-"údaje."
+#: admin/settings/views/rules-tab.php:30
+msgid "Top bar (banner)"
+msgstr "Horní lišta (banner)"
 
-#: admin/events-addon-page/events-addon-page.php:652
-#: admin/events-addon-page/events-addon-page.php:653
-msgid "Update available"
-msgstr "Aktualizace k dispozici"
+#: admin/settings/views/panel.php:578
+msgid "Transparent"
+msgstr "Průhledný"
 
-#: includes/tecc-setting-panel.php:431
-msgid "Usage Data Sharing"
-msgstr "Využití Sdílení Dat"
+#: includes/render/class-tecc-presets.php:106
+msgid "Transparent card that blends in — closest to the classic look."
+msgstr "Průhledná karta, která splývá s okolím – nejblíže klasickému vzhledu."
 
-#: admin/events-addon-page/events-addon-page.php:576
-msgid "View Demo"
-msgstr "Zobrazit Demo"
+#: includes/render/class-tecc-presets.php:210
+msgid "Transparent, image left"
+msgstr "Průhledný, obrázek vlevo"
 
-#: admin/events-addon-page/includes/dashboard-header.php:52
-msgid "View Demos"
-msgstr "Pohled Dema"
+#: includes/render/class-tecc-presets.php:105
+msgid "Transparent, image on top"
+msgstr "Průhledné, obrázek nahoře"
 
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:216
-msgid "Yes, I Agree"
-msgstr "Ano, Souhlasím"
+#: admin/settings/views/panel.php:462
+msgid "Turning it off also hides the three status labels below."
+msgstr "Vypnutím se také skryjí tři stavové štítky níže."
 
-#: includes/tecc-setting-panel.php:471
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:737
+msgid "Typography"
+msgstr "Typografie"
+
+#: admin/settings/views/panel.php:358
+msgid "Upcoming event (automatic)"
+msgstr "Nadcházející událost (automaticky)"
+
+#: includes/templates/card.php:95
+msgid "Upcoming events"
+msgstr "Nadcházející události"
+
+#: admin/settings/class-tecc-settings-page.php:476
+#: admin/settings/views/panel.php:229
+msgid "Updating preview…"
+msgstr "Aktualizace náhledu…"
+
+#: admin/settings/views/rules-tab.php:104
+msgid "URL contains"
+msgstr "URL obsahuje"
+
+#: admin/settings/views/rules-tab.php:108
+msgid "User is logged in"
+msgstr "Uživatel je přihlášen"
+
+#: admin/settings/views/panel.php:299
+msgid "Using Elementor? Skip the shortcode"
+msgstr "Používáte Elementor? Přeskočte shortcode"
+
+#: admin/settings/views/rules-tab.php:222
+msgid "Value"
+msgstr "Hodnota"
+
+#: admin/settings/views/rules-tab.php:100
+msgid "Venue IDs (comma-separated)"
+msgstr "ID míst konání (oddělená čárkou)"
+
+#: admin/settings/views/panel.php:293
+msgid "Ways to add the countdown"
+msgstr "Způsoby, jak přidat odpočítávání"
+
+#. %s: plugin name (bold).
+#: includes/class-tecc-plugin.php:311
+#, php-format
+msgid "What made you deactivate %s? Your answer helps us fix it."
+msgstr "Co vás vedlo k deaktivaci %s? Vaše odpověď nám pomůže to opravit."
+
+#: includes/class-tecc-plugin.php:292
+msgid "What were you hoping it would do?"
+msgstr "Co jsi doufal/a, že to udělá?"
+
+#: admin/settings/views/rules-tab.php:187
+msgid "When a visitor closes it"
+msgstr "Když návštěvník zavře"
+
+#: includes/class-tecc-plugin.php:288
+msgid "Which problem did you run into? We read every reply."
+msgstr "Na jaký problém jste narazili? Čteme každou odpověď."
+
+#: includes/render/class-tecc-presets.php:282
+msgid "Wide strip, inline timer"
+msgstr "Široký proužek, zabudovaný časovač"
+
+#: admin/settings/views/rules-tab.php:377 admin/settings/views/panel.php:649
+#: includes/editors/elementor/widgets/class-tecc-countdown-widget.php:557
+msgid "Width"
+msgstr "Šířka"
+
+#: includes/class-tecc-plugin.php:608
+msgid "Yes, I like it"
+msgstr "Ano, líbí se mi to"
+
+#: includes/class-tecc-plugin.php:357
+msgid "Yes, it's OK"
+msgstr "Ano, je to v pořádku."
+
+#: admin/settings/class-tecc-settings-page.php:496
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Nemáte dostatečné oprávnění k přístupu na tuto stránku."
 
-#: includes/tecc-setting-panel.php:461
-#: admin/cpfm-feedback/cpfm-feedback-notice.php:208
+#: includes/class-tecc-plugin.php:354 admin/settings/views/panel.php:713
 msgid "Your website home URL and WordPress admin email."
 msgstr "Vaše domovské stránky URL a WordPress admin e-mail."
+
+#: admin/settings/views/panel.php:207
+msgid "Zoomed out"
+msgstr "Oddáleno"

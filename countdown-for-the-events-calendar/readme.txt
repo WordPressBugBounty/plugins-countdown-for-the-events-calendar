@@ -1,59 +1,74 @@
-=== Event Countdown for The Events Calendar ===
+=== Event Countdown for The Events Calendar - Countdown Timer, Block, Elementor Widget & Floating Bar ===
 Contributors: narinder-singh, satindersingh, coolplugins, eventscalendaraddons
 Donate link: https://donate.stripe.com/5kQdR92iBevO75WbPm6c00i
-Tags: the events calendar, events, event calendar, countdown timer, countdown
-Requires at least: 5.0
+Tags: event countdown, countdown timer, the events calendar, countdown, elementor countdown
+Requires at least: 6.3
 Tested up to: 7.0
 Requires PHP: 7.2
-Stable tag: 1.5.5
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Event countdown timer addon for The Events Calendar plugin to display upcoming event countdowns anywhere using a simple shortcode.
+Event countdown timer for The Events Calendar. Show a countdown to upcoming events with a shortcode, block, Elementor widget or sticky floating bar.
 
 == Description ==
 
-### The Events Calendar Countdown Addon
+**[Event Countdown for The Events Calendar](https://coolplugins.net/product/event-countdown-addon-for-the-events-calendar/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=plugin_info&utm_content=top_description)** adds a live **event countdown timer** to [The Events Calendar](https://stellarwp.pxf.io/tec) events. Show a days / hours / minutes / seconds countdown to your next upcoming event anywhere on your site using a **shortcode**, a **Gutenberg block**, an **Elementor widget**, or a **sitewide floating countdown bar** — no code required.
 
-**[Event Countdown](https://coolplugins.net/product/event-countdown-addon-for-the-events-calendar/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=plugin_info&utm_content=top_description)** is an extension for [The Events Calendar](https://stellarwp.pxf.io/tec) plugin that lets you display an event countdown timer for your upcoming events on any page or post.
+A countdown timer builds urgency and boosts attendance for webinars, conferences, workshops, meetups, festivals, and product launches. This event countdown addon automatically detects the next upcoming event from The Events Calendar and keeps the timer accurate — even behind full-page caching.
 
-Using a simple shortcode, you can show a countdown for a specific event or automatically display the next upcoming event countdown. The shortcode works smoothly inside Gutenberg blocks, Elementor widgets, and the classic editor.
+👉 **View Demo: [Event Countdown Timer for The Events Calendar](https://eventscalendaraddons.com/demos/event-countdown/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=demo&utm_content=top_description)**
 
-👉 **View Demo: [Upcoming Event with Countdown](https://eventscalendaraddons.com/demos/event-countdown/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=demo&utm_content=top_description)**
+= Why use an Event Countdown Timer? =
 
-= Why Display Upcoming Event with Countdown Timer? =
+* **Create urgency** — a ticking countdown to your event start date drives registrations and ticket sales.
+* **Promote the next event automatically** — the countdown rolls over to the next upcoming event when one ends.
+* **Show it anywhere** — page, post, sidebar, footer, single event page, or a floating bar across the whole site.
+* **Match your design** — presets, colors, sizes, and layouts that fit any theme.
 
-A countdown timer creates urgency and increases event visibility. Whether you are promoting webinars, conferences, workshops, meetups, or product launches, an event countdown helps attract more attention and improve engagement.
+= Add an Event Countdown in 4 Ways =
 
-= Event Countdown Shortcode Generator =
+* **Shortcode** — generate `[events-calendar-countdown]` from the built-in shortcode generator with a live preview.
+* **Gutenberg Block** — drop the **Event Countdown block** into any page or post in the block editor.
+* **Elementor Widget** — drag the **Event Countdown widget** onto any Elementor page or template and style it live.
+* **Sitewide Auto-Display** — show a countdown across your site with Display Rules: a sticky top or bottom **countdown bar**, a **floating countdown** in the corner, or a floating banner — targeted to the pages you choose.
 
-Use the built-in shortcode generator to select a specific event or enable auto-detect for the next upcoming event. The countdown updates automatically without editing the shortcode.
+= Key Features =
 
-You can also customize background color, size, and other display options to match your website design. Simply copy the generated shortcode and place it anywhere on your site.
+* **Event countdown timer** with days, hours, minutes, and seconds.
+* **Auto-detect the next upcoming event** — no need to pick an event manually.
+* **Auto-rollover** — when an event ends, the countdown advances to the next one on its own.
+* **Cache-friendly countdown** — stays accurate with caching plugins and full-page caches.
+* **Recurring event support** — occurrence-aware, so recurring events count down correctly.
+* **Countdown carousel** — rotate 1–5 upcoming events in a single countdown slider.
+* **Next-in-context** — on a single event page or a category / tag archive, the countdown targets that event or taxonomy.
+* **6 ready-made design presets** — Classic, Minimal, Side Image, Bold Poster, Modern Split, and Promo Banner, each with **Light and Dark** modes.
+* **Countdown styles** — box, ring (circle), and inline digit layouts.
+* **Full styling controls** — background, text, and accent colors, font sizes, corner radius, border, padding, and width.
+* **Event details** — optional event image, venue, cost, and a "Find out more" / event link button.
+* **Live preview** — see the countdown update as you tweak settings.
+* **Translation-ready & RTL-friendly**, responsive on every device.
+* **Free** — all features included, works with the free The Events Calendar plugin.
 
-* **Example Shortcode:**
-`[events-calendar-countdown id="" backgroundcolor="#2a86f7" font-color="#ffffff" show-seconds="yes" show-image="no" size="medium" event-start="" event-end="" autostart-next-countdown="no" autostart-text="" autostart-future-countdown="no" future-events-list="" main-title=""]`
+= Perfect For =
+
+Webinar countdowns, conference and summit timers, workshop and class reminders, meetup and networking events, concerts and festivals, product launches, sales and offers, sports fixtures, and any time-based event managed with The Events Calendar.
+
+= Example Shortcode =
+
+`[events-calendar-countdown autostart-next-countdown="yes"]`
+
+The easiest way to build a shortcode is the generator at **Events Addons → Event Countdown**, which lets you pick an event (or auto-detect the next upcoming event), choose a design preset, set colors and sizes, and copy the ready-made shortcode.
 
 ### More Addons for The Events Calendar
 
-If you are building an event website and managing events using The Events Calendar plugin, you can extend its functionality further using these professional event addons. These extensions help you display event listings in multiple layouts and improve event visibility, ticket booking and promotion, and overall event management experience on your website.
+Building an event website with The Events Calendar? Extend it further with these event addons for more layouts, promotion, and management options.
 
-* **[Events Shortcodes for The Events Calendar](https://eventscalendaraddons.com/plugin/events-shortcodes-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):**  
-Display events anywhere on your website using shortcodes. Show upcoming events, past events, featured events, or category-based events in list, grid, carousel, slider, masonry, accordion, or timeline layouts. Also includes Gutenberg block support.
-
-* **[Events Widgets for Elementor](https://eventscalendaraddons.com/plugin/events-widgets-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):**  
-Looking for The Events Calendar widget for Elementor? This addon provides ready-to-use event list, grid, and carousel widgets. Easily customize typography, colors, layout spacing, and event meta details such as date, venue, organizer, and ticket links. Perfect for building modern event management websites.
-
-https://youtu.be/2m74nSrEo0g
-
-* **[Event Single Page Builder for The Events Calendar](https://eventscalendaraddons.com/plugin/event-single-page-builder-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):**  
-Design fully custom single event pages. Replace the default event template of The Events Calendar with a professionally designed layout including event details, schedule, ticket section, venue map, booking buttons, speakers, sponsors, and call-to-action areas.
-
-* **[Events Speakers & Sponsors](https://eventscalendaraddons.com/plugin/events-speakers-and-sponsors/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):**  
-Add dedicated speakers and sponsors sections to your event pages with structured layouts. Showcase keynote speakers, guest presenters, partners, and sponsors with profile images, descriptions, and social links to improve credibility and engagement.
-
-* **[Events Calendar Modules for Divi](https://eventscalendaraddons.com/plugin/the-events-calendar-modules-for-divi/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):**  
-Display The Events Calendar events using custom Divi modules built specifically for Divi Builder pages and layouts. Create event grids and list layouts directly inside the Divi.
+* **[Events Shortcodes for The Events Calendar](https://eventscalendaraddons.com/plugin/events-shortcodes-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):** Display upcoming, past, featured, or category events in list, grid, carousel, slider, masonry, accordion, or timeline layouts, with Gutenberg block support.
+* **[Events Widgets for Elementor](https://eventscalendaraddons.com/plugin/events-widgets-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):** Ready-to-use The Events Calendar widgets for Elementor — event list, grid, and carousel with full typography, color, and meta controls.
+* **[Event Single Page Builder for The Events Calendar](https://eventscalendaraddons.com/plugin/event-single-page-builder-pro/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):** Design custom single event pages with schedule, tickets, venue map, speakers, sponsors, and call-to-action areas.
+* **[Events Speakers & Sponsors](https://eventscalendaraddons.com/plugin/events-speakers-and-sponsors/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):** Add structured speakers and sponsors sections to your event pages.
+* **[Events Calendar Modules for Divi](https://eventscalendaraddons.com/plugin/the-events-calendar-modules-for-divi/?utm_source=tecc_plugin&utm_medium=readme&utm_campaign=get_pro&utm_content=more_addons):** Custom Divi modules to display The Events Calendar events in Divi Builder.
 
 = Other Plugins by Cool Plugins =
 
@@ -75,68 +90,89 @@ Special thanks to the famous **[The Events Calendar](https://stellarwp.pxf.io/te
 
 Follow the steps below to install and use **Event Countdown for The Events Calendar**.
 
-= 1. Install Required Plugin =
+= 1. Install the required plugin =
 
-This addon works only with **The Events Calendar** plugin. Make sure you have installed and activated The Events Calendar plugin before using this addon.
+This addon works only with **The Events Calendar** plugin. Install and activate The Events Calendar before using this event countdown addon.
 
-= 2. Install and Activate Event Countdown Plugin =
+= 2. Install and activate Event Countdown =
 
-- Go to **Plugins → Add New** in your WordPress admin dashboard.
-- Search for **Event Countdown for The Events Calendar**.
-- Click **Install Now** and then **Activate**.
+* Go to **Plugins → Add New** in your WordPress dashboard.
+* Search for **Event Countdown for The Events Calendar**.
+* Click **Install Now**, then **Activate**.
 
-You can also upload the plugin manually by uploading the ZIP file to the `/wp-content/plugins/` directory and activating it from the Plugins page.
+You can also upload the ZIP manually to `/wp-content/plugins/` and activate it from the Plugins page.
 
-= 3. Generate Countdown Shortcode =
+= 3. Add a countdown =
 
-- Go to your WordPress dashboard.
-- Navigate to the **Events Addons → Event Countdown** settings page.
-- Use the shortcode generator to select an event or enable auto-detect upcoming event.
-- Customize display options like background color and size.
-- Copy the generated shortcode.
+* **Shortcode:** open **Events Addons → Event Countdown**, build a shortcode with the generator, and paste it into any page or post.
+* **Block:** in the block editor, add the **Event Countdown** block.
+* **Elementor:** drag the **Event Countdown** widget onto your layout.
+* **Sitewide bar / floating countdown:** open the **Sitewide Display** tab and add a display rule for a footer bar, sticky bar, or floating corner countdown.
 
-= 4. Display Countdown on Your Website =
-
-- Create or edit a page or post.
-- Paste the copied shortcode inside a Gutenberg block, Elementor widget, or classic editor.
-- Publish or update the page.
-
-Your event countdown timer will now be visible on the frontend.
+Your event countdown timer is now live on the frontend.
 
 == Frequently Asked Questions ==
 
-= What is the use case of Event Countdown plugin? =
-The Event Countdown plugin helps you display a countdown timer for your upcoming events created with The Events Calendar plugin. It is useful for webinars, conferences, workshops, meetups, product launches, or any time-based event where you want to create urgency and increase event visibility.
+= What does the Event Countdown plugin do? =
+It shows a live countdown timer (days, hours, minutes, seconds) to events created with The Events Calendar. Add it with a shortcode, a Gutenberg block, an Elementor widget, or a sitewide floating countdown bar to promote upcoming events and drive registrations.
 
-= What is the event countdown shortcode? =
-**Here is example shortcode:**
+= Do I need The Events Calendar plugin? =
+Yes. Event Countdown is an addon for The Events Calendar, so the free The Events Calendar plugin must be installed and active.
 
-`[events-calendar-countdown id="" backgroundcolor="#2a86f7" font-color="#ffffff" show-seconds="yes" show-image="no" size="medium" event-start="" event-end="" autostart-next-countdown="no" autostart-text="" autostart-future-countdown="no" future-events-list="" main-title=""]`
+= Can it automatically show the next upcoming event countdown? =
+Yes. Enable auto-detect and the plugin displays the countdown for the next upcoming event. When that event ends, the countdown automatically rolls over to the next one — no manual editing.
 
-You can also easily generate the shortcode from **Events Addons → Event Countdown** page in your WordPress dashboard using the built-in shortcode generator.
+= Can I add the countdown with a block or with Elementor? =
+Yes. Use the **Event Countdown** Gutenberg block in the block editor, or the **Event Countdown** widget in Elementor. Both share the same designs and options as the shortcode.
 
-= Can I automatically show the next upcoming event countdown? =
-Yes. You can enable the auto-detect option in the shortcode generator. It will automatically display the countdown for the next upcoming event without editing the shortcode manually.
+= Can I show a floating or sticky countdown bar across my whole site? =
+Yes. In the **Sitewide Display** tab you can add a floating footer countdown, a sticky top or bottom countdown bar, a floating corner card, or a floating banner, and choose which pages it appears on.
 
-= Can I display multiple countdown timers on the same page? =
-Yes. You can place multiple shortcodes on the same page to display different event countdown timers.
+= Does the countdown work with caching plugins? =
+Yes. The countdown is cache-safe — it renders from absolute event times and calculates the remaining time in the browser, so it stays accurate behind full-page caching.
 
-= What happens after the event starts or expires? =
-If you have enabled the auto-select upcoming event option, the plugin will automatically display the next upcoming event countdown. If there are no upcoming events available, it can display a custom message or remain hidden based on your settings.
+= Does it support recurring events? =
+Yes. The countdown is occurrence-aware, so recurring events count down to their correct next occurrence.
+
+= Can I display more than one event or multiple countdowns? =
+Yes. Add multiple shortcodes/blocks on a page, or use the built-in countdown carousel to rotate 1–5 upcoming events in a single countdown.
+
+= Can I customize the countdown design? =
+Yes. Choose from 6 presets (with Light/Dark modes), pick a box, ring, or inline timer style, and set colors, sizes, radius, border, padding, width, and which event details to show.
+
+= Will my existing shortcodes keep working after updating to 2.0? =
+Yes. Existing `[events-calendar-countdown]` shortcodes keep working and automatically get the upgraded look — no changes needed.
 
 = Where do I report security bugs found in this plugin? =
-Please report security bugs found in the source code of the undefined plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/d9e29924-3a36-4c44-a3dd-278702273b62). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+Please report security bugs found in the source code of this plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/d9e29924-3a36-4c44-a3dd-278702273b62). The Patchstack team will assist you with verification, CVE assignment, and notifying the developers.
 
 == Screenshots ==
 
-1. Upcoming Event Countdown
-2. The Events Calendar Countdown Shortcode Generator
-3. Event Countdown Shortcode & Preview
+1. Event countdown timer for an upcoming event, with venue, date and a ticket button.
+2. Shortcode generator with a live preview of every change.
+3. Sitewide floating countdown - top bar, footer bar and corner displays, per page.
+4. Event Countdown Gutenberg block, with all its controls in the block sidebar.
+5. Countdown carousel rotating several upcoming events.
+6. Event Countdown widget rendering live inside Elementor.
 
 == Changelog ==
 
-= 1.5.5 | JULY 20, 2026 =
-* Added: Support for adding a custom link to the "After Event Starts" message.
+= 2.0.0 | AUG 20, 2026 =
+* New: Complete ground-up rewrite with a modern, cache-safe countdown engine — the same look across every editor.
+* New: Event Countdown **Gutenberg block** for the block editor.
+* New: Event Countdown **Elementor widget** with live styling.
+* New: **Sitewide auto-display (Display Rules)** — floating footer countdown, sticky top/bottom countdown bar, floating corner cards, and a floating banner, targeted per page.
+* New: **Countdown carousel** — rotate 1–5 upcoming events in a single countdown.
+* New: **6 design presets** (Classic, Minimal, Side Image, Bold Poster, Modern Split, Promo Banner) with Light/Dark modes.
+* New: **Box, ring, and inline** countdown styles plus color, size, radius, border, padding, and width controls.
+* New: **Live preview** in the settings panel.
+* New: **Next-in-context** countdown on single event pages and category/tag archives.
+* Improved: Cache-friendly countdown that stays accurate behind full-page caching.
+* Improved: Auto-rollover to the next upcoming event when one ends.
+* Improved: Occurrence-aware queries for recurring events.
+* Improved: Security, accessibility, and WordPress coding standards throughout.
+* Note: Existing shortcodes keep working and get the upgraded look automatically.
+* Tested: With The Events Calendar v6.17 and WordPress 6.9.
 
 = 1.5.4 | JUN 15, 2026 =
 * Improved: Cleaned up the notice registration logic for better readability.
@@ -247,5 +283,5 @@ Please report security bugs found in the source code of the undefined plugin thr
 
 == Upgrade Notice ==
 
-= 1.2.0 =
-Major update introducing auto-start countdown for next upcoming event.
+= 2.0.0 =
+Major update: a rebuilt, cache-safe countdown engine plus a Gutenberg block, Elementor widget, sitewide floating/sticky countdown bars, a countdown carousel, and 6 design presets. Existing shortcodes keep working and get the upgraded look automatically.
