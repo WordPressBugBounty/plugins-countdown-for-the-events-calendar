@@ -40,6 +40,15 @@ if ( ! class_exists( 'ECA_Dashboard_Registry' ) ) {
 				'version' => (string) $version,
 				'path'    => trailingslashit( $path ),
 			);
+
+			// Activation requests include the plugin file after plugins_loaded has
+			// already fired, so the integration's plugins_loaded@20 hook never runs.
+			// Boot now instead: every copy that can submit this request already has.
+			// doing_action() guards against booting mid-plugins_loaded, which would
+			// drop submissions from later priorities.
+			if ( ! self::$booted && did_action( 'plugins_loaded' ) && ! doing_action( 'plugins_loaded' ) ) {
+				self::boot();
+			}
 		}
 
 		/**
@@ -154,6 +163,12 @@ if ( ! class_exists( 'ECA_Dashboard_Registry' ) ) {
 
 			self::$winner_path    = $winner['path'];
 			self::$winner_version = $winner['version'];
+
+			// ECA_DASHBOARD_VERSION is an OUTPUT of arbitration: it names the
+			// winning copy, so asset cache-busting tracks the module that renders.
+			if ( ! defined( 'ECA_DASHBOARD_VERSION' ) ) {
+				define( 'ECA_DASHBOARD_VERSION', self::$winner_version ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+			}
 
 			self::load_includes( self::$winner_path );
 

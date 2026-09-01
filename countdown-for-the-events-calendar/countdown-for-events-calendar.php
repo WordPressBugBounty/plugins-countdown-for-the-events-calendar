@@ -3,7 +3,7 @@
 Plugin Name:Event Countdown for The Events Calendar
 Plugin URI:https://eventscalendaraddons.com/
 Description:Display upcoming events with countdown timer using a shortcode, Elementor widget, Gutenberg block or sitewide floating header/footer bar, built for The Events Calendar.
-Version:2.0.0
+Version:2.0.1
 License:GPLv2 or later
 Author:Cool Plugins
 Author URI:https://coolplugins.net/?utm_source=tecc_plugin&utm_medium=inside&utm_campaign=author_page&utm_content=plugins_list
@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!defined('TECC_VERSION_CURRENT')) {
-	define('TECC_VERSION_CURRENT', '2.0.0');
+	define('TECC_VERSION_CURRENT', '2.0.1');
 }
 if (!defined('TECC_PLUGIN_FILE')) {
 	define('TECC_PLUGIN_FILE', __FILE__);

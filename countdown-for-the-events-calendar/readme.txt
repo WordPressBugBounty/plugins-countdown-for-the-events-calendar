@@ -1,11 +1,11 @@
-=== Event Countdown for The Events Calendar - Countdown Timer, Block, Elementor Widget & Floating Bar ===
+=== Event Countdown for The Events Calendar ===
 Contributors: narinder-singh, satindersingh, coolplugins, eventscalendaraddons
 Donate link: https://donate.stripe.com/5kQdR92iBevO75WbPm6c00i
-Tags: event countdown, countdown timer, the events calendar, countdown, elementor countdown
+Tags: event countdown, countdown, countdown timer, the events calendar, event calendar
 Requires at least: 6.3
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.2
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -152,10 +152,12 @@ Please report security bugs found in the source code of this plugin through the 
 2. Shortcode generator with a live preview of every change.
 3. Sitewide floating countdown - top bar, footer bar and corner displays, per page.
 4. Event Countdown Gutenberg block, with all its controls in the block sidebar.
-5. Countdown carousel rotating several upcoming events.
-6. Event Countdown widget rendering live inside Elementor.
 
 == Changelog ==
+
+= 2.0.1 | Sept 01, 2026 =
+* Improved: Code improvements and optimization.
+* Tested up to: The Events Calendar 6.17.3.1.
 
 = 2.0.0 | AUG 20, 2026 =
 * New: Complete ground-up rewrite with a modern, cache-safe countdown engine — the same look across every editor.
@@ -172,7 +174,7 @@ Please report security bugs found in the source code of this plugin through the 
 * Improved: Occurrence-aware queries for recurring events.
 * Improved: Security, accessibility, and WordPress coding standards throughout.
 * Note: Existing shortcodes keep working and get the upgraded look automatically.
-* Tested: With The Events Calendar v6.17 and WordPress 6.9.
+* Tested: With The Events Calendar v6.17 and WordPress 7.1.
 
 = 1.5.4 | JUN 15, 2026 =
 * Improved: Cleaned up the notice registration logic for better readability.
