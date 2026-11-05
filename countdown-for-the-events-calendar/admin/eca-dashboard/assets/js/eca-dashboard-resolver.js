@@ -176,12 +176,17 @@
 
       var ownedNote = null;
       var proAct = proPluginAction(cfg.driver);
+      // Tab-level docs/demo URLs override the driver addon (e.g. Bricks keeps esb driver but own links).
+      // demoUrlPro / videoIdPro are used when that tab's driver Pro is active.
+      var docsUrl = cfg.docsUrl || driver.docsUrl;
+      var demoUrl = (driverPro && cfg.demoUrlPro) ? cfg.demoUrlPro : (cfg.demoUrl || driver.demoUrl);
+      var videoId = (driverPro && cfg.videoIdPro) ? cfg.videoIdPro : (cfg.videoId || driver.videoId);
 
       if (mode === 'HOWTO') {
         steps = { title: S.howtoTitle, items: howtoStepsForTab(tabId, cfg) };
         // Primary is "View Docs" (plugin docs) — no in-app create/modal.
-        actions.push({ kind: 'primary', label: CTA.viewDocs, icon: 'media-document', url: utm(driver.docsUrl, 'docs', content), external: true });
-        actions.push({ kind: 'ghost', label: CTA.viewDemo, icon: 'external', url: utm(driver.demoUrl, 'demo', content), external: true });
+        actions.push({ kind: 'primary', label: CTA.viewDocs, icon: 'media-document', url: utm(docsUrl, 'docs', content), external: true });
+        actions.push({ kind: 'ghost', label: CTA.viewDemo, icon: 'external', url: utm(demoUrl, 'demo', content), external: true });
         // R7: quiet orange upgrade link only when the free tier is active but Pro isn't.
         // Prefer Activate Pro when Pro is already on disk but inactive.
         if (cap === 'free' && driverFreeOnly) {
@@ -210,7 +215,7 @@
         } else {
           actions.push(freePluginAction(cfg.driver, driver, content));
         }
-        actions.push({ kind: 'ghost', label: CTA.viewDemos, icon: 'external', url: utm(driver.demoUrl, 'demo', content), external: true });
+        actions.push({ kind: 'ghost', label: CTA.viewDemos, icon: 'external', url: utm(demoUrl, 'demo', content), external: true });
       } else { // PROMO_PRO
         install = {
           tone: 'pro',
@@ -224,7 +229,7 @@
         } else {
           actions.push({ kind: 'accent', label: CTA.upgradePro, icon: 'star-filled', url: utm(driver.proUrl, 'get_pro', content), external: true });
         }
-        actions.push({ kind: 'ghost', label: CTA.viewDemos, icon: 'external', url: utm(driver.demoUrl, 'demo', content), external: true });
+        actions.push({ kind: 'ghost', label: CTA.viewDemos, icon: 'external', url: utm(demoUrl, 'demo', content), external: true });
       }
 
       // Notes (blue, free-safe). Single-page Pro tabs keep the free Static path visible.
@@ -239,7 +244,7 @@
         icon: cfg.icon, tabDesc: cfg.tabDesc, description: cfg.description,
         driver: cfg.driver, proBadge: (cap === 'pro' && mode === 'PROMO_PRO'),
         mode: mode,
-        video: { youtubeId: driver.videoId, thumb: thumb(driver.videoId) },
+        video: { youtubeId: videoId, thumb: thumb(videoId) },
         steps: steps, install: install, note: note, ownedNote: ownedNote, actions: actions
       };
     }
